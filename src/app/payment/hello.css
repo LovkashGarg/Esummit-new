@@ -1,0 +1,8 @@
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 7)); } /* Adjust the calculation based on the number of slides and their width */
+}
+.slide-track {
+    animation: scroll 10s linear infinite; /* Adjust the animation duration as needed */
+}
+

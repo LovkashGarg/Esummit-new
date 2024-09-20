@@ -15,7 +15,7 @@ import { CardHoverEffectDemo } from "./components/card";
 // import { SparklesCore } from "./components/ui/sparkles";
 // import { SparklesPreview } from "./components/SparklesPreview";
 // import SignupFormDemo from "./signup/page"
-import Payment_gateway from "./components/Payment_gateway";
+// import Payment_gateway from "./components/Payment_gateway";
 import Leaderboard from "./components/LeaderBoard";
 import Navbar from "./components/Navbar";
 export default function Home() {
@@ -44,7 +44,7 @@ export default function Home() {
       {/* <Testimonial /> */}
       {/* <BentoGridThirdDemo /> */}
       {/* <SignupFormDemo/> */}
-      <Payment_gateway/>
+      {/* <Payment_gateway/> */}
       <section id="aboutUs">
       <Instructors />
       </section>

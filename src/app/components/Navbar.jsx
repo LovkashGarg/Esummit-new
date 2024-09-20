@@ -43,7 +43,9 @@ function Navbar({handleScroll}) {
         <MenuItem setActive={setActive} active={active} item="About Us"></MenuItem>
 
        </div>
+       <Link href="/payment">
         <MenuItem setActive={setActive} active={active} item="Tickets"></MenuItem>
+        </Link>
         <Link href="/contact">
           <MenuItem setActive={setActive} active={active} item="Contact Us"></MenuItem>
         </Link>
