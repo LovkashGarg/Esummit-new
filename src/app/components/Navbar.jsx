@@ -7,6 +7,7 @@ import { Button } from "./ui/moving-border";
 import Image from "next/image";
 import { getProviders, signIn, signOut, useSession } from "next-auth/react";
 import logo from "../../../public/courses/E-Cell logo Yellow-white.png"
+import { HoverBorderGradient } from "./ui/hover-border-gradient";
 function Navbar() {
 
   const [active, setActive] = useState(null);
@@ -28,7 +29,7 @@ function Navbar() {
       
       <Image src={logo} className="w-[80px] h-[80px] md:w-[100px] md:h-[100px]  " width={100} height={100} alt="logo" />
     
-<div className="pl-48 hidden flex flex-col items-center justify-center md:block" >
+<div className="pl-40 hidden flex flex-col items-center justify-center md:block" >
 
       <Menu setActive={setActive} >
         <Link href="/">
@@ -47,35 +48,36 @@ function Navbar() {
       <div className="hidden md:flex md:block">
       { session?.user ?(
         <div className="flex gap-3 md:gap-5">
-          <Link href="/create-prompt" className="black_btn">
-            Create Post
-          </Link>
-
-          <button type="button" onClick={signOut} >
-            Sign Out  
-          </button>
-
-          <Link href="/profile">
-          {/* <Image className="rounded-full" src="/assests/images/logo.svg" width={37} height={37} alt="profile"/> */}
-          </Link>
+              <HoverBorderGradient
+                containerClassName="rounded-full"
+                as="button"
+                onClick={signOut}
+                className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2">
+                <span>Sign Out</span>
+              </HoverBorderGradient>
+                
         </div>
         ):
         (
           <>
          {providers && 
           Object.values(providers).map((provider)=>(
-            <button type="button" key={provider.name} onClick={()=>signIn(provider.id)} >
-              SignIn
-            </button>
+            <div className="flex gap-3 md:gap-5">
+              <HoverBorderGradient
+                containerClassName="rounded-full"
+                as="button"
+                onClick={signIn}
+                className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2">
+                <span>Sign In </span>
+              </HoverBorderGradient>
+                
+        </div>
           ))
          }
           </>
         )
        }
-      <Link href='/signup'>
-      <Button className="text-[20px] h-[50px] w-[130px] px-[20px]" borderRadius="1.75rem" >Login </Button>
-      </Link>
-      <Link href='/signup'><Button className="text-[20px] h-[50px]  w-[130px]" borderRadius="1.75rem" >Sign Up</Button></Link> 
+      
       </div>
     </div>
       </div>
