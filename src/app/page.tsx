@@ -1,3 +1,4 @@
+'use client'
 // import Image from "next/image";
 // import HeroSection from "../../../../Ecell/ecell/src/app/components/HeroSection";
 // import FeaturedCourses from "./components/FeaturedCourses";
@@ -16,13 +17,26 @@ import { CardHoverEffectDemo } from "./components/card";
 // import SignupFormDemo from "./signup/page"
 import Payment_gateway from "./components/Payment_gateway";
 import Leaderboard from "./components/LeaderBoard";
+import Navbar from "./components/Navbar";
 export default function Home() {
+  const handleScroll = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    console.log(sectionId)
+    section?.scrollIntoView({ behavior: 'smooth' });
+  };
   return (
+    <>
+    <div className="relative w-full bg-neutral-800 items-center justify-center">
+    <Navbar handleScroll={handleScroll}/>
+  </div>
     <main className="min-h-screen bg-black/[0.96] antialiased bg-grid-white/[0.02]">
 
       <BackgroundBeamsWithCollisionDemo/>
      {/* <SparklesPreview/> */}
+<section id="events">
    <CardHoverEffectDemo/>
+</section>
+   
       {/* <HeroSection /> */}
       <LampHeader />
       {/* <FeaturedCourses /> */}
@@ -31,9 +45,12 @@ export default function Home() {
       {/* <BentoGridThirdDemo /> */}
       {/* <SignupFormDemo/> */}
       <Payment_gateway/>
+      <section id="aboutUs">
       <Instructors />
+      </section>
       <Leaderboard/>
       <Footer />
     </main>
+    </>
   );
 }

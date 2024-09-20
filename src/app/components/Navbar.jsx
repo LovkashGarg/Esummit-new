@@ -8,7 +8,7 @@ import Image from "next/image";
 import { getProviders, signIn, signOut, useSession } from "next-auth/react";
 import logo from "../../../public/courses/E-Cell logo Yellow-white.png"
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
-function Navbar() {
+function Navbar({handleScroll}) {
 
   const [active, setActive] = useState(null);
   const{ data:session}=useSession();
@@ -36,8 +36,13 @@ function Navbar() {
           <MenuItem setActive={setActive} active={active} item="Home">
           </MenuItem>
         </Link>
-        <MenuItem setActive={setActive} active={active} item="Events"></MenuItem>
+        <div onClick={()=>handleScroll('events')}>
+        <MenuItem  setActive={setActive} active={active} item="Events"></MenuItem>
+        </div>
+       <div onClick={()=>handleScroll('aboutUs')}>
         <MenuItem setActive={setActive} active={active} item="About Us"></MenuItem>
+
+       </div>
         <MenuItem setActive={setActive} active={active} item="Tickets"></MenuItem>
         <Link href="/contact">
           <MenuItem setActive={setActive} active={active} item="Contact Us"></MenuItem>

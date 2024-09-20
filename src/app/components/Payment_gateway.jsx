@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image'; // Import Next.js Image component
 
 const PaymentGateway = () => {
+  
   return (
     <>
       <div className='text-[40px] text-center'>Payment For Tickets</div>
