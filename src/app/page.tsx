@@ -16,7 +16,6 @@ import { CardHoverEffectDemo } from "./components/card";
 // import { SparklesPreview } from "./components/SparklesPreview";
 // import SignupFormDemo from "./signup/page"
 // import Payment_gateway from "./components/Payment_gateway";
-import Leaderboard from "./components/LeaderBoard";
 import Navbar from "./components/Navbar";
 export default function Home() {
   const handleScroll = (sectionId) => {
@@ -48,7 +47,7 @@ export default function Home() {
       <section id="aboutUs">
       <Instructors />
       </section>
-      <Leaderboard/>
+    
       <Footer />
     </main>
     </>
