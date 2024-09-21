@@ -29,7 +29,7 @@ function Navbar({handleScroll}) {
       
       <Image src={logo} className="w-[80px] h-[80px] md:w-[100px] md:h-[100px]  " width={100} height={100} alt="logo" />
     
-<div className="pl-40 hidden flex flex-col items-center justify-center md:block" >
+       <div className="mr-8 hidden flex flex-col items-center justify-center md:block" >
 
       <Menu setActive={setActive} >
         <Link href="/">
