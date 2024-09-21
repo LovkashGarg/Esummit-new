@@ -17,6 +17,7 @@ import { CardHoverEffectDemo } from "./components/card";
 // import SignupFormDemo from "./signup/page"
 // import Payment_gateway from "./components/Payment_gateway";
 import Navbar from "./components/Navbar";
+import { SpotlightPreview } from "./components/Spotlight_preview";
 export default function Home() {
   const handleScroll = (sectionId) => {
     const section = document.getElementById(sectionId);
@@ -29,15 +30,14 @@ export default function Home() {
     <Navbar handleScroll={handleScroll}/>
   </div>
     <main className="min-h-screen bg-black/[0.96] antialiased bg-grid-white/[0.02]">
-
-      <BackgroundBeamsWithCollisionDemo/>
+  <BackgroundBeamsWithCollisionDemo/>
      {/* <SparklesPreview/> */}
 <section id="events">
    <CardHoverEffectDemo/>
 </section>
    
       {/* <HeroSection /> */}
-      <LampHeader />
+    
       {/* <FeaturedCourses /> */}
       {/* <WhyChooseUs /> */}
       {/* <Testimonial /> */}
