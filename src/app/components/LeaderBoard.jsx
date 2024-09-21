@@ -11,7 +11,7 @@ function Leaderboard({ name, score, avatar }) {
   const top3 = leaderboardData.slice(0, 3);
 
   return (
-    <div className="container mx-auto my-[200px] py-16">
+    <div className="container mx-auto mt-[100px] mb-[200px]  py-16">
       <h1 className="text-3xl font-bold text-center mb-8 ">Leaderboard</h1>
       <div className="grid grid-cols-3 md:grid-cols-3 gap-[100px] px-[30px]">
         <div className="grid-colspan-1 bg-red-400 rounded-[20px] mt-[50px] w-[350px] h-[160px]">

@@ -91,7 +91,7 @@ const result = await res.json();
           <button className='self-center mt-3 bg-green-400 text-white w-[100px] text-[20px] rounded-[20px]' onClick={handleSubmit}>Send</button>
         </div>
       </div>
-      {notification && <div className='text-red-500'>{notification}</div>}
+      {/* {notification && <div className='text-red-500'>{notification}</div>}
       <div className='flex items-center justify-center w-[100%]'>
       <div class="slider mt-[20px] mx-[40px] h-[30px] sm:h-[50px] text-black bg-white text-[15px] w-[80%] sm:text-[20px] rounded-[30px]  ">
 	<div class="slide-track flex w-[100vw] py-[10px] flex-row gap-[70px] items-center justify-center">
@@ -102,8 +102,8 @@ const result = await res.json();
       <span>Navjot Bought the Ticke</span>
       <span>Zaid Bought the Ticket</span>
     </div>
-    </div>
-    </div>
+    </div> */}
+    {/* </div> */}
     </>
   );
 };

@@ -13,7 +13,7 @@ function Navbar({handleScroll}) {
   const [active, setActive] = useState(null);
   const{ data:session}=useSession();
   const [providers,setProviders]=useState(null);
-  const [toggleDropdown, setToggleDropdown] =useState(false);
+  // const [toggleDropdown, setToggleDropdown] =useState(false);
   useEffect(()=>{
     const setUpProviders=async ()=>{
       const response=await getProviders();
@@ -36,18 +36,18 @@ function Navbar({handleScroll}) {
           <MenuItem setActive={setActive} active={active} item="Home">
           </MenuItem>
         </Link>
-        <div onClick={()=>handleScroll('events')}>
+        <Link href='/' >
+        <div onClick={()=>handleScroll('events')} >
         <MenuItem  setActive={setActive} active={active} item="Events"></MenuItem>
         </div>
-       <div onClick={()=>handleScroll('aboutUs')}>
-        <MenuItem setActive={setActive} active={active} item="About Us"></MenuItem>
-
+        </Link>
+        <Link href='/leaderboard'>
+       <div >
+        <MenuItem setActive={setActive} active={active} item="LeaderBoard"></MenuItem>
        </div>
+       </Link>
        <Link href="/payment">
         <MenuItem setActive={setActive} active={active} item="Tickets"></MenuItem>
-        </Link>
-        <Link href="/contact">
-          <MenuItem setActive={setActive} active={active} item="Contact Us"></MenuItem>
         </Link>
       </Menu>
 </div>
