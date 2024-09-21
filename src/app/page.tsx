@@ -33,12 +33,12 @@ export default function Home() {
 
       <BackgroundBeamsWithCollisionDemo/>
      {/* <SparklesPreview/> */}
-<section id="events">
-   <CardHoverEffectDemo/>
-</section>
    
       {/* <HeroSection /> */}
       <LampHeader />
+<section id="events">
+   <CardHoverEffectDemo/>
+</section>
       {/* <FeaturedCourses /> */}
       {/* <WhyChooseUs /> */}
       {/* <Testimonial /> */}

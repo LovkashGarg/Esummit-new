@@ -2,7 +2,14 @@ import User from "@/app/models/user";
 import { connectToDB } from "@/app/utils/database";
 import NextAuth from "next-auth/next";
 import GoogleProvider from 'next-auth/providers/google';
-
+const generateUniqueId = (length = 8) => {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+  for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+};
 export const handler=NextAuth(
     {
         providers: [
@@ -41,7 +48,7 @@ export const handler=NextAuth(
                   //if not ,create a new user
                   if(!userExists)
                       {
-                        const random=bcrypt
+                        const random=generateUniqueId();
                          await User.create(
                               {
                                   email:profile.email,
