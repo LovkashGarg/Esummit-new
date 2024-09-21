@@ -1,12 +1,12 @@
 import { LampHeader } from "./LampHeader";
-import { HoverEffect } from "./ui/card-hover-effect";
 
 export function CardHoverEffectDemo() {
   return (
-    <div className="max-w-7xl mx-auto px-8">
+    <div className="max-w-7xl mx-auto px-8 ">
        <div className="text-center my-8">
-                    <p className="mt-2 text-2xl leading-8 font-extrabold tracking-tight text-white sm:text-xl">
-                      <LampHeader/></p>
+                    <p className=" text-2xl leading-8 font-extrabold tracking-tight text-white sm:text-xl">
+                      <LampHeader/>
+                      </p>
                 </div>
     </div>
   );
