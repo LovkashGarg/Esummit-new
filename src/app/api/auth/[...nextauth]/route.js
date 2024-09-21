@@ -3,7 +3,7 @@ import { connectToDB } from "@/app/utils/database";
 import NextAuth from "next-auth/next";
 import GoogleProvider from 'next-auth/providers/google';
 
-const handler=NextAuth(
+export const handler=NextAuth(
     {
         providers: [
             GoogleProvider({
@@ -20,8 +20,10 @@ const handler=NextAuth(
               const sessionUser=await User.findOne({
                       email:session.user.email
               })
-  
+
+              
               session.user.id=sessionUser._id.toString();
+              session.user.username=sessionUser.username;
               return session; 
             },
             async signIn({ account, profile, user, credentials })

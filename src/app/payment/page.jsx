@@ -5,29 +5,53 @@ import './hello.css'
 import { useState } from 'react';
 
 import Navbar from '../components/Navbar';
-const PaymentGateway = () => {
+import { useSession } from 'next-auth/react';
+  const PaymentGateway = () => {
+  const {data:session}=useSession()
    const [TransactionId, setTransactionId] = useState('')
    const [ContactNumber, setContactNumber] = useState('')
    const [ScoutId, setScoutId] = useState('');
+   const [notification, setNotification] = useState('');
+   const handleSubmit=async ()=>{
 
-   const handleSubmit=()=>{
+    if (!session) {
+      setNotification('You must be logged in to make a transaction.');
+      return;
+    }
+
     console.log(TransactionId);
     console.log(ContactNumber);
     console.log(ScoutId);
 
     const transactionform=new FormData();
-    transactionform.append({'TransactionId' :TransactionId})
-    transactionform.append({'ContactNumber' :ContactNumber})
-    transactionform.append({'ScoutId' :ScoutId});
-
-    const res=fetch('http://localhost:3000/payment/create-transaction',{
-      method:"POST",
-      body:transactionform,
-      headers:{
-        'Content-Type': 'application/json', 
-        }
+    transactionform.append('TransactionId',TransactionId)
+    transactionform.append('ContactNumber', ContactNumber)
+    transactionform.append('ScoutId' ,ScoutId);
+try {
+  const res=await fetch('/api/transaction/create-transaction',{
+    method:"POST",
+    headers: {
+      'Content-Type': 'application/json',
+  },
+    body: JSON.stringify({
+    email:session?.user.email,
+    contactnumber:ContactNumber,
+    username:session?.user.name,
+    transactionid:TransactionId,
+    scoutid:ScoutId
     })
-   }
+  })
+  if (!res.ok) {
+    const errorText = await res.text();
+    throw new Error(`HTTP error! status: ${res.status}, message: ${errorText}`);
+}
+
+const result = await res.json();
+    console.log(result);
+} catch (error) {
+  console.log(error);
+}
+  }
   return (
     <>
     <Navbar/>
@@ -67,6 +91,7 @@ const PaymentGateway = () => {
           <button className='self-center mt-3 bg-green-400 text-white w-[100px] text-[20px] rounded-[20px]' onClick={handleSubmit}>Send</button>
         </div>
       </div>
+      {notification && <div className='text-red-500'>{notification}</div>}
       <div className='flex items-center justify-center w-[100%]'>
       <div class="slider mt-[20px] mx-[40px] h-[30px] sm:h-[50px] text-black bg-white text-[15px] w-[80%] sm:text-[20px] rounded-[30px]  ">
 	<div class="slide-track flex w-[100vw] py-[10px] flex-row gap-[70px] items-center justify-center">
