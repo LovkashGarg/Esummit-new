@@ -2,7 +2,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { LampContainer } from "./ui/lamp";
-import { StickyScroll } from "./ui/sticky-scroll-reveal";
 import { HoverEffect } from "./ui/card-hover-effect";
 import { projects } from "./card";
 export function LampHeader() {

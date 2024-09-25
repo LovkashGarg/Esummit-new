@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 const Footer = () => {
   return (
@@ -7,44 +8,42 @@ const Footer = () => {
     <div>
       <h2 className="text-white text-lg font-semibold mb-4">About Us</h2>
       <p className="mb-4">
-        Music School is a premier institution dedicated to teaching the art
-        and science of music. We nurture talent from the ground up,
-        fostering a vibrant community of musicians.
+      E-Summit IIIT Pune is an annual entrepreneurial event organized by the Entrepreneurship Cell (E-Cell) of the IIIT Pune. It serves as a platform to encourage innovation, startup culture, and entrepreneurial mindset among students and aspiring entrepreneurs.
       </p>
     </div>
     <div >
       <h2 className="text-white text-lg font-semibold mb-4 ">Quick Links</h2>
       <ul>
         <li>
-          <a
-            href="#"
+          <Link
+            href="/"
             className="hover:text-white transition-colors duration-300"
           >
             Home
+          </Link>
+        </li>
+        <li>
+          <a
+            href="/"
+            className="hover:text-white transition-colors duration-300"
+          >
+          Events
           </a>
+        </li>
+        <li>
+          <Link
+            href="/leaderboard"
+            className="hover:text-white transition-colors duration-300"
+          >
+            LeaderBoard
+          </Link>
         </li>
         <li>
           <a
             href="#"
             className="hover:text-white transition-colors duration-300"
           >
-            About
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            className="hover:text-white transition-colors duration-300"
-          >
-            Courses
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            className="hover:text-white transition-colors duration-300"
-          >
-            Contact
+            Tickets
           </a>
         </li>
       </ul>
@@ -53,17 +52,16 @@ const Footer = () => {
       <h2 className="text-white text-lg font-semibold mb-4">Follow Us</h2>
       <div className="flex space-x-4">
         <a
-          href="#"
+          href="https://www.youtube.com/channel/UCBRfXeWo-YSFt25wlZGr30w"
           className="hover:text-white transition-colors duration-300"
         >
-          Facebook
+          Youtube
         </a>
-        <a
-          href="#"
+        <Link          href="https://www.linkedin.com/company/e-cell-iiit-pune/mycompany/"
           className="hover:text-white transition-colors duration-300"
         >
-          Twitter
-        </a>
+          Linkedin
+        </Link>
         <a
           href="#"
           className="hover:text-white transition-colors duration-300"
@@ -74,13 +72,13 @@ const Footer = () => {
     </div>
     <div>
       <h2 className="text-white text-lg font-semibold mb-4">Contact Us</h2>
-      <p>New Delhi, India</p>
-      <p>Delhi 10001</p>
-      <p>Email: info@musicschool.com</p>
-      <p>Phone: (123) 456-7890</p>
+      <p>Pune, India</p>
+      <p>Pune 411041</p>
+      <p>Email: ecellofficial@gmail.com</p>
+      <p>Phone: +919896316033</p>
     </div>
     </div>
-    <p className="text-center text-xs pt-8">© 2024 Music School. All rights reserved.</p>
+    <p className="text-center text-xs pt-8">© 2024 Ecell. All rights reserved.</p>
 </footer>   
   )
 }
