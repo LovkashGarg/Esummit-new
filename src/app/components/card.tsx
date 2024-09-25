@@ -2,11 +2,11 @@ import { LampHeader } from "./LampHeader";
 
 export function CardHoverEffectDemo() {
   return (
-    <div className="max-w-7xl mx-auto px-8 ">
+    <div className="max-w-9xl">
        <div className="text-center my-8">
-                    <p className=" text-2xl leading-8 font-extrabold tracking-tight text-white sm:text-xl">
+                    <div className=" text-2xl leading-8 font-extrabold tracking-tight text-white sm:text-xl">
                       <LampHeader/>
-                      </p>
+                      </div>
                 </div>
     </div>
   );
@@ -20,9 +20,9 @@ export const projects = [
     imageurl: "https://esummit23.ecelliiitp.org/_next/image?url=https%3A%2F%2Fi.ibb.co%2FwrkFCTV%2FPitch-Perfect.png&w=256&q=75",
   },
   {
-    title: "Netflix",
+    title: "OTH",
     description:
-    "They say a little knowledge is a dangerous thing, but it's not one half so bad as a lot of ignorance. Here’s a fun and educative way to challenge your awareness of one of the most rapidly emerging global trends - entrepreneurship! Knowledge ",
+    "Embark on a thrilling online Treasure hunt, where each image or text clue unlocks the path forward. Over 2-3 days, navigate throught hurdles, solving each question before advancing. The ultimate prize awaits the player who conquers the most challenges before the deadline . Will you be the one to uncover the treasure? ",
     link: "https://netflix.com",
     imageurl: "https://stripe.com/img/documentation/checkout/checkout.png",
 

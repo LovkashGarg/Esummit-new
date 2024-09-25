@@ -2,7 +2,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { LampContainer } from "./ui/lamp";
-import { StickyScroll } from "./ui/sticky-scroll-reveal";
 import { HoverEffect } from "./ui/card-hover-effect";
 import { projects } from "./card";
 export function LampHeader() {
@@ -17,7 +16,7 @@ export function LampHeader() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className=" bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-2xl font-medium tracking-tight text-transparent md:text-xl"
+        className=" bg-black py-4 bg-clip-text text-center text-2xl font-medium tracking-tight text-transparent md:text-xl"
       > 
       
       </motion.h1> 
