@@ -28,7 +28,10 @@ export const handler=NextAuth(
                       email:session.user.email
               })
 
-              
+              if(sessionUser)
+              {
+                session.user.scoutId=sessionUser.scoutId;
+              }
               session.user.id=sessionUser._id.toString();
               session.user.username=sessionUser.username;
               return session; 
