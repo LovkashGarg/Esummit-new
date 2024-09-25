@@ -11,10 +11,10 @@ function Leaderboard({ name, score, avatar }) {
   const top3 = leaderboardData.slice(0, 3);
 
   return (
-    <div className="container mx-auto my-[200px] py-16">
+    <div className="container mx-auto mt-[100px] mb-[200px]  py-16">
       <h1 className="text-3xl font-bold text-center mb-8 ">Leaderboard</h1>
-      <div className="grid grid-cols-3 md:grid-cols-3 gap-10 px-[30px]">
-        <div className="grid-colspan-1 bg-red-400 rounded-[20px] mt-[50px] h-[160px]">
+      <div className="grid grid-cols-3 md:grid-cols-3 gap-[100px] px-[30px]">
+        <div className="grid-colspan-1 bg-red-400 rounded-[20px] mt-[50px] w-[350px] h-[160px]">
         <div className="flex flex-col items-center justify-center bg-black shadow-lg rounded-[20px] border-4 border-yellow-500 p-6 w-[100%]">
             {/* Crown Icon */}
             <div className="text-yellow-500 text-[50px] mb-2">👑</div>
@@ -34,7 +34,7 @@ function Leaderboard({ name, score, avatar }) {
               Rahul
             </h2>
             {/* Score */}
-            <div className="text-[25px] text-gray-600">Score: {score || 11}</div>
+            <div className="text-[25px] text-gray-600">Score: {score || 21}</div>
             {/* 1st Position Label */}
             <div className="mt-4 text-yellow-500 text-[20px] font-bold">
               2nd Place
@@ -61,14 +61,14 @@ function Leaderboard({ name, score, avatar }) {
               Vaibhav
             </h2>
             {/* Score */}
-            <div className="text-[25px] text-gray-600">Score: {score || 12}</div>
+            <div className="text-[25px] text-gray-600">Score: {score || 32}</div>
             {/* 1st Position Label */}
             <div className="mt-4 text-yellow-500 text-[20px] font-bold">
               1st Place
             </div>
           </div>
         </div>
-        <div className="grid-colspan-1 bg-red-400 rounded-[20px] mt-[70px] h-[160px]">
+        <div className="grid-colspan-1 bg-red-400 rounded-[20px] w-[350px] mt-[70px] h-[160px]">
         <div className="flex flex-col items-center justify-center bg-black shadow-lg rounded-[20px] border-4 border-yellow-500 p-6 w-[100%]">
             {/* Crown Icon */}
             <div className="text-yellow-500 text-[50px] mb-2">👑</div>
@@ -88,7 +88,7 @@ function Leaderboard({ name, score, avatar }) {
               Sachin
             </h2>
             {/* Score */}
-            <div className="text-[25px] text-gray-600">Score:8</div>
+            <div className="text-[25px] text-gray-600">Score:17</div>
             {/* 1st Position Label */}
             <div className="mt-4 text-yellow-500 text-[20px] font-bold">
               3rd Place

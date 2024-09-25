@@ -4,6 +4,7 @@ import { cn } from "@/app/utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
+import { LampHeader } from "../LampHeader";
 
 export const HoverEffect = ({
   items,
@@ -20,6 +21,7 @@ export const HoverEffect = ({
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
+    <>
     <div
       className={cn(
         "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10",
@@ -55,11 +57,12 @@ export const HoverEffect = ({
             <CardTitle>{item.title}</CardTitle>
             <img src='https://esummit23.ecelliiitp.org/_next/image?url=https%3A%2F%2Fi.ibb.co%2FwrkFCTV%2FPitch-Perfect.png&w=256&q=75'></img>
             <CardDescription>{item.description}</CardDescription>
-            <button className=" mt-[5%] mx-auto px-[10%] bg-blue-800 text-white text-[20px] rounded-[20px] ">Know More</button>
+            <Link href={`${item.title}`}><button className=" mt-[5%] mx-auto px-[10%] bg-blue-800 text-white text-[20px] rounded-[20px] ">Know More</button></Link>
           </Card>
         </Link>
       ))}
     </div>
+    </>
   );
 };
 
@@ -71,6 +74,7 @@ export const Card = ({
   children: React.ReactNode;
 }) => {
   return (
+    <>
     <div
       className={cn(
         "rounded-2xl h-full w-full p-4 overflow-hidden bg-black border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
@@ -81,6 +85,7 @@ export const Card = ({
         <div className="p-4">{children}</div>
       </div>
     </div>
+    </>
   );
 };
 export const CardTitle = ({

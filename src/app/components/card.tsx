@@ -1,13 +1,13 @@
+import { LampHeader } from "./LampHeader";
 import { HoverEffect } from "./ui/card-hover-effect";
 
 export function CardHoverEffectDemo() {
   return (
-    <div className="max-w-5xl mx-auto px-8">
+    <div className="max-w-7xl mx-auto px-8">
        <div className="text-center my-8">
-                    <h2 className="text-base text-teal-600 font-semibold tracking-wide uppercase"></h2>
-                    <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">Events</p>
+                    <p className="mt-2 text-2xl leading-8 font-extrabold tracking-tight text-white sm:text-xl">
+                      <LampHeader/></p>
                 </div>
-      <HoverEffect items={projects} />
     </div>
   );
 }

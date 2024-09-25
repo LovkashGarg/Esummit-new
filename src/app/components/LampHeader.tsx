@@ -3,8 +3,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { LampContainer } from "./ui/lamp";
 import { StickyScroll } from "./ui/sticky-scroll-reveal";
-import { CardHoverEffectDemo } from "./card";
-
+import { HoverEffect } from "./ui/card-hover-effect";
+import { projects } from "./card";
 export function LampHeader() {
   return (
     
@@ -17,12 +17,12 @@ export function LampHeader() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
-      >
-        
-        <br /> 
+        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-2xl font-medium tracking-tight text-transparent md:text-xl"
+      > 
+      
       </motion.h1>
-     
+      <div>Our Events</div>
+      <HoverEffect className="mt-[200px]" items={projects} />
     </LampContainer>
   );
 }
