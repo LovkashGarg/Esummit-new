@@ -3,9 +3,11 @@ import React from 'react';
 import Image from 'next/image'; // Import Next.js Image component
 import './hello.css'
 import { useState } from 'react';
+import 'react-toastify/dist/ReactToastify.css'
 
 import Navbar from '../components/Navbar';
 import { useSession } from 'next-auth/react';
+import { toast, ToastContainer } from 'react-toastify';
   const PaymentGateway = () => {
   const {data:session}=useSession()
    const [TransactionId, setTransactionId] = useState('')
@@ -42,12 +44,19 @@ try {
     })
   })
   if (!res.ok) {
-    const errorText = await res.text();
+    const errorText = await res.json();
+    console.log(errorText.error)
+    toast.error(`${errorText.error}`)
     throw new Error(`HTTP error! status: ${res.status}, message: ${errorText}`);
-}
 
-const result = await res.json();
-    console.log(result);
+   }
+
+else{
+  const result = await res.json();
+  console.log(result);
+
+  toast("Ticket booked");
+}
 } catch (error) {
   console.log(error);
 }
@@ -55,6 +64,7 @@ const result = await res.json();
   return (
     <>
     <Navbar/>
+    <ToastContainer/>
       <div className='text-[30px] text-center mt-[120px]'>Payment Section</div>
       <div className='flex flex-col justify-center items-center gap-[20px]'>
         <div className='qr-image'>
