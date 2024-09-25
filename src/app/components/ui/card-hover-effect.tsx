@@ -21,10 +21,11 @@ export const HoverEffect = ({
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <>
+    <div className="pt-[150px]">
+     <div className=" text-[25px] sm:text-[60px] pt-[50px] text-gray-800">Our Events</div>
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10",
+        "h-[350vh] sm:h-[200vh] md:h-[100vh] grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  ",
         className
       )}
     >
@@ -62,7 +63,7 @@ export const HoverEffect = ({
         </Link>
       ))}
     </div>
-    </>
+    </div>
   );
 };
 

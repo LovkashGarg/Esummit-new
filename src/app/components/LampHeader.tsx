@@ -17,12 +17,11 @@ export function LampHeader() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-2xl font-medium tracking-tight text-transparent md:text-xl"
+        className=" bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-2xl font-medium tracking-tight text-transparent md:text-xl"
       > 
       
-      </motion.h1>
-      <div>Our Events</div>
-      <HoverEffect className="mt-[200px]" items={projects} />
+      </motion.h1> 
+      <HoverEffect className="mt-[70px]" items={projects} />
     </LampContainer>
   );
 }
