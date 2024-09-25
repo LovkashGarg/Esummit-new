@@ -17,7 +17,7 @@ export function BackgroundBeamsWithCollisionDemo() {
         backgroundColor="black"
         className="flex items-center flex-col justify-end px-2 md:pt-[150px] py-4 w-full h-full"
       >
-        <Image src={logo} className="w-[200px] h-[200px]  sm:w-[400px] sm:h-[400px] " width={100} height={100} alt="logo"/>
+        <Image src={logo} className="w-[200px] h-[200px]  sm:w-[400px] sm:h-[400px] "  alt="logo"/>
         </Vortex>
         <div className="hidden md:block w-full h-40 relative bg-gradient-to-b from-white to-neutral-100 dark:from-neutral-900 dark:to-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]">
         {/* Gradients */}

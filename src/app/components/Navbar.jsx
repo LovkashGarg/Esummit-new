@@ -22,10 +22,15 @@ function Navbar({handleScroll}) {
     
     setUpProviders();
   },[])
-
+  const [copied, setCopied] = useState("");
+  const handleCopy=()=>{
+    setCopied(session?.user.scoutId);
+    navigator.clipboard.writeText(session?.user.scoutId);
+    setTimeout(()=>setCopied(""),5000);
+  }
   return (
     <div className="flex">
-    <div className={cn("fixed top-10 inset-x-0 max-sm:w-full max-w-full mx-auto z-50 flex justify-around ")}>
+    <div className={cn("fixed top-10 inset-x-0 max-sm:w-full max-w-full mx-auto z-50 flex justify-around")}>
       
       <Image src={logo} className="w-[80px] h-[80px] md:w-[100px] md:h-[100px]  " width={100} height={100} alt="logo" />
     
@@ -62,8 +67,28 @@ function Navbar({handleScroll}) {
                 className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2">
                 <span>Sign Out</span>
               </HoverBorderGradient>
+              
+              <div >
+
+              <img src={session?.user.image} className=" w-[50px] h-[50px]  sm:w-[50px] sm:h-[50px] rounded-full ml-16"  alt="logo"/>
+              <div> 
+                <p>
+                Your referral ID:
+                  </p>
+                  <div className="flex gap-x-2">
+
+                  <p className="text-blue-400">
+              {session?.user.scoutId} 
+                </p>
+                <div className='w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgba(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer' onClick={handleCopy}>
+                 <Image src={copied===session?.user.scoutId ? '/assets/tick.svg':'/assets/copy.svg'} width={12} height={12} alt='clicked'/>
+                     </div>
+                  </div>
+                </div>
+
+                </div>
+      </div>
                 
-        </div>
         ):
         (
           <>
