@@ -13,46 +13,58 @@ export function CardHoverEffectDemo() {
 }
 export const projects = [
   {
-    title: "Pitch Perfect",
+    title: "Big Bull",
     description:
-      "They say a little knowledge is a dangerous thing, but it's not one half so bad as a lot of ignorance. Here’s a fun and educative way to challenge your awareness of one of the most rapidly emerging global trends - entrepreneurship! Knowledge ",
+      "Step into the high-stakes world of trading, where fortunes are made or lost. With a demo account on STOCKGRO, you'll test your skills, turning virtual cash into real triumph. Over 3-4 intense days, every trade could bring you closer to victory. Will your portfolio rise to the top and crown you the Big Bull? ",
     link: "https://stripe.com",
-    imageurl: "https://esummit23.ecelliiitp.org/_next/image?url=https%3A%2F%2Fi.ibb.co%2FwrkFCTV%2FPitch-Perfect.png&w=256&q=75",
+    imageurl: "/Events/BigBull_logo.png",
+  },
+  {
+    title: "Brand Brawl",
+    description:
+    "where top execs debate high-stakes crises in TopTalks, each defending their strategies. Then, watch as rival teams clash over global issues in a heated final. Only the sharpest arguments will lead to victory. Can your team dominate the debate?",
+    link: "https://netflix.com",
+    imageurl: "/Events/BC_logo.png",
+
+  },
+  {
+    title: "Esummit Junior",
+    description:
+    "Attention 8th-10th graders! Ready to unlock your potential at E-Summit Jr? Step into an exciting world of challenges, test your skills in a thrilling academic showdown, and sharpen your wits. Join us at 111T Pune for an unforgettable experience—where only the boldest will rise to the top!",
+    link: "https://google.com",
+    imageurl: "/Events/E-JR_logo.png",
+  },
+  {
+    title: "StartUp Saga",
+    description:
+    "Enter a world where startups, investors, and students collide, unlocking opportunities for the next big venture. Startups reveal their innovations, offering internships to sharp-minded students, while investors seek the next breakthrough. Will you be part of the success story waiting to unfold?",
+    link: "https://meta.com",
+    imageurl: "/Events/SatrtupSaga_logo.png",
   },
   {
     title: "OTH",
     description:
-    "Embark on a thrilling online Treasure hunt, where each image or text clue unlocks the path forward. Over 2-3 days, navigate throught hurdles, solving each question before advancing. The ultimate prize awaits the player who conquers the most challenges before the deadline . Will you be the one to uncover the treasure? ",
-    link: "https://netflix.com",
-    imageurl: "https://stripe.com/img/documentation/checkout/checkout.png",
-
+    "Embark on a thrilling online treasure hunt, where each image or text clue unlocks the path forward. Over 2-3 days, navigate through hurdles, solving each question before advancing. The ultimate prize awaits the player who conquers the most challenges before the deadline. Will you be the one to uncover the treasure? ",
+    imageurl: "/Events/Oth_logo.png",
   },
   {
-    title: "Google",
+    title: "Lights Out",
     description:
-    "They say a little knowledge is a dangerous thing, but it's not one half so bad as a lot of ignorance. Here’s a fun and educative way to challenge your awareness of one of the most rapidly emerging global trends - entrepreneurship! Knowledge ",
-    link: "https://google.com",
-    imageurl: "https://stripe.com/img/documentation/checkout/checkout.png",
+    "Step into the unknown with our mystery coding event—no hints, no code on screen.Just you, your memory, and the challenge ahead. Can you solve the puzzles when the lights are out? ",
+    imageurl: "/Events/LightsOut_logo.png",
   },
   {
-    title: "Flawless",
+    title: "Lights Out",
     description:
-    "They say a little knowledge is a dangerous thing, but it's not one half so bad as a lot of ignorance. Here’s a fun and educative way to challenge your awareness of one of the most rapidly emerging global trends - entrepreneurship! Knowledge ",
-    link: "https://meta.com",
-    imageurl: "https://stripe.com/img/documentation/checkout/checkout.png",
-  },
-  {
-    title: "Dumsharades",
-    description:
-    "They say a little knowledge is a dangerous thing, but it's not one half so bad as a lot of ignorance. Here’s a fun and educative way to challenge your awareness of one of the most rapidly emerging global trends - entrepreneurship! Knowledge ",
-    link: "https://amazon.com",
-    imageurl: "https://stripe.com/img/documentation/checkout/checkout.png",
-  },
-  {
-    title: "Top Talks",
-    description:
-    "They say a little knowledge is a dangerous thing, but it's not one half so bad as a lot of ignorance. Here’s a fun and educative way to challenge your awareness of one of the most rapidly emerging global trends - entrepreneurship! Knowledge ",
+    "Step into the unknown with our mystery coding event—no hints, no code on screen.Just you, your memory, and the challenge ahead. Can you solve the puzzles when the lights are out? ",
     link: "https://microsoft.com",
-    imageurl: "https://stripe.com/img/documentation/checkout/checkout.png",
+    imageurl: "/Events/LightsOut_logo.png",
+  },
+  {
+    title: "Lights Out",
+    description:
+    "Step into the unknown with our mystery coding event—no hints, no code on screen.Just you, your memory, and the challenge ahead. Can you solve the puzzles when the lights are out? ",
+    link: "https://microsoft.com",
+    imageurl: "/Events/LightsOut_logo.png",
   },
 ];

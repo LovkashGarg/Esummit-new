@@ -5,6 +5,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 import { LampHeader } from "../LampHeader";
+import Image from 'next/image'
+
 
 export const HoverEffect = ({
   items,
@@ -13,7 +15,6 @@ export const HoverEffect = ({
   items: {
     title: string;
     description: string;
-    link:string;
     imageurl: string;
   }[];
   className?: string;
@@ -54,9 +55,11 @@ export const HoverEffect = ({
               />
             )}
           </AnimatePresence>
-          <Card>
+          <Card className="flex flex-col items-center justify-center">
             <CardTitle>{item.title}</CardTitle>
-            <img src='https://esummit23.ecelliiitp.org/_next/image?url=https%3A%2F%2Fi.ibb.co%2FwrkFCTV%2FPitch-Perfect.png&w=256&q=75'></img>
+            <img  className=" ml-[40px] w-[250px] h-[100px]"           // Allows the image to fill the parent container
+           // Allows the image to fill the parent container
+           objectFit="cover"   src={item.imageurl}></img>
             <CardDescription>{item.description}</CardDescription>
             <Link href={`${item.title}`}><button className=" mt-[5%] mx-auto px-[10%] bg-blue-800 text-white text-[20px] rounded-[20px] ">Know More</button></Link>
           </Card>
