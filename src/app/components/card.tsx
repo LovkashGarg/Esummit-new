@@ -2,11 +2,11 @@ import { LampHeader } from "./LampHeader";
 
 export function CardHoverEffectDemo() {
   return (
-    <div className="max-w-7xl mx-auto px-8 ">
+    <div className="max-w-9xl   ">
        <div className="text-center my-8">
-                    <p className=" text-2xl leading-8 font-extrabold tracking-tight text-white sm:text-xl">
+                    <div className=" text-2xl leading-8 font-extrabold tracking-tight text-white sm:text-xl">
                       <LampHeader/>
-                      </p>
+                      </div>
                 </div>
     </div>
   );
