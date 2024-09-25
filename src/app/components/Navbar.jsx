@@ -8,6 +8,7 @@ import Image from "next/image";
 import { getProviders, signIn, signOut, useSession } from "next-auth/react";
 import logo from "../../../public/courses/E-Cell logo Yellow-white.png"
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
+import { Sidebar } from "./menu_bar";
 function Navbar({handleScroll}) {
 
   const [active, setActive] = useState(null);
@@ -25,9 +26,10 @@ function Navbar({handleScroll}) {
 
   return (
     <div className="flex">
+      {/* <Sidebar  /> */}
     <div className={cn("fixed top-10 inset-x-0 max-sm:w-full max-w-full mx-auto z-50 flex justify-around ")}>
       
-      <Image src={logo} className="w-[80px] h-[80px] md:w-[100px] md:h-[100px]  " width={100} height={100} alt="logo" />
+      <Image src={logo} className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] z-1  " width={100} height={100} alt="logo" />
     
        <div className="mr-8 hidden flex flex-col items-center justify-center md:block" >
 
