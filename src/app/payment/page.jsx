@@ -9,6 +9,7 @@ import { useSession } from 'next-auth/react';
 import { useEffect,useState } from 'react';
 import InfinityLoader from '../components/infinite_loader';
 import { toast, ToastContainer } from 'react-toastify';
+import Footer from '../components/Footer';
   const PaymentGateway = () => {
   const {data:session}=useSession()
    const [TransactionId, setTransactionId] = useState('')
@@ -83,8 +84,8 @@ else{
     <>
     <Navbar/>
     <ToastContainer/>
-      <div className='text-[30px] text-center mt-[120px]'>Don't Miss a Oppurtunity</div>
-      <div className='flex flex-col justify-center items-center gap-[20px]'>
+      <div className='text-[30px] text-center mt-[10%]'>Don't Miss a Oppurtunity</div>
+      <div className='flex flex-col justify-center items-center gap-[20px] mb-[5%]'>
         <div className='qr-image'>
           <Image
             className='w-[300px] h-[300px] rounded-[40px]'
@@ -119,6 +120,7 @@ else{
           <button className='self-center mt-3 bg-green-400 text-white w-[100px] text-[20px] rounded-[20px]' onClick={handleSubmit}>Send</button>
         </div>
       </div>
+      
       {/* {notification && <div className='text-red-500'>{notification}</div>}
       <div className='flex items-center justify-center w-[100%]'>
       <div class="slider mt-[20px] mx-[40px] h-[30px] sm:h-[50px] text-black bg-white text-[15px] w-[80%] sm:text-[20px] rounded-[30px]  ">
@@ -132,6 +134,7 @@ else{
     </div>
     </div> */}
     {/* </div> */}
+    <Footer />
     </>
       )}
       </div>

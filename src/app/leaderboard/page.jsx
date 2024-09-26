@@ -3,6 +3,7 @@ import React from 'react'
 import Leaderboard from '../components/LeaderBoard'
 import { ExpandableCardDemo } from './Expandable_Card_Demo'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import { useState,useEffect } from 'react'
 import InfinityLoader from '../components/infinite_loader'
 const page = () => {
@@ -25,6 +26,7 @@ const page = () => {
     <Navbar/>
 <Leaderboard/>
 <ExpandableCardDemo/>
+<Footer/>
     </>
     )}
     </div>
