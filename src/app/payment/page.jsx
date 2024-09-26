@@ -65,7 +65,7 @@ else{
     <>
     <Navbar/>
     <ToastContainer/>
-      <div className='text-[30px] text-center mt-[120px]'>Payment Section</div>
+      <div className='text-[30px] text-center mt-[120px]'>Don't Miss a Oppurtunity</div>
       <div className='flex flex-col justify-center items-center gap-[20px]'>
         <div className='qr-image'>
           <Image

@@ -5,7 +5,7 @@ const PaymentGateway = () => {
   
   return (
     <>
-      <div className='text-[40px] text-center'>Payment For Tickets</div>
+      <div className='text-[40px] text-center'>Donot Miss a Oppurtunity</div>
       <div className='flex flex-col justify-center items-center gap-[20px]'>
         <div className='qr-image'>
           <Image

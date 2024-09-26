@@ -2,8 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Provider from "./components/Provider";
-// import { Button } from "./components/ui/moving-border";
-// import { FloatingDockDemo } from "./components/FloatingNav";
+import { Sidebar } from "./components/menu_bar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +18,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className={inter.className}>
         <Provider>
+          <Sidebar/>
         {children}
         </Provider>
       </body>
