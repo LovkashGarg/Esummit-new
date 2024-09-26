@@ -4,9 +4,9 @@ import Image from "next/image";
 export function SpotlightPreview() {
   return (
     (<div
-      className="h-[150vh] w-full rounded-md flex md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
+      className="h-[120vh] sm:h-[130vh] md:h-[150vh] w-full rounded-md flex md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
       <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
-      <div className=" max-w-7xl  mx-auto relative z-10 border-[3px]   border-white rounded-[20px]  w-full pt-20 md:pt-10 mx-[4%] ">
+      <div className=" max-w-5xl  mx-auto relative z-10 border-[3px]   border-white rounded-[20px]  w-full mt-[10%] sm:mt-[0%] pt-20 md:pt-10 mx-[4%] ">
         <div className="flex items-center justify-center  ">
         <h1
           className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
@@ -28,12 +28,9 @@ Workshops and Competitions:
 The event includes various workshops on essential entrepreneurial skills such as product development, business model creation, pitching, and marketing.
 Competitions like business plan contests, pitch battles, and innovation challenges offer students a chance to present their startup ideas and receive valuable feedback.
 Networking Opportunities:
-
-Students get to interact with entrepreneurs, industry professionals, and potential investors. This can lead to mentorship opportunities, internships, or even seed funding for promising ideas.
-Panel Discussions and Talks:
         </p>
         <div className="max-h-full max-w-full ">
-        <img  className="h-[250px] w-[300px] sm:h-[400px] sm:w-[400px]" src={'/Events/BC_logo.png'} alt="Breaking Convention" />
+        <img  className="h-[200px] w-[300px] sm:h-[400px] sm:w-[400px]" src={'/Events/BC_logo.png'} alt="Breaking Convention" />
         </div>
         </div>
       </div>
