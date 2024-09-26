@@ -6,7 +6,7 @@ import logo from "../../../public/courses/E-summit24 logo.png"
 // import { TextRevealCard } from "./ui/text-reveal-card";
 // import { BackgroundBoxesDemo } from "./BackgroundBoxes";
 import { SparklesCore } from "./ui/sparkles";
-import { Vortex } from "./ui/vortex";
+// import { Vortex } from "./ui/vortex";
 export function BackgroundBeamsWithCollisionDemo() {
   return (
     
@@ -17,7 +17,7 @@ export function BackgroundBeamsWithCollisionDemo() {
         backgroundColor="black"
         className="flex items-center flex-col justify-end px-2 md:pt-[150px] py-4 w-full h-full"
       > */}
-        <Image src={logo} className="pt-[50px] w-[300px] h-[300px]  sm:w-[400px] sm:h-[400px] "  alt="logo"/>
+        <Image src={logo} className="pt-[70px] w-[300px] h-[300px]  sm:w-[400px] sm:h-[400px] "  alt="logo"/>
         {/* </Vortex> */}
         <div className="hidden md:block w-full h-40 relative bg-gradient-to-b from-white to-neutral-100 dark:from-neutral-900 dark:to-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]">
         {/* Gradients */}
