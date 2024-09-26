@@ -39,12 +39,12 @@ const Footer = () => {
           </Link>
         </li>
         <li>
-          <a
-            href="#"
+          <Link
+            href="/payment"
             className="hover:text-white transition-colors duration-300"
           >
             Tickets
-          </a>
+          </Link>
         </li>
       </ul>
     </div>

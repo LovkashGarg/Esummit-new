@@ -9,7 +9,9 @@ export function Sidebar() {
   }
   return (
     <>
-    <button  onClick={handletoggle} className={`${!sideBaropen? 'block' : 'hidden'} text-start p-[20px] bg-black text-white text-[20px] sm:text-[25px] w-full sm:hidden`}>Menu</button>
+    <button  onClick={handletoggle} className={`${!sideBaropen? 'block' : 'hidden'}  left-0 text-start px-[20px] py-[10px]  text-white text-[20px] bg-black sm:text-[25px] w-full sm:hidden `}><img className='w-[50px] h-[40px] object-cover' src="https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-icon-svg-white.png" style={{
+            clipPath: 'circle(50% at 50% 50%)', // This creates a circular mask
+          }}></img></button>
     <div
   className={`fixed top-0 z-10 left-0 h-full bg-black text-white w-40 transform ${sideBaropen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out z-50 ${sideBaropen? 'block' : 'hidden'} sm:hidden`}
 >
