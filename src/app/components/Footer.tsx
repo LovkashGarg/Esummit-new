@@ -8,7 +8,7 @@ const Footer = () => {
     <div>
       <h2 className="text-white text-lg font-semibold mb-4">About Us</h2>
       <p className="mb-4">
-      E-Summit IIIT Pune is an annual entrepreneurial event organized by the Entrepreneurship Cell (E-Cell) of the IIIT Pune. It serves as a platform to encourage innovation, startup culture, and entrepreneurial mindset among students and aspiring entrepreneurs.
+      E-Summit is an annual entrepreneurial event organized by the Entrepreneurship Cell of the IIIT Pune. It serves as a platform to encourage innovation, startup culture, and entrepreneurial mindset among students and aspiring entrepreneurs.
       </p>
     </div>
     <div >
@@ -78,7 +78,7 @@ const Footer = () => {
       <p>Phone: +919896316033</p>
     </div>
     </div>
-    <p className="text-center text-xs pt-8">© 2024 Ecell. All rights reserved.</p>
+    <p className="text-center text-[25px] pt-8">© 2024 Ecell. All rights reserved.</p>
 </footer>   
   )
 }

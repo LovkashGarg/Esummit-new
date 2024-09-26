@@ -13,9 +13,19 @@ export function CardHoverEffectDemo() {
 }
 export const projects = [
   {
+    title: "StartUp Saga",
+    link: "https://meta.com",
+    imageurl: "/Events/SatrtupSaga_logo.png",
+  },
+  {
     title: "Big Bull",
     link: "https://stripe.com",
     imageurl: "/Events/BigBull_logo.png",
+  },
+  {
+    title: "Breaking Convention",
+    link: "https://meta.com",
+    imageurl: "/Events/BC_logo.png",
   },
   {
     title: "Brand Brawl",
@@ -29,24 +39,19 @@ export const projects = [
     imageurl: "/Events/E-JR_logo.png",
   },
   {
-    title: "StartUp Saga",
+    title: "StartUp Survival",
     link: "https://meta.com",
-    imageurl: "/Events/SatrtupSaga_logo.png",
+    imageurl: "/Events/SatartupSurbvival_logo.png",
   },
   {
-    title: "StartUp Saga",
+    title: "Stadium  Showdown",
     link: "https://meta.com",
-    imageurl: "/Events/SatrtupSaga_logo.png",
+    imageurl: "/Events/StadiumShowdown_logo.png",
   },
   {
-    title: "StartUp Saga",
+    title: "OTH",
     link: "https://meta.com",
-    imageurl: "/Events/SatrtupSaga_logo.png",
-  },
-  {
-    title: "StartUp Saga",
-    link: "https://meta.com",
-    imageurl: "/Events/SatrtupSaga_logo.png",
+    imageurl: "/Events/Oth_logo.png",
   },
   {
     title: "Lights Out",

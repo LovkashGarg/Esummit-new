@@ -4,7 +4,7 @@ import { cn } from "@/app/utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
-import { LampHeader } from "../LampHeader";
+// import { LampHeader } from "../LampHeader";
 import Image from 'next/image'
 
 
@@ -14,8 +14,8 @@ export const HoverEffect = ({
 }: {
   items: {
     title: string;
-    description: string;
     imageurl: string;
+    // description:string;
   }[];
   className?: string;
 }) => {
@@ -32,12 +32,12 @@ export const HoverEffect = ({
     >
       {items.map((item, idx) => (
         <div
-          key={item?.imageurl}
+          key={idx}
           className="relative group  block p-2 h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
-          <AnimatePresence>
+          <AnimatePresence >
             {hoveredIndex === idx && (
               <motion.span
                 className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block  rounded-3xl"
@@ -58,8 +58,8 @@ export const HoverEffect = ({
             <CardTitle>{item.title}</CardTitle>
             <img  className=" ml-[40px] w-[250px] h-[100px]"           // Allows the image to fill the parent container
            // Allows the image to fill the parent container
-           objectFit="cover"   src={item.imageurl}></img>
-            <CardDescription>{item.description}</CardDescription>
+           style={{ objectFit: 'cover' }}    src={item.imageurl}></img>
+            <CardDescription>{"      "}</CardDescription>
             <Link href={`${item.title}`}><button className=" mt-[5%] mx-auto px-[10%] bg-blue-800 text-white text-[20px] rounded-[20px] ">Know More</button></Link>
           </Card>
         </div>

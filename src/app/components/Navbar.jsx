@@ -39,27 +39,27 @@ function Navbar({handleScroll}) {
        <div className="mr-8 hidden flex flex-col items-center justify-center md:block" >
 
       <Menu setActive={setActive} >
-        <Link href="/">
+        <Link key={1} href="/">
           <MenuItem setActive={setActive} active={active} item="Home">
           </MenuItem>
         </Link>
-        <Link href='/' >
+        <Link  key={2} href='/' >
         <div onClick={()=>handleScroll('events')} >
         <MenuItem  setActive={setActive} active={active} item="Events"></MenuItem>
         </div>
         </Link>
-        <Link href='/leaderboard'>
+        <Link key={3} href='/leaderboard'>
        <div >
         <MenuItem setActive={setActive} active={active} item="LeaderBoard"></MenuItem>
        </div>
        </Link>
-       <Link href="/payment">
+       <Link key={4} href="/payment">
         <MenuItem setActive={setActive} active={active} item="Tickets"></MenuItem>
         </Link>
       </Menu>
 </div>
 
-      <div className="hidden md:flex md:block">
+      <div key={5} className="hidden md:flex md:block">
       { session?.user ?(
         <div className="flex gap-3 md:gap-5">
               <HoverBorderGradient
@@ -96,7 +96,7 @@ function Navbar({handleScroll}) {
           <>
          {providers && 
           Object.values(providers).map((provider)=>(
-            <div className="flex gap-3 md:gap-5">
+            <div key={6} className="flex gap-3 md:gap-5">
               <HoverBorderGradient
                 containerClassName="rounded-full"
                 as="button"
