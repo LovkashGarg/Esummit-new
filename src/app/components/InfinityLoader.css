@@ -1,0 +1,64 @@
+/* components/InfinityLoader.css */
+
+.infinity-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    position: fixed; /* Fixed positioning to overlay the entire screen */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999; /* High z-index to ensure the loader appears on top */
+  }
+  
+  .infinity-symbol {
+    width: 100px;
+    height: 50px;
+    position: relative;
+  }
+  
+  .infinity-symbol:before,
+  .infinity-symbol:after {
+    content: '';
+    position: absolute;
+    width: 100px; /* Adjust width for the infinity shape */
+    height: 50px;  /* Adjust height for the infinity shape */
+    border: 5px solid white; /* Blue color */
+    border-radius: 50%; /* Create a loop */
+    animation: rotateInfinity 1.5s linear infinite; /* Infinite rotation */
+  }
+  
+  .infinity-symbol:before {
+    left: 0;
+    transform: rotate(45deg); /* Position the first loop */
+  }
+  
+  .infinity-symbol:after {
+    right: 0;
+    transform: rotate(-45deg); /* Position the second loop */
+  }
+  
+  @keyframes rotateInfinity {
+    0% {
+      transform: scale(0.8) rotate(0deg);
+    }
+    50% {
+      transform: scale(1) rotate(180deg);
+    }
+    100% {
+      transform: scale(0.8) rotate(360deg);
+    }
+  }
+  
+  .infinity-loader p {
+    margin-top: 20px;
+    color: #fff; /* White text color */
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
