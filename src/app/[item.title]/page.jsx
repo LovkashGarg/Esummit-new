@@ -1,11 +1,13 @@
 "use client"
-import { getServerSideProps } from 'next/server';
+// import { getServerSideProps } from 'next/server';
 import { SpotlightPreview } from "../components/Spotlight_preview";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+
 import { useEffect,useState } from "react";
+import InfinityLoader from "../components/infinite_loader";
 // import { useParams } from 'next/navigation';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 const Page=(context)=>{
 
     const eventsData = [
@@ -33,12 +35,31 @@ const title="OTH";
       console.log(title);
   }, [title]);
 
+
+  const [loading, setLoading] = useState(true);
+  
+  // Simulate a data fetch with a timeout
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false); // Set loading to false after 2 seconds
+    }, 2000);
+
+    return () => clearTimeout(timer); // Clean up the timeout
+  }, []);
+    
+
 return (
+  <div>
+      {loading ? (
+        <InfinityLoader /> // Show loader while loading
+      ) : (
     <>
     <Navbar/>
     <SpotlightPreview />
     <Footer/>
     </>
+    )}
+    </div>
 )
 }
 export default Page;

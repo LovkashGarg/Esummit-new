@@ -23,7 +23,7 @@ export const HoverEffect = ({
 
   return (
     <div className="pt-[150px]">
-     <div className=" text-[25px] sm:text-[60px] pt-[50px] text-">Our Events</div>
+     <div className=" text-[40px] sm:text-[60px] pt-[50px] text-">Our Events</div>
     <div
       className={cn(
         "h-[350vh] sm:h-[200vh] md:h-[100vh] grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  ",
