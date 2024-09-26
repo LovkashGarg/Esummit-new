@@ -6,7 +6,7 @@ import logo from "../../../public/courses/E-summit24 logo.png"
 // import { TextRevealCard } from "./ui/text-reveal-card";
 // import { BackgroundBoxesDemo } from "./BackgroundBoxes";
 import { SparklesCore } from "./ui/sparkles";
-import { Vortex } from "./ui/vortex";
+// import { Vortex } from "./ui/vortex";
 export function BackgroundBeamsWithCollisionDemo() {
   return (
     
