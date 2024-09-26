@@ -79,10 +79,9 @@ export function BackgroundBeamsWithCollisionDemo() {
           backgroundRepeat: 'no-repeat',  // Prevents the image from repeating
           filter: 'brightness(1.5)',
         }}
+
       ></div>
         {/* Gradient Layer with offset */}
-    
-
       {/* Optional Vortex Animation */}
       <Vortex
         backgroundColor="transparent" // Keep it transparent so the background image is visible
