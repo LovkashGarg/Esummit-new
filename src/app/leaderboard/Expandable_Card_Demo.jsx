@@ -67,11 +67,11 @@ export function ExpandableCardDemo() {
             <motion.div layoutId={`image-${active.title}-${id}`}>
               <Image
                 priority
-                width={200}
-                height={200}
+                // width={200}
+                // height={200}
                 src={active.src}
                 alt={active.title}
-                className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top" />
+                className="h-[30px] w-[50px] sm:w-full md:h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top" />
             </motion.div>
 
             <div>
@@ -231,4 +231,23 @@ const cards = [
     src: "https://assets.aceternity.com/demos/toh-phir-aao.jpeg",
     Referraldone:"0",
   },
+  {
+    description: "Mustafa Zahid",
+    title: "Toh Phir Aao",
+    src: "https://assets.aceternity.com/demos/toh-phir-aao.jpeg",
+    Referraldone:"0",
+  },
+  {
+    description: "Mustafa Zahid",
+    title: "Toh Phir Aao",
+    src: "https://assets.aceternity.com/demos/toh-phir-aao.jpeg",
+    Referraldone:"0",
+  },
+  {
+    description: "Mustafa Zahid",
+    title: "Toh Phir Aao",
+    src: "https://assets.aceternity.com/demos/toh-phir-aao.jpeg",
+    Referraldone:"0",
+  },
+  
 ];
