@@ -63,7 +63,7 @@ const Footer = () => {
           Linkedin
         </Link>
         <a
-          href="#"
+          href="https://www.instagram.com/ecell_iiitp/"
           className="hover:text-white transition-colors duration-300"
         >
           Instagram
@@ -74,11 +74,11 @@ const Footer = () => {
       <h2 className="text-white text-lg font-semibold mb-4">Contact Us</h2>
       <p>Pune, India</p>
       <p>Pune 411041</p>
-      <p>Email: ecellofficial@gmail.com</p>
+      <p>Email: ecell@iiitp.ac.in</p>
       <p>Phone: +919896316033</p>
     </div>
     </div>
-    <p className="text-center text-[25px] pt-8">© 2024 Ecell. All rights reserved.</p>
+    <p className="text-center text-[15px] sm:text-[25px] pt-8">© 2024 Ecell. All rights reserved.</p>
 </footer>   
   )
 }
