@@ -66,8 +66,7 @@ import { Vortex } from "./ui/vortex";
 
 export function BackgroundBeamsWithCollisionDemo() {
   return (
-    <div className="relative h-[25rem] sm:h-[40rem] w-full bg-black bg-gradient-to-b from-white to-neutral-100 dark:from-neutral-800 dark:to-black flex flex-col justify-end items-center overflow-hidden rounded-md">
-      
+    <div className="relative h-[25rem] sm:h-[40rem] w-full bg-black bg-gradient-to-b  from-neutral-800 to-black flex flex-col justify-end items-center overflow-hidden rounded-md">
       {/* Fullscreen background using image object */}
       <div
         className="absolute inset-0 w-full h-full"

@@ -10,9 +10,10 @@ const generateUniqueId = (length = 8) => {
   }
   return result;
 };
+
 export const handler=NextAuth(
-    {
-        providers: [
+    {   
+         providers: [
             GoogleProvider({
               clientId: process.env.GOOGLE_ID,
               clientSecret: process.env.GOOGLE_CLIENT_SECRET
