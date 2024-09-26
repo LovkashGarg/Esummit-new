@@ -1,3 +1,5 @@
+import { type } from "os";
+
 const { Schema, model, models } = require("mongoose");
 
 const UserSchema=new Schema({
@@ -16,6 +18,10 @@ const UserSchema=new Schema({
     },
     scoutId:{
         type:String,
+    },
+    referralUsers:{
+        type:[Schema.Types.ObjectId],
+        ref: 'User'
     }
 })
 
