@@ -35,7 +35,7 @@ export default function Home() {
     <div className="relative w-full bg-neutral-800 items-center justify-center">
     <Navbar handleScroll={handleScroll}/>
   </div>
-    <main className="min-h-screen bg-black/[0.96] antialiased bg-grid-white/[0.02]">
+    <main className="min-h-screen bg-black/[0.96] antialiased bg-grid-black/[0.02]">
   <BackgroundBeamsWithCollisionDemo/>
    <section id="events">
     <CardHoverEffectDemo/>

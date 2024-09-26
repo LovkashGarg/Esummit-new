@@ -7,7 +7,7 @@ export function CardHoverEffectDemo() {
                     <div className=" text-2xl leading-8 font-extrabold tracking-tight text-white sm:text-xl">
                       <LampHeader/>
                       </div>
-                </div>
+              </div>
     </div>
   );
 }

@@ -26,6 +26,7 @@ const page = () => {
     <Navbar/>
 <Leaderboard/>
 <ExpandableCardDemo/>
+<div className='mt-[100px]'></div>
 <Footer/>
     </>
     )}

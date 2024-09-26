@@ -296,13 +296,6 @@ interface VortexProps {
   children?: any;
   className?: string;
   containerClassName?: string;
-  particleCount?: number;
-  rangeY?: number;
-  baseHue?: number;
-  baseSpeed?: number;
-  rangeSpeed?: number;
-  baseRadius?: number;
-  rangeRadius?: number;
   backgroundColor?: string;
   backgroundImage?: string; // New prop for the background image
   animate?: boolean; // Add animate prop to toggle animation
@@ -311,7 +304,6 @@ interface VortexProps {
 export const Vortex = (props: VortexProps) => {
 
   const backgroundColor = props.backgroundColor || "black";
-  const rand = (n: number): number => n * Math.random();
  
   return (
     <div
