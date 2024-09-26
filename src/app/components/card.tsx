@@ -3,7 +3,7 @@ import { LampHeader } from "./LampHeader";
 export function CardHoverEffectDemo() {
   return (
     <div >
-       <div className="text-center my-8">
+       <div className="text-center mt-4">
                     <div className=" text-2xl leading-8 font-extrabold tracking-tight text-white sm:text-xl">
                       <LampHeader/>
                       </div>
@@ -34,10 +34,20 @@ export const projects = [
     imageurl: "/Events/SatrtupSaga_logo.png",
   },
   {
-    title: "OTH",
-    imageurl: "/Events/Oth_logo.png",
+    title: "StartUp Saga",
+    link: "https://meta.com",
+    imageurl: "/Events/SatrtupSaga_logo.png",
   },
- 
+  {
+    title: "StartUp Saga",
+    link: "https://meta.com",
+    imageurl: "/Events/SatrtupSaga_logo.png",
+  },
+  {
+    title: "StartUp Saga",
+    link: "https://meta.com",
+    imageurl: "/Events/SatrtupSaga_logo.png",
+  },
   {
     title: "Lights Out",
     link: "https://microsoft.com",
