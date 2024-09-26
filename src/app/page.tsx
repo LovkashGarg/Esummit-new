@@ -5,14 +5,29 @@ import Footer from "./components/Footer";
 import { BackgroundBeamsWithCollisionDemo } from "./components/Background";
 import { CardHoverEffectDemo } from "./components/card";
 import Navbar from "./components/Navbar";
-
+import { useEffect ,useState} from "react";
+import InfinityLoader from "./components/infinite_loader";
 export default function Home() {
+  const [loading, setLoading] = useState(true);
+
+  // Simulate a data fetch with a timeout
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false); // Set loading to false after 2 seconds
+    }, 2000);
+
+    return () => clearTimeout(timer); // Clean up the timeout
+  }, []);
   const handleScroll = (sectionId) => {
     const section = document.getElementById(sectionId);
     console.log(sectionId)
     section?.scrollIntoView({ behavior: 'smooth' });
   };
   return (
+    <div>
+    {loading ? (
+      <InfinityLoader /> // Show loader while loading
+    ) : (
     <>
     <Head>
         <title>ESummit -2024</title>
@@ -31,5 +46,7 @@ export default function Home() {
       <Footer />
     </main>
     </>
+    )}
+    </div>
   );
 }

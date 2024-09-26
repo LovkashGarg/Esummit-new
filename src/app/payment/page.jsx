@@ -2,11 +2,12 @@
 import React from 'react';
 import Image from 'next/image'; // Import Next.js Image component
 import './hello.css'
-import { useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css'
 
 import Navbar from '../components/Navbar';
 import { useSession } from 'next-auth/react';
+import { useEffect,useState } from 'react';
+import InfinityLoader from '../components/infinite_loader';
 import { toast, ToastContainer } from 'react-toastify';
   const PaymentGateway = () => {
   const {data:session}=useSession()
@@ -14,6 +15,7 @@ import { toast, ToastContainer } from 'react-toastify';
    const [ContactNumber, setContactNumber] = useState('')
    const [ScoutId, setScoutId] = useState('');
    const [notification, setNotification] = useState('');
+
    const handleSubmit=async ()=>{
 
     if (!session) {
@@ -61,7 +63,23 @@ else{
   console.log(error);
 }
   }
+
+    const [loading, setLoading] = useState(true);
+  
+    // Simulate a data fetch with a timeout
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setLoading(false); // Set loading to false after 2 seconds
+      }, 2000);
+  
+      return () => clearTimeout(timer); // Clean up the timeout
+    }, []);
+      
   return (
+    <div>
+      {loading ? (
+        <InfinityLoader /> // Show loader while loading
+      ) : (
     <>
     <Navbar/>
     <ToastContainer/>
@@ -115,6 +133,8 @@ else{
     </div> */}
     {/* </div> */}
     </>
+      )}
+      </div>
   );
 };
 

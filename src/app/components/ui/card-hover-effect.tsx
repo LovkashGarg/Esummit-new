@@ -58,8 +58,8 @@ export const HoverEffect = ({
             <CardTitle>{item.title}</CardTitle>
             <img  className=" ml-[40px] w-[250px] h-[100px]"           // Allows the image to fill the parent container
            // Allows the image to fill the parent container
-           style={{ objectFit: 'cover' }}    src={item.imageurl}></img>
-            <CardDescription>{"      "}</CardDescription>
+           style={{ objectFit: 'contain' }}    src={item.imageurl}></img>
+            <CardDescription>{item.description}</CardDescription>
             <Link href={`${item.title}`}><button className=" mt-[5%] mx-auto px-[10%] bg-blue-800 text-white text-[20px] rounded-[20px] ">Know More</button></Link>
           </Card>
         </div>
