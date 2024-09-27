@@ -13,10 +13,10 @@ const instructors = [
     },
     {
       id: 2,
-      name: 'Akshat Chaturvedi',
+      name: 'Sarthak Jain',  
       // designation: 'Guitar Instructor',
       image:
-        '/arpan.jpg',
+      '/sarthak.jpg',
     },
     {
       id: 3,
@@ -48,10 +48,10 @@ const instructors = [
     },
     {
       id: 7,
-      name: 'Sarthak Jain',
+      name: 'Akshat Chaturvedi',
       // designation: 'Drumming Expert',
       image:
-      '/sarthak.jpg',
+      '/akshat.jpg',
     },
   ];
 
