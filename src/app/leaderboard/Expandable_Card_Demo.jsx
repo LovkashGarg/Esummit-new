@@ -12,9 +12,9 @@ export function ExpandableCardDemo() {
 
   useEffect(()=>{
     const fetchLeaderBoard=async()=>{
-      const apiURL = process.env.NODE_ENV === 'production' 
-    ? 'https://esummit-new.vercel.app/api/leaderboard' 
-    : '/api/leaderboard';
+      const apiURL = process.env.NEXT_PUBLIC_API_BASE_URL 
+      ? `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/leaderboard` 
+      : '/api/leaderboard';
       try {
         const response= await fetch(apiURL);
 
