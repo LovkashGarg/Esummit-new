@@ -32,6 +32,7 @@ export const handler=NextAuth(
               if(sessionUser)
               {
                 session.user.scoutId=sessionUser.scoutId;
+                session.user.referralUsers=sessionUser.referralUsers.length;
               }
               session.user.id=sessionUser._id.toString();
               session.user.username=sessionUser.username;
@@ -58,7 +59,9 @@ export const handler=NextAuth(
                                   email:profile.email,
                                   username: profile.name.replace(" ","").toLowerCase(),
                                   image:profile.picture,
-                                  scoutId:random
+                                  scoutId:random,
+                                  referralUsers:[],
+                                  referralCount:0
                               }
                           )
                       }

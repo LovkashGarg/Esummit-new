@@ -22,8 +22,18 @@ const UserSchema=new Schema({
     referralUsers:{
         type:[Schema.Types.ObjectId],
         ref: 'User'
-    }
+    },
+    referralCount: {
+        type: Number,
+        default: 0, // default to 0 referrals
+      },
 })
+
+UserSchema.pre('save', function (next) {
+    this.referralCount = this.referralUsers.length; // update referralCount based on referralUsers length
+    next();
+  });
+  
 
 //Models object is given by mongoose which will store all the registered models.If a model name "user" exists it will assign that existing model to User Variable. If not then model function from mongoose is called to create new model
 

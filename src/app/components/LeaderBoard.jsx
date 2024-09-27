@@ -1,14 +1,30 @@
 // components/Leaderboard.jsx
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Leaderboard.css'; // Import the CSS file
 
 const Leaderboard = () => {
-  const leaders = [
-    {position:1, name: 'Rahul', score: 15 },
-    {position:2,  name: 'Shyam', score: 12 },
-    {position:3, name: 'Arjun', score: 10 },
-  ];
+  const [leaders, setLeaders] = useState([]);
+
+  useEffect(() => {
+    const fetchLeaderboard = async () => {
+      try {
+        const response = await fetch('/api/leaderboard'); // Update the URL as per your API endpoint
+        const data = await response.json();
+
+        if (data.success) {
+          setLeaders(data.data.slice(0, 3)); // Get only the top 3 users
+        } else {
+          console.error('Failed to fetch leaderboard:', data.message);
+        }
+      } catch (error) {
+        console.error('Error fetching leaderboard:', error);
+      }
+    };
+
+    fetchLeaderboard();
+  }, []);
+
 
   return (
     <>
@@ -17,9 +33,10 @@ const Leaderboard = () => {
       {leaders.map((leader, index) => (
         <div className="card  rounded-lg" key={index}>
            <div className="text-yellow-500  text-[20px]  md:text-[50px] mb-2">👑</div>
-          <h2 className="rank">#{leader.position}</h2>
-          <h3 className="name">{leader.name}</h3>
-          <p className="score">Score: {leader.score}</p>
+          <h2 className="rank">#{index+1}</h2>
+          <h3 className="name">{leader.username}</h3>
+          <p className="score">{leader.email}</p>
+          <p className="score">Score: {leader.referralCount}</p>
         </div>
       ))}
     </div>
