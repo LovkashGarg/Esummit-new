@@ -9,7 +9,7 @@ const instructors = [
       name: 'Satyam Garg',
       // designation: 'Vocal Coach',
       image:
-        '/src/app/components/sanskar.jpg',
+        '\src\app\components\sanskar.jpg',
     },
     {
       id: 2,
