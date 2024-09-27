@@ -12,7 +12,9 @@ export function ExpandableCardDemo() {
 
   useEffect(()=>{
     const fetchLeaderBoard=async()=>{
-    
+      const apiURL = process.env.NEXTAUTH_URL 
+      ? `${process.env.NEXTAUTH_URL}/api/leaderboard` 
+      : '/api/leaderboard'
       try {
         const response= await fetch('/api/leaderboard');
 
