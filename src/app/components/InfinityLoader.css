@@ -4,6 +4,7 @@
     time = 1s
 */
 .infinity-loader {
+  /* background-color: black; */
   position: fixed; /*We have to use it as we are using absolute positioning on its children and we will align it in the center of the page*/
   left: 50%;
   top: 50%;
