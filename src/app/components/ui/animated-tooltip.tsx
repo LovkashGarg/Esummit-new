@@ -15,8 +15,9 @@ export const AnimatedTooltip = ({
   items: {
     id: number;
     name: string;
-    designation: string;
+    // designation: string;
     image: string;
+    designation?: string; // Make designation optional
   }[];
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
