@@ -18,7 +18,7 @@ export default function Home() {
 
     return () => clearTimeout(timer); // Clean up the timeout
   }, []);
-  const handleScroll = (sectionId) => {
+  function handleScroll(sectionId){
     const section = document.getElementById(sectionId);
     console.log(sectionId)
     section?.scrollIntoView({ behavior: 'smooth' });

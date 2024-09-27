@@ -22,13 +22,13 @@ const page = () => {
     {loading ? (
       <InfinityLoader /> // Show loader while loading
     ) : (
-    <>
+    <div className='bg-black'>
     <Navbar/>
 <Leaderboard/>
 <ExpandableCardDemo/>
 <div className='mt-[100px]'></div>
 <Footer/>
-    </>
+    </div>
     )}
     </div>
   )
