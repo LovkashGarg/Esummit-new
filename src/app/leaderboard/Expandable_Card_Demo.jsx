@@ -16,7 +16,7 @@ export function ExpandableCardDemo() {
       ? `${process.env.NEXTAUTH_URL}/api/leaderboard` 
       : '/api/leaderboard'
       try {
-        const response= await fetch('/api/leaderboard');
+        const response= await fetch(apiURL);
 
         const data=await response.json();
 
