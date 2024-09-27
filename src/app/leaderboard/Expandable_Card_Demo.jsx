@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/app/Hooks/OutsideClick";
-
+export const revalidate = 3600
 export function ExpandableCardDemo() {
   const [active, setActive] = useState(null);
   const ref = useRef(null);
