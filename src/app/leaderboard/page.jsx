@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { useState, useEffect } from 'react'
 import InfinityLoader from '../components/infinite_loader'
-export const revalidate = 60
+
 
 const page = () => {
   const [loading, setLoading] = useState(true);
