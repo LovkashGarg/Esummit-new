@@ -5,24 +5,24 @@ import './InfinityLoader.css'; // Import CSS for styling
 
 const InfinityLoader = () => {
   return (
-    <div class="infinity-loader">
-  <div class="bg">
+    <div className="infinity-loader">
+  <div className="bg">
     {/* <!--background circles--> */}
-    <div class="left-bg"></div>
-    <div class="right-bg"></div>
+    <div className="left-bg"></div>
+    <div className="right-bg"></div>
   </div>
-  <div class="fg">
+  <div className="fg">
     {/* <!--foreground circles--> */}
-    <div class="top-left-rect">
+    <div className="top-left-rect">
       <div></div>
     </div>
-    <div class="bottom-right-rect">
+    <div className="bottom-right-rect">
       <div></div>
     </div>
-    <div class="top-right-rect">
+    <div className="top-right-rect">
       <div></div>
     </div>
-    <div class="bottom-left-rect">
+    <div className="bottom-left-rect">
       <div></div>
     </div>
   </div>

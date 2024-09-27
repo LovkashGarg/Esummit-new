@@ -28,7 +28,7 @@ const Leaderboard = () => {
 
   return (
     <>
-      <div className='mt-[30%] md:mt-[10%] text-2xl text-center  md:text-3xl '>Leaderboard</div>
+      <div className='mt-[30%] md:mt-[10%] text-2xl text-center  md:text-3xl text-white'>Leaderboard</div>
     <div className="leaderboard-container">
       {leaders.map((leader, index) => (
         <div className="card  rounded-lg" key={index}>

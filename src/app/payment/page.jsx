@@ -81,7 +81,7 @@ else{
       {loading ? (
         <InfinityLoader /> // Show loader while loading
       ) : (
-    <>
+    <div className='bg-black'>
     <Navbar/>
     <ToastContainer/>
       <div className='text-[20px] sm:text-[30px] text-center mt-[27%]   sm:mt-[10%]'>Don't Miss a Oppurtunity</div>
@@ -135,7 +135,7 @@ else{
     </div> */}
     {/* </div> */}
     <Footer />
-    </>
+    </div>
       )}
       </div>
   );

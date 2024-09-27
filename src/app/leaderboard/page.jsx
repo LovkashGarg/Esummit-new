@@ -18,7 +18,7 @@ const page = () => {
     return () => clearTimeout(timer); // Clean up the timeout
   }, []);
   return (
-    <div>
+    <div className='bg-black'>
     {loading ? (
       <InfinityLoader /> // Show loader while loading
     ) : (

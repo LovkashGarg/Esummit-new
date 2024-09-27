@@ -1,94 +1,72 @@
-
 import Transaction from "@/app/models/transaction";
 import { connectToDB } from "@/app/utils/database";
 import { getServerSession } from "next-auth";
-import {handler} from "@/app/api/auth/[...nextauth]/route"
 import User from "@/app/models/user";
-import { error } from "console";
 
-export const POST=async(req)=>
-{
-const session= await getServerSession(handler)
+export const POST = async (req) => {
+  const session = await getServerSession();
 
-    if(!session|| !session.user)
-    {
-        return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
-    }
-    const {email,contactnumber,username,transactionid,scoutid}=await req.json();
+  // Check for valid session
+  if (!session || !session.user) {
+    return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
+  }
 
-    try {
-        await connectToDB();
-        
-        const checkUser=await Transaction.findOne(
-            {
-                email:email
-            }
-        )
+  const { email, contactnumber, username, transactionid, scoutid } = await req.json();
 
-        if(checkUser)
-        {
-            return new Response(JSON.stringify({error: 'Use another account to book ticket'}),{status:406});
-        }
-        const checkScoutId= await User.findOne({
-            scoutId:scoutid
-        })
-     
-        if(!checkScoutId)
-        {
-            return new Response(JSON.stringify({error: 'Scout Id is incorrect'}),{status:402});
-        }
-        const checkTransactionId= await Transaction.findOne({
-            transactionId: transactionid
-        })
+  // Input validation (add your validation logic here)
+  if (!email || !transactionid || !scoutid) {
+    return new Response(JSON.stringify({ error: 'Missing required fields' }), { status: 400 });
+  }
 
-        if(checkTransactionId)
-        {
-            return new Response(JSON.stringify({error: 'Transaction Id is already exists'}), {status:403});
-        }
+  try {
+    await connectToDB();
 
-        
-        const newTransaction=new Transaction(
-            {
-                email:email,
-                contactNumber:contactnumber,
-                name:username,
-                transactionId:transactionid,
-                referralId:scoutid
-            }
-        )
-
-        await newTransaction.save();
-
-        if (scoutid) {
-            const referringUser = await User.findOne({ scoutId: scoutid });
-      
-            if (!referringUser) {
-              return new Response(JSON.stringify({ error: 'Scout Id is incorrect' }), { status: 402 });
-            }
-      
-           
-            const referredUser = await User.findOne({ email });
-            console.log("New referred user:", referredUser);
-      
-            if (referredUser) {
-
-                if (!Array.isArray(referringUser.referralUsers)) {
-                    referringUser.referralUsers = [];
-                  }
-      
-              referringUser.referralUsers.push(referredUser._id);
-              await referringUser.save();
-
-              console.log("Updated referringUser:", referringUser);
-
-              console.log(`Added ${referredUser._id} to ${referringUser._id}'s referralUsers list.`);
-            }
-          }
-
-        return new Response(JSON.stringify(newTransaction),{status:201});
-    } catch (error) {
-        console.error(error);
-        return new Response("Failed to create new transaction",{status:500});
+    // Check if the user already exists in Transaction
+    const existingTransaction = await Transaction.findOne({ email });
+    if (existingTransaction) {
+      return new Response(JSON.stringify({ error: 'Use another account to book the ticket' }), { status: 406 });
     }
 
-}
+    // Check if the scoutId is valid
+    const scoutUser = await User.findOne({ scoutId: scoutid });
+    if (!scoutUser) {
+      return new Response(JSON.stringify({ error: 'Scout Id is incorrect' }), { status: 402 });
+    }
+
+    // Check if the transactionId is unique
+    const existingTransactionId = await Transaction.findOne({ transactionId: transactionid });
+    if (existingTransactionId) {
+      return new Response(JSON.stringify({ error: 'Transaction Id already exists' }), { status: 403 });
+    }
+
+    // Create new transaction
+    const newTransaction = new Transaction({
+      email,
+      contactNumber: contactnumber,
+      name: username,
+      transactionId: transactionid,
+      referralId: scoutid
+    });
+
+    await newTransaction.save();
+
+    // Update referring user
+    if (scoutid) {
+      const referringUser = await User.findOne({ scoutId: scoutid });
+      const referredUser = await User.findOne({ email });
+
+      if (referredUser && referringUser) {
+        if (!Array.isArray(referringUser.referralUsers)) {
+          referringUser.referralUsers = [];
+        }
+        referringUser.referralUsers.push(referredUser._id);
+        await referringUser.save();
+      }
+    }
+
+    return new Response(JSON.stringify(newTransaction), { status: 201 });
+  } catch (error) {
+    console.error("Transaction creation failed: ", error);
+    return new Response(JSON.stringify({ error: "Failed to create new transaction" }), { status: 500 });
+  }
+};

@@ -143,7 +143,7 @@ export function ExpandableCardDemo() {
           layoutId={`card-${leader.username}-${id}`}
           key={`card-${index}-${id}`}
           className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer">
-          <div className="flex gap-4 flex-col md:flex-row ">
+          <div className="flex gap-4 flex-col md:flex-row text-white">
           {index+4}
             <motion.div layoutId={`image-${leader.username}-${id}`}>
               <Image
