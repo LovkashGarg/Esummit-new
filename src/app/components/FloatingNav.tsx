@@ -74,6 +74,7 @@ export function FloatingDockDemo() {
       <FloatingDock
         mobileClassName="translate-y-20" // only for demo, remove for production
         items={links}
+       
       />
     </div>
   );

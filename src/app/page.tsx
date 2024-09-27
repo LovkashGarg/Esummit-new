@@ -31,6 +31,7 @@ export default function Home() {
     <>
     <Head>
         <title>ESummit -2024</title>
+        {/* <link rel="icon" href="/E-summit24 logo.png" /> */}
     </Head>
     <div className="relative w-full bg-neutral-800 items-center justify-center">
     <Navbar handleScroll={handleScroll}/>
