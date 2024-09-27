@@ -1,6 +1,6 @@
 import User from '@/app/models/user';
 import { connectToDB } from '@/app/utils/database';
-
+export const revalidate = 20
 
 export const GET=async(req)=>{
   await connectToDB();

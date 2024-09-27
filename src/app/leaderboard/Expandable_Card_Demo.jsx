@@ -33,12 +33,6 @@ export function ExpandableCardDemo() {
     };
 
     fetchLeaderBoard();
-  
-    // Set interval to refetch every 60 seconds
-    const intervalId = setInterval(fetchLeaderBoard, 20000);
-    // Cleanup the interval on component unmount
-    return () => clearInterval(intervalId);
-
   }, [])
   useEffect(() => {
     function onKeyDown(event) {

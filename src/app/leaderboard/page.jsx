@@ -4,8 +4,10 @@ import Leaderboard from '../components/LeaderBoard'
 import { ExpandableCardDemo } from './Expandable_Card_Demo'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import { useState,useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import InfinityLoader from '../components/infinite_loader'
+export const revalidate = 60
+
 const page = () => {
   const [loading, setLoading] = useState(true);
 
@@ -19,17 +21,17 @@ const page = () => {
   }, []);
   return (
     <div className='bg-black'>
-    {loading ? (
-      <InfinityLoader /> // Show loader while loading
-    ) : (
-    <div className='bg-black'>
-    <Navbar/>
-<Leaderboard/>
-<ExpandableCardDemo/>
-<div className='mt-[100px]'></div>
-<Footer/>
-    </div>
-    )}
+      {loading ? (
+        <InfinityLoader /> // Show loader while loading
+      ) : (
+        <div className='bg-black'>
+          <Navbar />
+          <Leaderboard />
+          <ExpandableCardDemo />
+          <div className='mt-[100px]'></div>
+          <Footer />
+        </div>
+      )}
     </div>
   )
 }
