@@ -1,64 +1,78 @@
-/* components/InfinityLoader.css */
-
+/*
+    width = height = 70px
+    border-width = 10px
+    time = 1s
+*/
 .infinity-loader {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; /* Full viewport height */
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
-    position: fixed; /* Fixed positioning to overlay the entire screen */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 9999; /* High z-index to ensure the loader appears on top */
-  }
-  
-  .infinity-symbol {
-    width: 100px;
-    height: 50px;
-    position: relative;
-  }
-  
-  .infinity-symbol:before,
-  .infinity-symbol:after {
-    content: '';
-    position: absolute;
-    width: 100px; /* Adjust width for the infinity shape */
-    height: 50px;  /* Adjust height for the infinity shape */
-    border: 5px solid white; /* Blue color */
-    border-radius: 50%; /* Create a loop */
-    animation: rotateInfinity 1.5s linear infinite; /* Infinite rotation */
-  }
-  
-  .infinity-symbol:before {
-    left: 0;
-    transform: rotate(45deg); /* Position the first loop */
-  }
-  
-  .infinity-symbol:after {
-    right: 0;
-    transform: rotate(-45deg); /* Position the second loop */
-  }
-  
-  @keyframes rotateInfinity {
-    0% {
-      transform: scale(0.8) rotate(0deg);
-    }
-    50% {
-      transform: scale(1) rotate(180deg);
-    }
-    100% {
-      transform: scale(0.8) rotate(360deg);
-    }
-  }
-  
-  .infinity-loader p {
-    margin-top: 20px;
-    color: #fff; /* White text color */
-    font-size: 1.5rem;
-    text-align: center;
-    font-family: Arial, sans-serif;
-  }
-  
+  position: fixed; /*We have to use it as we are using absolute positioning on its children and we will align it in the center of the page*/
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /*yes, we have to define width and height, otherwise transformation won't work*/
+  width: 130px; /* 2 x width - border-width */
+  height: 70px; /* width */
+}
+
+.infinity-loader .bg div,
+.infinity-loader > .fg > div > div {
+  width: 70px; /* width */
+  height: 70px; /* width */
+  border: 10px solid #aaa; /* border-width solid #aaa */
+  box-sizing: border-box; /* so that its border won't increase its width*/
+  border-radius: 50%; /* to make the div round*/
+  position: absolute;
+}
+
+.infinity-loader .right-bg {
+  transform: translate(100%, 0);
+  left: -10px; /* -border-width */
+}
+
+.infinity-loader > .fg > div > div {
+  border-color: orangered orangered transparent transparent;
+  transform: rotate(135deg);
+  animation: spin 1s linear infinite; /* spin time linear infinite */
+  position: static; /*add this otherwise transformation in its parent won't work as expect*/
+}
+
+.infinity-loader > .fg > div {
+  clip: rect(0, 70px, 35px, 0); /* 0, width, width/2, 0*/
+  position: absolute; /* required for using clip: rect() */
+}
+
+.infinity-loader > .fg > .bottom-right-rect {
+  left: -10px; /* -border-width */
+  transform: translateX(100%) scale(1, -1);
+}
+
+.infinity-loader > .fg > .bottom-right-rect > div {
+  animation-delay: 0.25s; /* time/4 */
+}
+
+.infinity-loader > .fg > .top-right-rect {
+  left: -10px; /* -border-width */
+  transform: translateX(100%) scale(-1, 1);
+}
+
+.infinity-loader > .fg > .top-right-rect > div {
+  animation-delay: 0.5s; /* (2 x time)/4 */
+}
+
+.infinity-loader > .fg > .bottom-left-rect {
+  transform: scale(-1);
+}
+
+.infinity-loader > .fg > .bottom-left-rect > div {
+  animation-delay: 0.75s; /* (3 x time)/4 */
+}
+
+.infinity-loader > .fg {
+  filter: drop-shadow(0 0 6px orangered);
+}
+
+@keyframes spin {
+  50%,
+  100% {
+    transform: rotate(495deg);
+  } /* (360 + 135)deg*/
+}
