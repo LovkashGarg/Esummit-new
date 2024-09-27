@@ -18,10 +18,18 @@ export const metadata = {
 export default function RootLayout({
   children
 }) {
+
+  function handleScroll(sectionId){
+    const section = document.getElementById(sectionId);
+    console.log(sectionId)
+    section?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <html lang="en" className="dark">
       <body className={inter.className}>
         <Provider>
+        {/* <Navbar handleScroll={handleScroll}/> */}
         {children}
         </Provider>
       </body>

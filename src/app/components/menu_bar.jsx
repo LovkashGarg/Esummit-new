@@ -35,7 +35,7 @@ export function Sidebar() {
     <>
       <button
         onClick={handletoggle}
-        className={`${!sideBaropen ? "block" : "hidden"}  left-0 text-start px-[20px] py-[10px]  text-white text-[20px] bg-black sm:text-[25px] w-full sm:hidden `}
+        className={`${!sideBaropen ? "block" : "hidden"}  left-0 text-start px-[20px] py-[5px] bg-transparent  w-full sm:hidden `}
       >
         <img
           className="w-[50px] h-[40px] object-cover"
