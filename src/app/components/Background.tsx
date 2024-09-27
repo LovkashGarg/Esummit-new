@@ -61,7 +61,7 @@
 
 
 import React from "react";
-import logo from "../../../public/courses/web.png"; // Image object
+import logo from "../../../public/courses/web1.png"; // Image object
 import { Vortex } from "./ui/vortex";
 
 export function BackgroundBeamsWithCollisionDemo() {
@@ -77,7 +77,7 @@ export function BackgroundBeamsWithCollisionDemo() {
           backgroundSize: 'cover',  // Ensures the image covers the entire div
           backgroundPosition: 'center',  // Centers the image
           backgroundRepeat: 'no-repeat',  // Prevents the image from repeating
-          // filter: 'brightness(1.5)',
+          filter: 'brightness(1.25)',
         }}
 
       ></div>
