@@ -4,12 +4,10 @@
     time = 1s
 */
 .infinity-loader {
-  /* background-color: black; */
-  position: fixed; /*We have to use it as we are using absolute positioning on its children and we will align it in the center of the page*/
+  position: fixed; 
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  /*yes, we have to define width and height, otherwise transformation won't work*/
   width: 130px; /* 2 x width - border-width */
   height: 70px; /* width */
 }
@@ -33,7 +31,7 @@
   border-color: orangered orangered transparent transparent;
   transform: rotate(135deg);
   animation: spin 1s linear infinite; /* spin time linear infinite */
-  position: static; /*add this otherwise transformation in its parent won't work as expect*/
+  position: static; 
 }
 
 .infinity-loader > .fg > div {

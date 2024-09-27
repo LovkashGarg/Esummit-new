@@ -84,7 +84,7 @@ else{
     <div className='bg-black'>
     <Navbar/>
     <ToastContainer/>
-      <div className='text-[20px] sm:text-[30px] text-center mt-[27%]   sm:mt-[10%]'>Don't Miss a Oppurtunity</div>
+      <div className='text-[20px] sm:text-[30px] text-center mt-[27%] text-white  sm:mt-[10%]'>Don't Miss a Oppurtunity</div>
       <div className='flex flex-col justify-center items-center gap-[20px] mb-[5%]'>
         <div className='qr-image'>
           <Image
