@@ -28,7 +28,7 @@
 }
 
 .infinity-loader > .fg > div > div {
-  border-color: orangered orangered transparent transparent;
+  border-color: yellow yellow transparent transparent;
   transform: rotate(135deg);
   animation: spin 1s linear infinite; /* spin time linear infinite */
   position: static; 

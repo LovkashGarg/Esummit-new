@@ -7,7 +7,7 @@ import { CardHoverEffectDemo } from "./components/card";
 import Navbar from "./components/Navbar";
 import { useEffect ,useState} from "react";
 import InfinityLoader from "./components/infinite_loader";
-
+import Speakers from './speakers/page'
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -43,6 +43,7 @@ export default function Home() {
    <section id="events">
     <CardHoverEffectDemo/>
    </section>
+   <Speakers/>
       <section id="aboutUs">
       <Instructors />
       </section>

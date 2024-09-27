@@ -24,7 +24,7 @@ export function SpotlightPreview(eventData) {
           className="p-4 text-left mt-4 font-normal text-[25px] md:text-[25px] text-base text-neutral-300 max-w-lg ">
           {description}
         </p>
-        <a href='www.google.com' className="bg-blue-600 text-white text-[25px] mx-[30%] rounded-[10px] border-[2px] border-white px-[4%] w-[30%]">Rulebook</a>
+        <a href='https://docs.google.com/document/d/1vtWbd09r5kkVDr9IZJecpsS6v2mQ9G7Ylp5NqhOJDUc/edit?usp=sharing' className="bg-blue-600 text-white text-[25px] mx-[30%] rounded-[10px] border-[2px] border-white px-[4%] w-[30%]">Rulebook</a>
         </div>
         <div className="max-h-full max-w-full ">
         <Image  className="h-[200px] w-[300px]  rounded-md object-cover sm:h-[400px] sm:w-[400px]" 
