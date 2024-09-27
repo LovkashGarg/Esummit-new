@@ -26,7 +26,7 @@ export const HoverEffect = ({
      <div className=" text-[40px] sm:text-[60px] pt-[50px] text-">Our Events</div>
     <div
       className={cn(
-        "h-[350vh] sm:h-[150vh] md:h-[100vh] grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  ",
+        "h-[300vh] sm:h-[150vh] md:h-[80vh] grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  ",
         className
       )}
     >
@@ -60,7 +60,7 @@ export const HoverEffect = ({
            // Allows the image to fill the parent container
            style={{ objectFit: 'contain' }}    src={item.imageurl}></img>
             {/* <CardDescription>{item.description}</CardDescription> */}
-            <Link href={`${item.title}`}><button className="h-[40px]  mt-[5%] mx-auto px-[10%] bg-blue-800 text-white  text-[20px] sm:text-[25px] rounded-[20px] ">Know More</button></Link>
+            <Link href={`${item.title}`}><button className="h-[40px]  mt-[5%] mx-auto px-[10%] bg-blue-900 text-white  text-[20px] sm:text-[25px] rounded-[20px] ">Know More</button></Link>
           </Card>
         </div>
       ))}
