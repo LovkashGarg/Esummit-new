@@ -6,6 +6,7 @@ export const GET=async(req)=>{
   await connectToDB();
 
   try {
+    console.log("fetching from DB")
     const leaderboard=await User.find({})
     .sort({referralCount:-1})
     .select('username referralCount image email')

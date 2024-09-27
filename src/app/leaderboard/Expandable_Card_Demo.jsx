@@ -3,29 +3,28 @@ import Image from "next/image";
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/app/Hooks/OutsideClick";
-export const revalidate = 60
 export function ExpandableCardDemo() {
   const [active, setActive] = useState(null);
   const ref = useRef(null);
   const id = useId();
-  const [leaders,setLeaders]=useState([]);
+  const [leaders, setLeaders] = useState([]);
 
-  useEffect(()=>{
-    const fetchLeaderBoard=async()=>{
-      const apiURL = process.env.NEXTAUTH_URL 
-      ? `${process.env.NEXTAUTH_URL}/api/leaderboard` 
-      : '/api/leaderboard'
+  useEffect(() => {
+    const fetchLeaderBoard = async () => {
+      const apiURL = process.env.NEXTAUTH_URL
+        ? `${process.env.NEXTAUTH_URL}/api/leaderboard`
+        : '/api/leaderboard'
       try {
-        const response= await fetch(apiURL);
+        console.log("making api call")
+        const response = await fetch(apiURL);
 
-        const data=await response.json();
+        const data = await response.json();
 
-        if(data.success)
-        {
+        if (data.success) {
           setLeaders(data.data.slice(3));
         }
 
-        else{
+        else {
           console.error('Error fetching leaderboard:', data.message);
         }
       } catch (error) {
@@ -34,7 +33,13 @@ export function ExpandableCardDemo() {
     };
 
     fetchLeaderBoard();
-  },[])
+  
+    // Set interval to refetch every 60 seconds
+    const intervalId = setInterval(fetchLeaderBoard, 20000);
+    // Cleanup the interval on component unmount
+    return () => clearInterval(intervalId);
+
+  }, [])
   useEffect(() => {
     function onKeyDown(event) {
       if (event.key === "Escape") {
@@ -147,7 +152,7 @@ export function ExpandableCardDemo() {
           key={`card-${index}-${id}`}
           className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer">
           <div className="flex gap-4 flex-col md:flex-row  ">
-          <div className="rounded-full border-[2px] flex items-center justify-center w-[40px] mt-2 h-[40px] border-white">{index+4}</div>
+            <div className="rounded-full border-[2px] flex items-center justify-center w-[40px] mt-2 h-[40px] border-white">{index + 4}</div>
             <motion.div layoutId={`image-${leader.username}-${id}`}>
               <Image
                 width={100}
