@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import { useEffect ,useState} from "react";
 import InfinityLoader from "./components/infinite_loader";
 import Speakers from './speakers/page'
+import { PrizePool } from "./components/prize_pool";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -43,6 +44,7 @@ export default function Home() {
    <section id="events">
     <CardHoverEffectDemo/>
    </section>
+   <PrizePool/>
    <Speakers/>
       <section id="aboutUs">
       <Instructors />
