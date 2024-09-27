@@ -34,7 +34,7 @@ function Navbar({handleScroll}) {
       <Sidebar  />
     <div className={cn("fixed top-20 sm:top-10   inset-x-0 max-sm:w-full max-w-full mx-auto z-50 flex justify-between ")}>
       
-      <Image src={logo} priority className="top-20 w-[80px] h-[80px] m-auto md:w-[100px] md:h-[100px] z-3 md:ml-24 md:m-0" width={100} height={100} alt="logo" ></Image>
+      <Image src={logo} priority className="top-20 w-[80px] h-[80px] m-auto md:w-[80px] md:h-[70px] z-3 md:ml-24 md:m-0" width={100} height={100} alt="logo" ></Image>
     
        <div className="mr-8 hidden flex flex-col items-center justify-center md:block ml-24" >
 

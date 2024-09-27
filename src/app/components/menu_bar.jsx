@@ -5,7 +5,6 @@ import { useState } from "react";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
 import { getProviders, signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
-
 export function Sidebar() {
   const { data: session } = useSession();
   const [sideBaropen, setsideBaropen] = useState(false);
@@ -35,10 +34,10 @@ export function Sidebar() {
     <>
       <button
         onClick={handletoggle}
-        className={`${!sideBaropen ? "block" : "hidden"}  left-0 text-start px-[20px] py-[5px] bg-transparent  w-full sm:hidden `}
+        className={`${!sideBaropen ? "block" : "hidden"}  fixed top-4 left-4 z-50 text-start px-4 py-2 bg-transparent bg-transparent  sm:hidden `}
       >
         <img
-          className="w-[50px] h-[40px] object-cover"
+          className="w-[70px] h-[50px] object-cover"
           src="https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-icon-svg-white.png"
           style={{
             clipPath: "circle(50% at 50% 50%)", // This creates a circular mask
