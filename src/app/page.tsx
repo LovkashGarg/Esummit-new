@@ -7,6 +7,8 @@ import { CardHoverEffectDemo } from "./components/card";
 import Navbar from "./components/Navbar";
 import { useEffect ,useState} from "react";
 import InfinityLoader from "./components/infinite_loader";
+
+
 export default function Home() {
   const [loading, setLoading] = useState(true);
 

@@ -12,8 +12,11 @@ export function ExpandableCardDemo() {
 
   useEffect(()=>{
     const fetchLeaderBoard=async()=>{
+      const apiURL = process.env.NODE_ENV === 'production' 
+    ? 'https://esummit-new.vercel.app/api/leaderboard' 
+    : '/api/leaderboard';
       try {
-        const response= await fetch('/api/leaderboard');
+        const response= await fetch(apiURL);
 
         const data=await response.json();
 
@@ -177,100 +180,3 @@ export function ExpandableCardDemo() {
   </>);
 }
 
-const cards = [
-  {
-    description: "Lana Del Rey",
-    title: "Rahul Singh",
-    src: "https://assets.aceternity.com/demos/lana-del-rey.jpeg",
-    Referraldone: "14"
-    },
-  {
-    description: "Babbu Maan",
-    title: "Kunal Dubey",
-    src: "https://assets.aceternity.com/demos/babbu-maan.jpeg",
-    Referraldone: "12",
-    },
-  {
-    description: "Metallica",
-    title: "For Whom The Bell Tolls",
-    src: "https://assets.aceternity.com/demos/metallica.jpeg",
-    Referraldone: "10",
-  },
-  {
-    description: "Andrew Tate",
-    title: "Andrew Tate",
-    src: "https://assets.aceternity.com/demos/led-zeppelin.jpeg",
-    Referraldone: "8",
-  },
-  {
-    description: "Stephen Hawkings",
-    title: "Stephen Hawkings",
-    src: "https://assets.aceternity.com/demos/led-zeppelin.jpeg",
-    Referraldone: "8",
-  }, {
-    description: "Chaman Kajaria",
-    title: "Chaman Kajaria",
-    src: "https://assets.aceternity.com/demos/led-zeppelin.jpeg",
-    Referraldone:"8",
-  },{
-    description: "Nikhil Singh",
-    title: "Nikhil Singh",
-    src: "https://assets.aceternity.com/demos/led-zeppelin.jpeg",
-    Referraldone: "8",
-  }, {
-    description: "Himanshu gupta",
-    title: "Himanshu gupta",
-    src: "https://assets.aceternity.com/demos/led-zeppelin.jpeg",
-    Referraldone: "8",
-  }, {
-    description: "Led Zeppelin",
-    title: "Stairway To Heaven",
-    src: "https://assets.aceternity.com/demos/led-zeppelin.jpeg",
-    Referraldone:"8",
-  }, {
-    description: "Led Zeppelin",
-    title: "Stairway To Heaven",
-    src: "https://assets.aceternity.com/demos/led-zeppelin.jpeg",
-    Referraldone:"4",
-  }, {
-    description: "Led Zeppelin",
-    title: "Stairway To Heaven",
-    src: "https://assets.aceternity.com/demos/led-zeppelin.jpeg",
-    Referraldone:"2",
-  }, {
-    description: "Led Zeppelin",
-    title: "Stairway To Heaven",
-    src: "https://assets.aceternity.com/demos/led-zeppelin.jpeg",
-    Referraldone:"2",
-  }, {
-    description: "Led Zeppelin",
-    title: "Stairway To Heaven",
-    src: "https://assets.aceternity.com/demos/led-zeppelin.jpeg",
-    Referraldone:"1",
-  },
-  {
-    description: "Mustafa Zahid",
-    title: "Toh Phir Aao",
-    src: "https://assets.aceternity.com/demos/toh-phir-aao.jpeg",
-    Referraldone:"0",
-  },
-  {
-    description: "Mustafa Zahid",
-    title: "Toh Phir Aao",
-    src: "https://assets.aceternity.com/demos/toh-phir-aao.jpeg",
-    Referraldone:"0",
-  },
-  {
-    description: "Mustafa Zahid",
-    title: "Toh Phir Aao",
-    src: "https://assets.aceternity.com/demos/toh-phir-aao.jpeg",
-    Referraldone:"0",
-  },
-  {
-    description: "Mustafa Zahid",
-    title: "Toh Phir Aao",
-    src: "https://assets.aceternity.com/demos/toh-phir-aao.jpeg",
-    Referraldone:"0",
-  },
-  
-];
