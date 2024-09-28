@@ -10,15 +10,25 @@ import { useEffect,useState } from 'react';
 import InfinityLoader from '../../components/infinite_loader';
 import { toast, ToastContainer } from 'react-toastify';
 import Footer from '../../components/Footer';
+import { usePathname } from 'next/navigation';
   const PaymentGateway = () => {
   const {data:session}=useSession()
    const [TransactionId, setTransactionId] = useState('')
    const [ContactNumber, setContactNumber] = useState('')
    const [ScoutId, setScoutId] = useState('');
    const [notification, setNotification] = useState('');
+   const pathName=usePathname();
+
+   const id=pathName.split('/').pop();
+
 
    const handleSubmit=async ()=>{
 
+    const QRAmount={
+      '1':50,
+      '2':200,
+      '3':100
+    }
     if (!session) {
       toast.error('You must need to sign in to buy ticket')
       return;
@@ -49,7 +59,8 @@ try {
     contactnumber:ContactNumber,
     username:session?.user.name,
     transactionid:TransactionId,
-    scoutid:ScoutId
+    scoutid:ScoutId,
+    amount:QRAmount[id]
     })
   })
   if (!res.ok) {
@@ -82,6 +93,14 @@ else{
       return () => clearTimeout(timer); // Clean up the timeout
     }, []);
       
+    const qrCodeMapping={
+      '1':'/assets/50Rs_QR.jpeg',
+      '2':'/assets/100Rs_QR.jpeg',
+      '3':'/assets/200Rs_QR.jpeg',
+      '4':'/QRCODE.jpg'
+    }
+
+    const qrCodeImage = qrCodeMapping[id] 
   return (
     <div>
       {loading ? (
@@ -95,7 +114,7 @@ else{
         <div className='qr-image'>
           <Image
             className='w-[300px] h-[300px] rounded-[40px]'
-            src='/QRCODE.jpg' // Use the public directory path
+            src={qrCodeImage} // Use the public directory path
             alt='QR Image'
             width={400} // Define width for Next.js Image
             height={400} // Define height for Next.js Image

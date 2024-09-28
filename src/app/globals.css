@@ -38,3 +38,10 @@ body {
     text-wrap: balance;
   }
 }
+
+@font-face{
+  font-family: 'MyCustomFont';
+  src: url('/fonts/MyCustomFont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
