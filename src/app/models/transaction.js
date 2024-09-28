@@ -28,8 +28,10 @@ const TransactionSchema=new Schema(
         },
         referralId:{
             type:String,
+        },
+        amount:{
+            type:String
         }
-
     }
 )
 

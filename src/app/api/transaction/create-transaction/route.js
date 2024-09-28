@@ -11,7 +11,7 @@ export const POST = async (req) => {
     return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
   }
 
-  const { email, contactnumber, username, transactionid, scoutid } = await req.json();
+  const { email, contactnumber, username, transactionid, scoutid, amount } = await req.json();
 
   // Input validation (add your validation logic here)
   if (!email || !transactionid || !scoutid) {
@@ -45,7 +45,8 @@ export const POST = async (req) => {
       contactNumber: contactnumber,
       name: username,
       transactionId: transactionid,
-      referralId: scoutid
+      referralId: scoutid,
+      amount:amount
     });
 
     await newTransaction.save();
