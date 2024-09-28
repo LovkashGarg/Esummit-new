@@ -6,9 +6,10 @@ import Navbar from '../components/Navbar';
 import Link from 'next/link';
 import CheckboxPopupMenu from './popup';
 import { useState} from 'react';
+import InfinityLoader from '../components/infinite_loader';
 // import { useRouter } from 'next/router';
 // const Router=useRouter();
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
 const TicketSection = () => {
   const tickets = [
     {
@@ -89,6 +90,13 @@ const TicketSection = () => {
 
 const [Ticketid,setTicketId]=useState();
   const handleSubmit = (ticketid) => {
+    if(ticketid===3){
+       // I have to check if done or not 
+       if(selectedCheckboxes.length!==3){
+        alert("Please select 3 events");
+        return;
+       }
+    }
     // href={`/payment/${ticket.id}`}
     // window.location.href = `/payment/${Ticketid}`;
     const events = selectedCheckboxes.join(',');
@@ -114,7 +122,21 @@ const [Ticketid,setTicketId]=useState();
       handleSubmit(ticketid);
     }
   }
+  const [loading, setLoading] = useState(true);
+  
+  // Simulate a data fetch with a timeout
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false); // Set loading to false after 2 seconds
+    }, 2000);
+
+    return () => clearTimeout(timer); // Clean up the timeout
+  }, []);
   return (
+    <div>
+    {loading ? (
+      <InfinityLoader /> // Show loader while loading
+    ) : (
     <div className='bg-black'>
     <Navbar/>
     <div className="container">
@@ -215,6 +237,8 @@ const [Ticketid,setTicketId]=useState();
     </div>
     <Footer/>
     <CheckboxPopupMenu/>
+    </div>
+    )}
     </div>
   );
 };

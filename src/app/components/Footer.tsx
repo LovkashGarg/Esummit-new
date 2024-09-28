@@ -1,7 +1,25 @@
+"use client"
 import React from 'react'
 import Link from 'next/link'
-
+import { useEffect ,useState} from 'react';
 const Footer = () => {
+  const [visits, setVisits] = useState(0);
+
+  useEffect(() => {
+    // Retrieve the visit count from localStorage
+    let visitCount = localStorage.getItem('visitCount');
+    if (!visitCount) {
+      // First visit, initialize it
+      visitCount = 1;
+    } else {
+      // Increment the visit count
+      visitCount = parseInt(visitCount) + 1;
+    }
+    // Store updated visit count in localStorage
+    localStorage.setItem('visitCount', visitCount);
+    setVisits(visitCount);
+  }, []);
+
   return (
     <footer className="bg-black text-gray-400 py-12">
     <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 sm:px-6 lg:px-8">
@@ -68,6 +86,9 @@ const Footer = () => {
         >
           Instagram
         </a>
+      </div>
+      <div>
+        Total Visitors :{ visits}
       </div>
     </div>
     <div>
