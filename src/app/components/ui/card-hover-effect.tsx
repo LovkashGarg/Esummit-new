@@ -23,7 +23,7 @@ export const HoverEffect = ({
 
   return (
     <div className="pt-[150px]">
-     <div className=" text-[40px] sm:text-[60px] pt-[50px] text-">Our Events</div>
+     <div className=" text-[40px] sm:text-[60px] pt-[50px] font-mono" >Our Events</div>
     <div
       className={cn(
         "h-[300vh] sm:h-[150vh] md:h-[80vh] grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  ",
@@ -33,9 +33,10 @@ export const HoverEffect = ({
       {items.map((item, idx) => (
         <div
           key={idx}
-          className="relative group  block p-2 h-full w-full"
+          className="relative group  block p-2 h-full w-full font-mono"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
+          // style={{ fontFamily: 'MyCustomFont, sans-serif' }}
         >
           <AnimatePresence >
             {hoveredIndex === idx && (

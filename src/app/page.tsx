@@ -9,6 +9,7 @@ import { useEffect ,useState} from "react";
 import InfinityLoader from "./components/infinite_loader";
 import Speakers from './speakers/page'
 import { PrizePool } from "./components/prize_pool";
+import './globals.css';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -21,10 +22,12 @@ export default function Home() {
 
     return () => clearTimeout(timer); // Clean up the timeout
   }, []);
-  function handleScroll(sectionId){
+  const handleScroll = (sectionId) => {
     const section = document.getElementById(sectionId);
-    console.log(sectionId)
-    section?.scrollIntoView({ behavior: 'smooth' });
+    console.log(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
   return (
     <div>
@@ -42,7 +45,7 @@ export default function Home() {
     <main className="min-h-screen bg-black/[0.96] antialiased bg-grid-black/[0.02]">
   <BackgroundBeamsWithCollisionDemo/>
    <section id="events">
-    <CardHoverEffectDemo/>
+    <CardHoverEffectDemo />
    </section>
    <PrizePool/>
    <Speakers/>
