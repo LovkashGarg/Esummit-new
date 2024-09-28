@@ -34,9 +34,9 @@ const TicketSection = () => {
   ];
 
   return (
-    <>
+    <div className='bg-black'>
     <Navbar/>
-    <div className="mt-[200px] sm:mt-[100px] max-w-7xl mx-auto py-12">
+    <div className="mt-[200px] sm:mt-[100px]  max-w-7xl mx-auto py-12">
       <h2 className="text-4xl font-bold text-center mb-12 ">Choose Your Tickets</h2>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
@@ -50,7 +50,7 @@ const TicketSection = () => {
         
             <ul className="list-none ">
               {ticket.events.map((event, index) => (
-                <li key={index} className="text-white my-[10px] flex  items-center justify-center "><img src="https://cdn.pixabay.com/photo/2017/01/13/01/22/ok-1976099_1280.png" alt="" className='w-[40px] h-[40px]' /><div className='text-[15px]'>{event}</div></li>
+                <li key={index} className="text-white my-[10px] flex  items-center justify-left "><img src="https://cdn.pixabay.com/photo/2017/01/13/01/22/ok-1976099_1280.png" alt="" className='w-[40px] h-[40px]' /><div className='text-[15px] text-left'>{event}</div></li>
               ))}
             </ul>
             <button className='mt-5 bg-slate-900 text-white rounded-[20px] w-[150px] sm:w-[160px] md:w-[200px] h-[40px] text-[25px] '><Link href={`/payment/${ticket.id}`} >Buy Now</Link></button>
@@ -60,7 +60,7 @@ const TicketSection = () => {
       </div>
     </div>
     <Footer/>
-    </>
+    </div>
   );
 };
 
