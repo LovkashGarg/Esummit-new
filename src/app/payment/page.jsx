@@ -46,7 +46,7 @@ const TicketSection = () => {
           <div key={ticket.id}  style={{ backgroundColor: ticket.color }}  className={` border-[5px] border-gray-300 rounded-[30px] p-6 mt-[10px] shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out text-center`}>
             <h3 className="text-xl text-yellow-400 font-semibold mb-4">{ticket.title}</h3>
             <p className="text-white mb-4">{ticket.description}</p>
-            <p className="text-2xl font-bold text-yellow-600 mb-4">{ticket.price}</p>
+            <p className="text-2xl font-bold text-yellow-300 mb-4">{ticket.price}</p>
         
             <ul className="list-none ">
               {ticket.events.map((event, index) => (
