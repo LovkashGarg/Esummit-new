@@ -92,7 +92,25 @@ else{
   
       return () => clearTimeout(timer); // Clean up the timeout
     }, []);
-      
+       const [visits, setVisits] = useState(0);
+
+  useEffect(() => {
+    // Retrieve the visit count from localStorage
+    let visitCount = localStorage.getItem('visitCount');
+
+    if (!visitCount) {
+      // First visit, initialize it
+      visitCount = 1;
+    } else {
+      // Increment the visit count
+      visitCount = parseInt(visitCount) + 1;
+    }
+
+    // Store updated visit count in localStorage
+    localStorage.setItem('visitCount', visitCount);
+    setVisits(visitCount);
+  }, []);
+
     const qrCodeMapping={
       '1':'/assets/50Rs_QR.jpeg',
       '2':'/assets/100Rs_QR.jpeg',
@@ -159,6 +177,11 @@ else{
     </div>
     </div> */}
     {/* </div> */}
+    <ul className='flex items-center list-disc  justify-center flex-col'>
+    <li className='text-[20px] text-white'>Multiple Transaction done from one  user would be counted under one Transaction. </li>
+    <li className='text-[20px] text-left text-white'>In case of any Issue Contact Ecell Support Team</li>
+    </ul>
+    
     <Footer />
     </div>
       )}
