@@ -36,13 +36,16 @@ export function Sidebar() {
         onClick={handletoggle}
         className={`${!sideBaropen ? "block" : "hidden"}  fixed top-4 left-4 z-50 text-start px-4 py-2 bg-transparent bg-transparent  sm:hidden `}
       >
-        <img
+        {/* <img
           className="w-[70px] h-[50px] object-cover"
           src="https://www.clipartmax.com/png/middle/351-3518256_menu-hamburger-icon-svg-white.png"
           style={{
             clipPath: "circle(50% at 50% 50%)", // This creates a circular mask
           }}
-        ></img>
+        ></img> */}
+         <div className="text-white text-[25px]">
+          Menu
+        </div>
       </button>
       <div
         className={`fixed top-0 z-10 left-0 h-full bg-black text-white w-40 transform ${
