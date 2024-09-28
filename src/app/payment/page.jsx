@@ -42,7 +42,7 @@ const TicketSection = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {tickets.map(ticket => (
            <div className='flex mx-[10%]  flex-col'>
-           <div key={ticket.id} className={`${ticket.id==2? 'block':'hidden'} bg-slate-00 text-center h-[40px] text-[30px] rounded-[10px] `}>Most Popular</div>
+           <div key={ticket.id} className={`${ticket.id==2? 'block':'hidden'} bg-slate-900 text-center h-[40px] text-[30px] rounded-[10px] `}>Most Popular</div>
           <div key={ticket.id}  style={{ backgroundColor: ticket.color }}  className={` border-[5px] border-gray-300 rounded-[30px] p-6 mt-[10px] shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out text-center`}>
             <h3 className="text-xl text-yellow-400 font-semibold mb-4">{ticket.title}</h3>
             <p className="text-white mb-4">{ticket.description}</p>
