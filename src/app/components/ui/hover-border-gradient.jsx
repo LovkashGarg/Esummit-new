@@ -13,7 +13,7 @@ export function HoverBorderGradient({
   clockwise = true,
   ...props
 }) {
-  const [hovered, setHovered] = useState(false);
+  const [hovered, setHovered] = useState(true);
   const [direction, setDirection] = useState("TOP");
 
   const rotateDirection = currentDirection => {
@@ -48,16 +48,16 @@ export function HoverBorderGradient({
   return (
     (<Tag
       onMouseEnter={(event) => {
-        setHovered(true);
+        setHovered(false);
       }}
-      onMouseLeave={() => setHovered(false)}
+      onMouseLeave={() => setHovered(true)}
       className={cn(
-        "relative flex rounded-full border  content-center bg-black/20 hover:bg-black/10 transition duration-500 dark:bg-white/20 items-center flex-col flex-nowrap gap-10 h-min justify-center overflow-visible p-px decoration-clone w-fit",
+        "relative flex rounded-full border  content-center bg-slate-800 hover:bg-black/10 transition duration-500 dark:bg-slate-800 items-center flex-col flex-nowrap gap-10 h-min justify-center overflow-visible p-px decoration-clone w-fit",
         containerClassName
       )}
       {...props}>
       <div
-        className={cn("w-auto text-white z-10 bg-black px-4 py-2 rounded-[inherit]", className)}>
+        className={cn("w-auto text-white z-10 bg-slate-800 px-4 py-2 rounded-[inherit]", className)}>
         {children}
       </div>
       <motion.div

@@ -20,7 +20,13 @@ import Footer from '../components/Footer';
    const handleSubmit=async ()=>{
 
     if (!session) {
-      setNotification('You must be logged in to make a transaction.');
+      toast.error('You must need to sign in to buy ticket')
+      return;
+    }
+
+    const isValidPhoneNumber = /^\d{10}$/.test(ContactNumber);
+    if (!isValidPhoneNumber) {
+      toast.error('Phone number must be exactly 10 digits.');
       return;
     }
 

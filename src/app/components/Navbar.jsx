@@ -36,7 +36,7 @@ function Navbar({handleScroll}) {
       
       <Image src={logo} priority className="top-20 w-[80px] h-[80px] m-auto md:w-[80px] md:h-[70px] z-3 md:ml-24 md:m-0" width={100} height={100} alt="logo" ></Image>
     
-       <div className="mr-8 hidden flex flex-col items-center justify-center md:block ml-24" >
+       <div className="mr-8 hidden flex flex-col items-center justify-center md:block ml-24 max-h-16 " >
 
       <Menu setActive={setActive} >
         <Link key={1} href="/">
@@ -50,7 +50,7 @@ function Navbar({handleScroll}) {
         </Link>
         <Link key={3} href='/leaderboard'>
        <div >
-        <MenuItem setActive={setActive} active={active} item="LeaderBoard"></MenuItem>
+        <MenuItem setActive={setActive} active={active} item="Leaderboard"></MenuItem>
        </div>
        </Link>
        <Link key={4} href="/payment">
@@ -66,7 +66,7 @@ function Navbar({handleScroll}) {
                 containerClassName="rounded-full"
                 as="button"
                 onClick={signOut}
-                className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2">
+                className="bg-slate-900  text-white  hover:text-slate-400 flex items-center space-x-2">
                 <span>Sign Out</span>
               </HoverBorderGradient>
               
@@ -101,7 +101,7 @@ function Navbar({handleScroll}) {
                 containerClassName="rounded-full"
                 as="button"
                 onClick={signIn}
-                className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2">
+                className="bg-slate-900 text-white hover:text-slate-400 flex items-center space-x-2">
                 <span>Sign In </span>
               </HoverBorderGradient>
                 
