@@ -9,34 +9,29 @@ import { getProviders, signIn, signOut, useSession } from "next-auth/react";
 import logo from "../../../public/courses/E-Cell logo Yellow-white.png"
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
 import { Sidebar } from "./menu_bar";
-function Navbar({handleScroll}) {
+function Navbar({ handleScroll }) {
 
   const [active, setActive] = useState(null);
-  const{ data:session}=useSession();
-  const [providers,setProviders]=useState(null);
+  const { data: session } = useSession();
+  const [providers, setProviders] = useState(null);
   // const [toggleDropdown, setToggleDropdown] =useState(false);
-  useEffect(()=>{
-    const setUpProviders=async ()=>{
-      const response=await getProviders();
+  useEffect(() => {
+    const setUpProviders = async () => {
+      const response = await getProviders();
       setProviders(response);
     }
-    
+
     setUpProviders();
-  },[])
+  }, [])
   const [copied, setCopied] = useState("");
-  const handleCopy=()=>{
+  const handleCopy = () => {
     setCopied(session?.user.scoutId);
     navigator.clipboard.writeText(session?.user.scoutId);
-    setTimeout(()=>setCopied(""),5000);
+    setTimeout(() => setCopied(""), 5000);
   }
   return (
     <div className="flex">
-      <Sidebar  />
-    <div className={cn("fixed top-20 sm:top-10   inset-x-0 max-sm:w-full max-w-full mx-auto z-50 flex justify-between ")}>
-      
-      <Image src={logo} priority className="top-20 w-[80px] h-[80px] m-auto md:w-[80px] md:h-[70px] z-3 md:ml-24 md:m-0" width={100} height={100} alt="logo" ></Image>
-    
-       <div className="mr-8 hidden flex flex-col items-center justify-center md:block ml-24 max-h-16 " >
+      <div className={cn("fixed  sm:top-10  inset-x-0 max-sm:w-full max-w-full mx-auto z-20 top-3  flex justify-between ")}>
 
       <Menu setActive={setActive} >
         <Link key={1} href="/">
@@ -57,62 +52,63 @@ function Navbar({handleScroll}) {
       </Menu>
 </div>
 
-      <div key={5} className="hidden md:flex md:block min-w-[240px] mr-8">
-      { session?.user ?(
-        <div className="flex gap-3 md:gap-5">
+        <div key={5} className=" md:flex md:block sm:min-w-[240px] sm:mr-8">
+          {session?.user ? (
+            <div className="flex gap-3 md:gap-5">
+             
+
+              <div className="flex ">
+
+                <img src={session?.user.image} className="hidden md:block md:w-[40px] sm:h-[40px] md:rounded-full md:ml-16" alt="logo" />
+                <div className="hidden sm:block sm:text-sm">
+                  <p>
+                    Your referral ID:
+                  </p>
+                  <div className="flex gap-x-2">
+
+                    <p className="text-blue-400">
+                      {session?.user.scoutId}
+                    </p>
+                    <div className='w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgba(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer' onClick={handleCopy}>
+                      <Image src={copied === session?.user.scoutId ? '/assets/tick.svg' : '/assets/copy.svg'} width={12} height={12} alt='clicked' />
+                    </div>
+                  </div>
+                </div>
+
+              </div>
               <HoverBorderGradient
                 containerClassName="rounded-full"
                 as="button"
                 onClick={signOut}
-                className="bg-slate-900  text-white  hover:text-slate-400 flex items-center space-x-2">
+                className=" hidden md:bg-slate-900  md:text-white  md:hover:text-slate-400 md:flex md:items-center md:space-x-2">
                 <span>Sign Out</span>
               </HoverBorderGradient>
-              
-              <div >
+            </div>
 
-              <img src={session?.user.image} className=" w-[50px] h-[50px]  sm:w-[50px] sm:h-[50px] rounded-full ml-16"  alt="logo"/>
-              <div> 
-                <p>
-                Your referral ID:
-                  </p>
-                  <div className="flex gap-x-2">
+          ) :
+            (
+              <>
+                {providers &&
+                  Object.values(providers).map((provider) => (
+                    <div key={6} className="flex gap-3 md:gap-5">
+                      <HoverBorderGradient
+                        containerClassName="rounded-full"
+                        as="button"
+                        onClick={signIn}
+                        className="bg-slate-900 text-white hover:text-slate-400 flex items-center space-x-2">
+                        <span>Sign In </span>
+                      </HoverBorderGradient>
 
-                  <p className="text-blue-400">
-              {session?.user.scoutId} 
-                </p>
-                <div className='w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgba(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer' onClick={handleCopy}>
-                 <Image src={copied===session?.user.scoutId ? '/assets/tick.svg':'/assets/copy.svg'} width={12} height={12} alt='clicked'/>
-                     </div>
-                  </div>
-                </div>
+                    </div>
+                  ))
+                }
+              </>
+            )
+          }
 
-                </div>
-      </div>
-                
-        ):
-        (
-          <>
-         {providers && 
-          Object.values(providers).map((provider)=>(
-            <div key={6} className="flex gap-3 md:gap-5">
-              <HoverBorderGradient
-                containerClassName="rounded-full"
-                as="button"
-                onClick={signIn}
-                className="bg-slate-900 text-white hover:text-slate-400 flex items-center space-x-2">
-                <span>Sign In </span>
-              </HoverBorderGradient>
-                
         </div>
-          ))
-         }
-          </>
-        )
-       }
-      
       </div>
     </div>
-      </div>
 
   )
 }
