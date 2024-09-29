@@ -10,16 +10,22 @@ import { useEffect,useState } from 'react';
 import InfinityLoader from '../../components/infinite_loader';
 import { toast, ToastContainer } from 'react-toastify';
 import Footer from '../../components/Footer';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
   const PaymentGateway = () => {
   const {data:session}=useSession()
    const [TransactionId, setTransactionId] = useState('')
    const [ContactNumber, setContactNumber] = useState('')
    const [ScoutId, setScoutId] = useState('');
-   const [notification, setNotification] = useState('');
+  
    const pathName=usePathname();
 
    const id=pathName.split('/').pop();
+
+   const searchParams=useSearchParams();
+
+   const events=searchParams.get('events')
+
+   const eventList=events? events.split(','): [];
 
 
    const handleSubmit=async ()=>{
@@ -29,6 +35,29 @@ import { usePathname } from 'next/navigation';
       '2':200,
       '3':100
     }
+
+    const eventMap = {
+      '1':'OTH' ,
+    '2':'Startup Survival' ,
+    '3': 'Big Bull' ,
+     '4': 'Breaking Convention' ,
+     '5': 'Brand Brawl' ,
+     '6': 'E summit Junior' ,
+      '7': 'Lights Out' ,
+     '8': 'Stadium Showdown' 
+    }
+    var eventNames = eventList.map(eventId => eventMap[eventId]);
+
+    if(id==='2')
+    {
+      eventNames='all'
+    }
+
+    if(id==='4')
+    {
+      eventNames='All online events'
+    }
+
     if (!session) {
       toast.error('You must need to sign in to buy ticket')
       return;
