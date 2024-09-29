@@ -14,48 +14,58 @@ export function SpotlightPreview(eventData) {
       <div className="flex flex-col md:flex-row justify-center items-start w-full max-w-6xl">
 
        
-        <div className="w-full md:w-1/3 flex justify-center md:justify-start">
-          <div className="border-[3px] border-white rounded-[45px] mt-5 md:mt-0 p-3 w-full sm:w-3/4 md:w-full">
+        <div className="">
+          <div className="border-[3px] border-white rounded-full  p-10 w-full">
             <Image
-              className="rounded-md object-cover"
+              className="rounded-lg  w-[200px] h-[200px] mx-auto"
               alt="Event Image"
-              width={200}
-              height={200}
+              width={100}
+              height={100}
               src={image}
             />
+
           </div>
+            <p className="text-center mt-5 text-4xl font-sans">{decodedName}</p>
+
+            
         </div>
+
+        
 
       
         <div className="flex flex-col w-full md:w-2/3 mt-5 md:mt-0 md:ml-8 space-y-5 "> 
 
          
-          <div className="rounded-[45px] p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-5 sm:space-y-0 sm:space-x-4 w-full border-[3px] border-white">
+          <div className="rounded-[45px] px-9 flex py-5 justify-between items-start sm:items-center space-y-5 sm:space-y-0 sm:space-x-4 w-full border-[3px] border-white">
 
-           
-            <div className="flex-1 text-white text-center sm:text-left">
-              <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold">{decodedName}</h2>
-            </div>
-
-          
-            <div className="flex-1 text-white text-center sm:text-left">
-              <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold">Section 2</h2>
+            <div className="font-bold text-xl">
+              Team Size : 
+              <span className="text-yellow-600">
+                2 members
+                </span>
+            </div> 
+            <div className=" text-white text-center sm:text-left">
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold">Prize- 
+                <span className="text-yellow-600">
+                  6K
+                  </span>
+                </h2>
              
             </div>
 
-           
-            <div className="flex-1 text-white text-center sm:text-left">
+           <div className=" text-white text-center sm:text-left   ">
              
-               <a href='https://docs.google.com/document/d/1vtWbd09r5kkVDr9IZJecpsS6v2mQ9G7Ylp5NqhOJDUc/edit?usp=sharing' className="bg-blue-600 text-white text-[25px] mx-[30%] rounded-[10px] border-[2px] border-white px-[4%] w-[30%]">Rulebook</a> 
+               <a href='https://docs.google.com/document/d/1vtWbd09r5kkVDr9IZJecpsS6v2mQ9G7Ylp5NqhOJDUc/edit?usp=sharing' className=" text-[25px]  rounded-full border-[2px] border-white  w-[30%] p-3 bg-yellow-600">Rulebook</a> 
             
             </div>
+            
 
           </div>
 
         
-          <div className="border-[3px] border-white rounded-[45px] p-4 flex justify-center items-center">
-            <div className="text-white text-center">
-              <p className="mt-4 text-sm sm:text-lg">{description}</p>
+          <div className="border-[3px] border-white rounded-[45px] p-4 flex justify-center">
+            <div className="text-white text-left">
+              <p className="text-sm sm:text-lg m-7">{description}</p>
             </div>
           </div>
 
