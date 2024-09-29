@@ -37,14 +37,13 @@ import { usePathname, useSearchParams } from 'next/navigation';
     }
 
     const eventMap = {
-      '1':'OTH' ,
-    '2':'Startup Survival' ,
-    '3': 'Big Bull' ,
-     '4': 'Breaking Convention' ,
-     '5': 'Brand Brawl' ,
-     '6': 'E summit Junior' ,
-      '7': 'Lights Out' ,
-     '8': 'Stadium Showdown' 
+    '1':'Startup Survival',
+    // '2': 'Big Bull' ,
+     '2': 'Breaking Convention',
+     '3': 'Brand Brawl' ,
+     '4': 'E summit Junior',
+      '5': 'Lights Out' ,
+    //  '6': 'Stadium Showdown' 
     }
     var eventNames = eventList.map(eventId => eventMap[eventId]);
 
