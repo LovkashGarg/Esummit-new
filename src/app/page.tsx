@@ -49,6 +49,7 @@ export default function Home() {
    </section>
    <PrizePool/>
    <Speakers/>
+
       <section id="aboutUs">
       <Instructors />
       </section>
