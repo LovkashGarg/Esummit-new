@@ -10,8 +10,8 @@ export const metadata = {
   title: "E-Summit'24|IIIT Pune",
   description: "Sewing Sight,Sparking Stories",
   icons: {
-    icon: "/E-summit24 logo.png",
-    apple: "/E-summit24 logo.png",
+    icon: "/esummit24logo.png",
+    apple: "/esummit24logo.png",
     },
 };
 
@@ -27,6 +27,9 @@ export default function RootLayout({
 
   return (
     <html lang="en" className="dark">
+      <head>
+        <link rel="icon" href="/esummit24logo.png" type="image/png" /> {/* Add this line */}
+      </head>
       <body className={inter.className}>
         <Provider>
         {/* <Navbar handleScroll={handleScroll}/> */}

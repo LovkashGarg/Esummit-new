@@ -93,10 +93,10 @@ const Footer = () => {
     </div>
     <div>
       <h2 className="text-white text-lg font-semibold mb-4">Contact Us</h2>
-      <p>Pune, India</p>
-      <p>Pune 411041</p>
+      <h3><strong>Tanmay Khaitan</strong></h3>
+      {/* <p>Pune 411041</p> */}
       <p>Email: ecell@iiitp.ac.in</p>
-      <p>Phone: +919896316033</p>
+      <p>Phone: +919784306503</p>
     </div>
     </div>
     <p className="text-center text-[15px] sm:text-[25px] pt-8">© 2024 Ecell. All rights reserved.</p>
