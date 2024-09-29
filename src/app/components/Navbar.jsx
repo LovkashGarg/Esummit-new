@@ -37,7 +37,7 @@ function Navbar({ handleScroll }) {
 
         <Image src={logo} priority className="w-[80px] h-[80px]  ml-[40%]  md:w-[80px] md:h-[70px] z-3 md:ml-24 md:m-0" width={100} height={100} alt="logo" ></Image>
 
-        <div className="   hidden md:block ml-[15%] max-h-16 " >
+        <div className="hidden md:block ml-[15%] max-h-16 " >
 
           <Menu setActive={setActive} >
             <Link key={1} href="/">
@@ -59,7 +59,7 @@ function Navbar({ handleScroll }) {
           </Menu>
         </div>
 
-        <div key={5} className=" md:flex md:block sm:min-w-[330px] sm:mr-8">
+        <div key={5} className=" md:flex sm:min-w-[330px] sm:mr-8">
           {session?.user ? (
             <div className="flex gap-3 md:gap-5">
              
