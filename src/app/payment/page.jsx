@@ -61,14 +61,11 @@ const TicketSection = () => {
   const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
 
   const checkboxes = [
-    { id: 1, label: 'OTH' },
-    { id: 2, label: 'Startup Survival' },
-    { id: 3, label: 'Big Bull' },
-    { id: 4, label: 'Breaking Convention' },
-    { id: 5, label: 'Brand Brawl' },
-    { id: 6, label: 'E summit Junior' },
-    { id: 7, label: 'Lights Out' },
-    { id: 8, label: 'Stadium Showdown' },
+    { id: 1, label: 'Startup Survival' },
+    { id: 2, label: 'Breaking Convention' },
+    { id: 3, label: 'Brand Brawl' },
+    { id: 4, label: 'E summit Junior' },
+    { id: 5, label: 'Lights Out' },
   ];
 
   const toggleCheckbox = (id) => {
