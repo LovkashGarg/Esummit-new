@@ -30,7 +30,7 @@ export const projects = [
   {
     title: "Brand Brawl",
     link: "https://netflix.com",
-    imageurl: "/Events/BC_logo.png",
+    imageurl: "/Events/BrandBrawl_logo.png",
 
   },
   {

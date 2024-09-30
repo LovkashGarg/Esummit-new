@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Spotlight } from "./ui/Spotlight";
 import Image from "next/image";

@@ -41,12 +41,12 @@ const Footer = () => {
           </Link>
         </li>
         <li>
-          <Link
-            href="/?scrollTo=events"
+          <a
+            href="/"
             className="hover:text-white transition-colors duration-300"
           >
           Events
-          </Link>
+          </a>
         </li>
         <li>
           <Link
@@ -95,8 +95,15 @@ const Footer = () => {
       <h2 className="text-white text-lg font-semibold mb-4">Contact Us</h2>
       <h3><strong>Tanmay Khaitan</strong></h3>
       {/* <p>Pune 411041</p> */}
-      <p>Email: ecell@iiitp.ac.in</p>
+      <a href={`mailto:ecell@iiitp.ac.in`}>Email: ecell@iiitp.ac.in</a>
+      {/* <h1>Any technical Issues</h1> */}
       <p>Phone: +919784306503</p>
+      <h3><strong>Lovkash Garg</strong></h3>
+      {/* <p>Pune 411041</p> */}
+      <a href={`mailto:lovkashgarg@gmail.com`}>Email: lovkashgarg@gmail.com</a>
+      <h3><strong>Nikhil Prajapati</strong></h3>
+      {/* <p>Pune 411041</p> */}
+      <a href={`mailto:nikhilpraj@gmail.com`}>Email: nikhilpraj@gmail.com</a>
     </div>
     </div>
     <p className="text-center text-[15px] sm:text-[25px] pt-8">© 2024 Ecell. All rights reserved.</p>

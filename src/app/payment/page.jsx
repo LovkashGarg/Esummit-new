@@ -14,11 +14,12 @@ const TicketSection = () => {
   const tickets = [
     {
       id: 1,
-      title: 'UNI PASS ',
-      price: '₹50',
-      color:"#56799a",
-      description: 'Access to all sessions.',
-      events: ['ACCESS TO ANY ONE SINGLE EVENT', 'STARTUP SAGA NOT INCLUDED']
+      title: 'SAGA PASS',
+      price: '₹150',
+      color:"#567135",
+      description: 'STARTUP SAGA PASSS',
+      events: ['ONLY ACCESS TO STARTUP SAGA', 'ONLY INR 100 FOR EARLY BIRDS','INTERNSHIP CHANCES']
+    
     },
     {
       id: 2,
@@ -49,11 +50,11 @@ const TicketSection = () => {
     },
     {
       id: 5,
-      title: 'SAGA PASS',
-      price: '₹150',
-      color:"#2c3e50",
-      description: 'STARTUP SAGA PASSS',
-      events: ['ONLY ACCESS TO STARTUP SAGA', 'ONLY INR 100 FOR EARLY BIRDS','INTERNSHIP CHANCES']
+      title: 'UNI PASS ',
+      price: '₹50',
+      color:"#56462a",
+      description: 'Access to all sessions.',
+      events: ['ACCESS TO ANY ONE SINGLE EVENT', 'STARTUP SAGA NOT INCLUDED']
     },
   ];
 
@@ -81,7 +82,7 @@ const TicketSection = () => {
   ]
 
   const toggleCheckbox = (id) => {
-    if (Ticketid === 1) {
+    if (Ticketid === 5) {
       // For ticket ID 1, allow only one selection
       setSelectedCheckboxes([id]);
     } else if (Ticketid === 3) {
@@ -124,7 +125,7 @@ const [Ticketid,setTicketId]=useState();
 
     setTicketId(ticketid);
     // alert(Ticketid);
-    if(ticketid==1 || ticketid ==3){
+    if(ticketid==5 || ticketid ==3){
       setIsOpen(true);
     }
     else{
@@ -155,9 +156,9 @@ const [Ticketid,setTicketId]=useState();
       {isOpen && (
         <div className="popup text-white ">
           <div className="popup-content  overscroll-none w-[75%] md:w-[30%]">
-            <h2 className='md:text-[35px]  '>Select Events (Max {Ticketid === 1 ? 1 : 3})</h2>
+            <h2 className='md:text-[35px]  '>Select Events (Max {Ticketid === 5 ? 1 : 3})</h2>
             <div className='flex flex-col my-[8%] gap-3 px-[20%]'>
-            { Ticketid===1 &&
+            { Ticketid===5 &&
                 checkboxes.map((checkbox) => (
               <label key={checkbox.id} className='flex gap-4'>
                 <input
@@ -225,8 +226,9 @@ const [Ticketid,setTicketId]=useState();
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {tickets.map(ticket => (
            <div className='flex mx-[10%]  flex-col'>
+                  <div key={ticket.id} className={`${ticket.id==1? 'block':'hidden'} bg-slate-900 text-center h-[40px] text-[30px] rounded-[10px]  text-white`}>Recommended</div>
            <div key={ticket.id} className={`${ticket.id==2? 'block':'hidden'} bg-slate-900 text-center h-[40px] text-[30px] rounded-[10px]  text-white`}>Most Popular</div>
-          <div key={ticket.id}  style={{ backgroundColor: ticket.color }}  className={` border-[5px] border-gray-300 rounded-[30px] p-6 mt-[10px] shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out text-center`}>
+          <div key={ticket.id}  style={{ backgroundColor: ticket.color }}  className={`${ticket.id==3?'md:mt-[70px]':""} border-[5px] border-gray-300 rounded-[30px] p-6 mt-[10px] shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out text-center`}>
             <h3 className="text-xl text-yellow-400 font-semibold mb-4">{ticket.title}</h3>
             <p className="text-white mb-4">{ticket.description}</p>
             <p className="text-2xl font-bold text-yellow-300 mb-4">{ticket.price}</p>
@@ -244,7 +246,7 @@ const [Ticketid,setTicketId]=useState();
       <div className="mt-[5%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {tickets2.map(ticket => (
            <div className='flex mx-[10%] flex-col'>
-           <div key={ticket.id} className={`${ticket.id==5? 'block':'hidden'} bg-slate-900 text-center h-[40px] text-[30px] rounded-[10px]  text-white`}>Recommended</div>
+     
           <div key={ticket.id}  style={{ backgroundColor: ticket.color }}  className={` border-[5px] border-gray-300 rounded-[30px] p-6 mt-[10px] shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out text-center`}>
             <h3 className="text-xl text-yellow-400 font-semibold mb-4">{ticket.title}</h3>
             <p className="text-white mb-4">{ticket.description}</p>

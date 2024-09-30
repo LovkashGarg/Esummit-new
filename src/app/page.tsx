@@ -5,9 +5,9 @@ import Instructors from "./components/Instructor";
 import { BackgroundBeamsWithCollisionDemo } from "./components/Background";
 import { CardHoverEffectDemo } from "./components/card";
 import Navbar from "./components/Navbar";
-import { useEffect, useState, useRef } from "react";
+import { useEffect ,useRef,useState} from "react";
 import InfinityLoader from "./components/infinite_loader";
-import Speakers from './speakers/page';
+import Speakers from './speakers/page'
 import { PrizePool } from "./components/prize_pool";
 import Footer from "./components/Footer";
 import './globals.css';
@@ -45,16 +45,13 @@ export default function Home() {
 
     return () => clearTimeout(timer); // Clean up the timeout
   }, []);
-
-  // Manually handle smooth scroll when clicking links in the Navbar
   const handleScroll = (sectionId) => {
-    console.log("scrolling ")
-    // const section = document.getElementById(sectionId);
-    // if (section) {
-    //   section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    // }
+    const section = document.getElementById(sectionId);
+    console.log(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
-
   return (
     <div>
       {loading ? (
