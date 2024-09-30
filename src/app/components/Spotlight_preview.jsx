@@ -9,24 +9,24 @@ export function SpotlightPreview(eventData) {
   const decodedName = decodeURIComponent(name);
 
   return (
-    <div className="min-h-screen w-full bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen w-full bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden flex flex-col items-center justify-center px-4 pt-[20%] sm:px-6 lg:px-8">
       <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
 
       <div className="flex flex-col md:flex-row justify-center items-start w-full max-w-6xl mt-10 sm:mt-10">
        
         <div className="mt-4 sm:mt-10 flex justify-center md:justify-start w-full md:w-auto">
           
-          <div className="border-[3px] border-white rounded-full p-10 w-full max-w-xs mx-auto">
+          <div className="border-[3px] border-white rounded-full p-14 sm:p-[30px] sm:-mt-48 w-full max-w-xs mx-auto">
             {/* Decoded name placed above the image */}
-            <div className="text-center mb-5 text-4xl font-sans text-white">
+            <div className="text-center mb-5 text-4xl sm:text-3xl font-sans text-white">
               {decodedName}
             </div>
 
             <Image
-              className="rounded-lg w-[200px] h-[200px] mx-auto"
+              className="rounded-lg w-[100px] h-[100px] sm:w-[100px] sm:h-[100px] mx-auto"
               alt="Event Image"
-              width={200}
-              height={200}
+              width={100}
+              height={100}
               src={image}
             />
           </div>
