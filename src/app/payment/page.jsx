@@ -191,7 +191,7 @@ const [Ticketid,setTicketId]=useState();
       )}
     </div>
     <div className="mt-[200px] sm:mt-[100px]  max-w-7xl mx-auto py-12">
-      <h2 className="text-4xl font-bold text-center mb-12 ">Choose Your Tickets</h2>
+      <h2 className="text-4xl font-bold text-center mb-12 text-white">Choose Your Tickets</h2>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {tickets.map(ticket => (
