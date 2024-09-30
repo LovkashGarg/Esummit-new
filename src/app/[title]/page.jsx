@@ -42,13 +42,13 @@ const Page = (c) => {
     {
       id: 3,
       name: "Stadium%20%20Showdown",
-      description: "Trapped in a race against time,only your wits can save you. Cryptic clues lie hidden,waiting to be unveiled by you. Every second brings you closer to the escape— or failure. Team up, crack the code, and unlock the code before time runs out.",
+      description: "Here fortune clashes and champions rise!! . Make your own IPL team.Each team enters with equal riches and  bidding for cricket’s finest  under the lights.Will strategy or boldness win the ultimate auction?The stakes are high and every bid could change your destiny!",
       image: "/Events/StadiumShowdown_logo.png"
     },
     {
       id: 4,
       name: "Breaking%20Convention",
-      description: "Cet ready for Season Four of Breaking Conventions, where boundaries blur and innovation takes center stage. Join us as our trailblazing speakers challenge the norm and ignite the future of India's startup culture. (more about actual Speaker)",
+      description: "Get ready for Season Four of Breaking Conventions, where boundaries blur and innovation takes center stage. Join us as our trailblazing speakers challenge the norm and ignite the future of India's startup culture. (more about actual Speaker)",
       image: "/Events/BC_logo.png"
     },
     {
@@ -60,7 +60,7 @@ const Page = (c) => {
     {
       id: 6,
       name: "Brand%20Brawl",
-      description: "where top execs debate high-stakes crises in TopTalks, each defending their strategies. Then, watch as rival teams clash over global issues in a heated final. Only the sharpest arguments will lead to victory. Can your team dominate the debate?",
+      description: "Where top execs debate high-stakes crises in TopTalks, each defending their strategies. Then, watch as rival teams clash over global issues in a heated final. Only the sharpest arguments will lead to victory. Can your team dominate the debate?",
       image: "/Events/BrandBrawl_logo.png"
     },
 

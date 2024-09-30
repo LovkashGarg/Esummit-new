@@ -41,12 +41,12 @@ const Footer = () => {
           </Link>
         </li>
         <li>
-          <Link
-            href="/?scrollTo=events"
+          <a
+            href="/"
             className="hover:text-white transition-colors duration-300"
           >
           Events
-          </Link>
+          </a>
         </li>
         <li>
           <Link
