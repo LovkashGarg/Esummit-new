@@ -9,7 +9,7 @@ export function SpotlightPreview(eventData) {
   const decodedName = decodeURIComponent(name);
 
   return (
-    <div className="min-h-screen w-full bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen w-full bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 font-mono">
       <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
 
       <div className="flex flex-col md:flex-row justify-center items-start w-full max-w-6xl mt-10 sm:mt-10">
@@ -18,7 +18,7 @@ export function SpotlightPreview(eventData) {
           
           <div className="border-[3px] border-white rounded-full p-10 w-full max-w-xs mx-auto">
             {/* Decoded name placed above the image */}
-            <div className="text-center mb-5 text-4xl font-sans text-white">
+            <div className="text-center mb-5 text-4xl font-mono text-white">
               {decodedName}
             </div>
 
@@ -34,7 +34,7 @@ export function SpotlightPreview(eventData) {
 
         <div className="flex flex-col w-full md:w-2/3 mt-5 md:mt-0 md:ml-8 space-y-5"> 
           <div className="rounded-[45px] px-9 py-5 flex flex-col sm:flex-row justify-between items-center space-y-5 sm:space-y-0 sm:space-x-4 w-full border-[3px] border-white">
-            <div className="font-bold text-xl text-white">
+            <div className="font-bold text-2xl text-white">
               Team Size: 
               <span className="text-yellow-600"> 2 members</span>
             </div> 
@@ -53,7 +53,7 @@ export function SpotlightPreview(eventData) {
 
           <div className="border-[3px] border-white rounded-[45px] p-4 flex justify-center">
             <div className="text-white text-left">
-              <p className="text-sm sm:text-lg m-7">{description}</p>
+              <p className="text-sm sm:text-3xl m-7">{description}</p>
             </div>
           </div>
         </div>

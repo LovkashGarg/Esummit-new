@@ -29,7 +29,6 @@ function Navbar({ handleScroll }) {
     navigator.clipboard.writeText(session?.user.scoutId);
     setTimeout(() => setCopied(""), 5000);
   }
-  
   return (
     <div className="flex">
       <div className={cn("fixed  sm:top-10  inset-x-0 max-sm:w-full max-w-full mx-auto z-20 top-3  flex justify-between ")}>

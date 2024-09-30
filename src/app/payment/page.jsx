@@ -239,13 +239,13 @@ const [Ticketid,setTicketId]=useState();
       )}
     </div>
     <div className="mt-[200px] sm:mt-[100px]  max-w-7xl mx-auto py-12">
-      <h2 className="text-4xl font-bold text-center mb-12 text-white">Choose Your Tickets</h2>
+      <h2 className="text-4xl font-bold text-center mb-12 text-white font-mono">Choose Your Tickets</h2>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {tickets.map(ticket => (
            <div className='flex mx-[10%]  flex-col'>
-                  <div key={ticket.id} className={`${ticket.id==1? 'block':'hidden'} bg-slate-900 text-center h-[40px] text-[30px] rounded-[10px]  text-white`}>Recommended</div>
-           <div key={ticket.id} className={`${ticket.id==2? 'block':'hidden'} bg-slate-900 text-center h-[40px] text-[30px] rounded-[10px]  text-white`}>Most Popular</div>
+                  <div key={ticket.id} className={`${ticket.id==1? 'block':'hidden'} bg-slate-900 text-center h-[40px] text-[30px] rounded-[10px]  text-white font-mono`}>Recommended</div>
+           <div key={ticket.id} className={`${ticket.id==2? 'block':'hidden'} bg-slate-900 text-center h-[40px] text-[30px] rounded-[10px]  text-white font-mono`}>Most Popular</div>
           <div key={ticket.id}  style={{ backgroundColor: ticket.color }}  className={`${ticket.id==3?'md:mt-[70px]':""} border-[5px] border-gray-300 rounded-[30px] p-6 mt-[10px] shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out text-center`}>
             <h3 className="text-xl text-yellow-400 font-semibold mb-4">{ticket.title}</h3>
             <p className="text-white mb-4">{ticket.description}</p>
