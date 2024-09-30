@@ -1,5 +1,4 @@
 'use client'
-import { Suspense } from "react";
 import Head from "next/head";
 import Instructors from "./components/Instructor";
 
@@ -14,29 +13,31 @@ import Footer from "./components/Footer";
 import './globals.css';
 import { useSearchParams } from "next/navigation"; // Using useSearchParams for query params
 import dynamic from "next/dynamic";
+import {useRouter} from 'next/navigation'
 
 
-const SearchParamsComponent=dynamic(()=> import('./components/SearchParamsComponent'),{
-  ssr:false,
-})
 
 export default function Home() {
-  const searchParams = useSearchParams(); // Using Next.js's useSearchParams hook
+  const [mounted, setMounted] = useState(false); // Track whether the component is mounted
+  const router = useRouter(); // Use useRouter to access query params
   const eventsSectionRef = useRef(null); // Ref for the events section
 
   const [loading, setLoading] = useState(true);
 
-  // Handle scrolling based on the query parameter
+  // Ensure the component is mounted before accessing router
   useEffect(() => {
-    const scrollTo = searchParams.get('scrollTo');
-    console.log("hello I am ",scrollTo)
-    if (scrollTo === 'events') {
-      // Scroll to the events section when 'scrollTo' equals 'events'
-      eventsSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }
-  },[searchParams]); // Only runs when search params change
+    setMounted(true); // Indicate that the component is mounted
+  }, []);
 
-  // Simulate a data fetch with a timeout for loading state
+  useEffect(() => {
+    if (mounted && router.query) {
+      const scrollTo = router.query.scrollTo; // Access query parameters using router.query
+      if (scrollTo === 'events') {
+        eventsSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [mounted, router.query]); // Re-run effect when query params or mounted state changes
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false); // Set loading to false after 2 seconds
@@ -69,12 +70,12 @@ export default function Home() {
           </div>
           <main className="min-h-screen bg-black/[0.96] antialiased bg-grid-black/[0.02]">
             <BackgroundBeamsWithCollisionDemo />
-            <Suspense fallback={<div>Loading search parameters...</div>}>
-              <SearchParamsComponent eventsSectionRef={eventsSectionRef}/>
-            </Suspense>
-            <section id="events" ref={eventsSectionRef} >
-              <CardHoverEffectDemo />
-            </section>
+            
+            {mounted && ( // Only render the scroll effect when mounted
+              <section id="events" ref={eventsSectionRef}>
+                <CardHoverEffectDemo />
+              </section>
+            )}
             <PrizePool />
             <Speakers />
             <section id="aboutUs">
