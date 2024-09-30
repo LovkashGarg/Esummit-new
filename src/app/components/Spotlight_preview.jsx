@@ -4,7 +4,7 @@ import { Spotlight } from "./ui/Spotlight";
 import Image from "next/image";
 
 export function SpotlightPreview(eventData) {
-  const { id, name, description, image,TeamSize,Prize } = eventData['eventsData'];
+  const { id, name, description, image,p,TeamSize,Prize } = eventData['eventsData'];
   // Decode the name to remove %20 and other encoded characters
   const decodedName = decodeURIComponent(name);
 
@@ -38,9 +38,9 @@ export function SpotlightPreview(eventData) {
               Team Size: 
               <span className="text-yellow-600">{TeamSize}</span>
             </div> 
-            <div className="text-white text-center sm:text-left ">
-              <h2 className="text-2xl sm:text-xl lg:text-2xl font-semibold text-white">
-                Prize - <span className="text-yellow-600">{Prize}</span>
+            <div className="text-white text-center sm:text-left">
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold text-white">
+                {p} <span className="text-yellow-600">{Prize}</span>
               </h2>
             </div>
             <div className="text-white text-center sm:text-left">
