@@ -68,6 +68,7 @@ export default function Home() {
                 <CardHoverEffectDemo />
               </section>
             )}
+            
             <PrizePool />
             <Speakers />
             <section id="aboutUs">
