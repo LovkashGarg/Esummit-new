@@ -64,7 +64,7 @@ const TicketSection = () => {
     { id: 1, label: 'Startup Survival' },
     { id: 2, label: 'Breaking Convention' },
     { id: 3, label: 'Brand Brawl' },
-    { id: 4, label: 'E summit Junior' },
+    { id: 4, label: 'Stadium Showdown' },
     { id: 5, label: 'Lights Out' },
   ];
 
