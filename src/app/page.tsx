@@ -72,10 +72,10 @@ export default function Home() {
 
             <PrizePool />
             <Speakers />
+            <Sponsors/>
             <section id="aboutUs">
               <Instructors />
             </section>
-            <Sponsors/>
             <Footer />
           </main>
         </div>
