@@ -100,7 +100,7 @@ const Footer = () => {
       <p>Phone: +919784306503</p>
       <div className='flex gap-5'><strong>Lovkash Garg</strong>    <a className='underline' href={`https://www.linkedin.com/in/lovkashgarg/`}><ul>Linkedin</ul></a></div>
       <div className='flex gap-5'><strong>Nikhil Prajapati</strong><a className='underline' href={`mailto:nikhilpraj@gmail.com`}>Linkedin</a></div>   
-      <div className='flex gap-5'><strong>Garv Jauhri</strong>   {/* <p>Pune 411041</p> */}
+      <div className='flex gap-5'><strong>Garv Jauhari</strong>   {/* <p>Pune 411041</p> */}
       <a className='underline' href={`https://www.linkedin.com/in/garv-jauhari-6726162b4/`}><ul>Linkedin</ul></a></div>
    
     </div>
