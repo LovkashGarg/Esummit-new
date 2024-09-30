@@ -32,7 +32,7 @@ const TicketSection = () => {
       color:"#2c3e50",
       description: 'ULTIMATE PASS',
       events: [
-        { description: 'ACCESS TO ANY ALL 8 EVENTS', value: true },
+        { description: 'ACCESS TO ALL 8 EVENTS', value: true },
         { description: 'BEST VALUE', value: true },
         { description: 'STARTUP SAGA NOT INCLUDED', value: false }
       ]
@@ -58,7 +58,7 @@ const TicketSection = () => {
       color:"#56799a",
       description: 'ONLINE PASS',
       events: [
-        { description: 'ACCESS TO ALL THREE ONLINE EVENTS', value: true },
+        { description: 'ACCESS TO ALL ONLINE EVENTS', value: true },
         { description: 'OFFLINE EVENTS NOT INCLUDED', value: false }
       ]
     },
