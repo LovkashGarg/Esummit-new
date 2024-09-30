@@ -44,7 +44,7 @@ export function SpotlightPreview(eventData) {
               </h2>
             </div>
             <div className="text-white text-center sm:text-left">
-              <a href="https://docs.google.com/document/d/1vtWbd09r5kkVDr9IZJecpsS6v2mQ9G7Ylp5NqhOJDUc/edit?usp=sharing" 
+              <a href="https://www.canva.com/design/DAGSQQnEbmQ/Nd1HIjR2jmEW5bqs2Yvnqw/edit?utm_content=DAGSQQnEbmQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" 
                  className="text-[25px] rounded-full border-[2px] border-white w-[30%] p-3 bg-yellow-600">
                  Rulebook
               </a> 
