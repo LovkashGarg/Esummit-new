@@ -163,7 +163,7 @@ else{
     <div className='bg-black'>
     <Navbar/>
     <ToastContainer/>
-      <div className='text-[20px] sm:text-[30px] text-center mt-[27%] text-white  sm:mt-[10%]'>Don't Miss a Oppurtunity</div>
+      <div className='text-[20px] sm:text-[30px] text-center mt-[27%] text-white  sm:mt-[10%] font-mono'>Don't Miss a Oppurtunity</div>
       <div className='flex flex-col justify-center items-center gap-[20px] mb-[5%]'>
         <div className='qr-image'>
           <Image
@@ -174,7 +174,7 @@ else{
             height={400} // Define height for Next.js Image
           />
         </div>
-        <div className='flex flex-col '>
+        <div className='flex flex-col font-mono '>
           <input
             className='mx-[20px] sm:mx-[100px] border-[3px] border-black w-[300px] rounded-[20px] px-[20px] text-[20px] text-black'
             type='text'

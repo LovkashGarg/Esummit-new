@@ -20,7 +20,6 @@ function Navbar({ handleScroll }) {
       const response = await getProviders();
       setProviders(response);
     }
-
     setUpProviders();
   }, [])
 
@@ -39,15 +38,13 @@ function Navbar({ handleScroll }) {
         <Image src={logo} priority className="w-[80px] h-[80px]  ml-[40%]  md:w-[80px] md:h-[70px] z-3 md:ml-24 md:m-0" width={100} height={100} alt="logo" ></Image>
 
         <div className="hidden md:block ml-[15%] max-h-16 " >
-
           <Menu setActive={setActive} >
             <Link key={1} href="/">
               <MenuItem setActive={setActive} active={active} item="Home">
               </MenuItem>
             </Link>
-            <Link key={2} href='/?scrollTo=events' >
+            <Link key={2} href='/?scrollTo=events'>
                 <MenuItem setActive={setActive} active={active} item="Events"></MenuItem>
-          
             </Link>
             <Link key={3} href='/leaderboard'>
               <div >
@@ -98,7 +95,7 @@ function Navbar({ handleScroll }) {
               <>
                 {providers &&
                   Object.values(providers).map((provider) => (
-                    <div key={6} className="flex gap-3 md:gap-5 md:ml-[57%]">
+                    <div key={6} className="flex mr-[10px] mt-[5px] gap-3 md:gap-5 md:ml-[57%] ">
                       <HoverBorderGradient
                         containerClassName="rounded-full"
                         as="button"

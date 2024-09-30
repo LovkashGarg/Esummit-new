@@ -41,12 +41,12 @@ const Footer = () => {
           </Link>
         </li>
         <li>
-          <a
-            href="/"
+          <Link
+            href="/?scrollTo=events"
             className="hover:text-white transition-colors duration-300"
           >
           Events
-          </a>
+          </Link>
         </li>
         <li>
           <Link
@@ -98,12 +98,11 @@ const Footer = () => {
       <a href={`mailto:ecell@iiitp.ac.in`}>Email: ecell@iiitp.ac.in</a>
       {/* <h1>Any technical Issues</h1> */}
       <p>Phone: +919784306503</p>
-      <h3><strong>Lovkash Garg</strong></h3>
-      {/* <p>Pune 411041</p> */}
-      <a href={`mailto:lovkashgarg@gmail.com`}>Email: lovkashgarg@gmail.com</a>
-      <h3><strong>Nikhil Prajapati</strong></h3>
-      {/* <p>Pune 411041</p> */}
-      <a href={`mailto:nikhilpraj@gmail.com`}>Email: nikhilpraj@gmail.com</a>
+      <div className='flex gap-5'><strong>Lovkash Garg</strong>    <a className='underline' href={`https://www.linkedin.com/in/lovkashgarg/`}><ul>Linkedin</ul></a></div>
+      <div className='flex gap-5'><strong>Nikhil Prajapati</strong><a className='underline' href={`mailto:nikhilpraj@gmail.com`}>Linkedin</a></div>   
+      <div className='flex gap-5'><strong>Garv Jauhri</strong>   {/* <p>Pune 411041</p> */}
+      <a className='underline' href={`https://www.linkedin.com/in/garv-jauhari-6726162b4/`}><ul>Linkedin</ul></a></div>
+   
     </div>
     </div>
     <p className="text-center text-[15px] sm:text-[25px] pt-8">© 2024 Ecell. All rights reserved.</p>
