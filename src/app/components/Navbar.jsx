@@ -45,7 +45,7 @@ function Navbar({ handleScroll }) {
               <MenuItem setActive={setActive} active={active} item="Home">
               </MenuItem>
             </Link>
-            <Link key={2} href='/' onClick={()=> handleScroll('events')}>
+            <Link key={2} href='/?scrollTo=events' >
                 <MenuItem setActive={setActive} active={active} item="Events"></MenuItem>
           
             </Link>
