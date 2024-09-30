@@ -1,7 +1,7 @@
 'use client'
 import Head from "next/head";
 import Instructors from "./components/Instructor";
-import Footer from "./components/Footer";
+
 import { BackgroundBeamsWithCollisionDemo } from "./components/Background";
 import { CardHoverEffectDemo } from "./components/card";
 import Navbar from "./components/Navbar";
@@ -10,7 +10,11 @@ import InfinityLoader from "./components/infinite_loader";
 import Speakers from './speakers/page';
 import { PrizePool } from "./components/prize_pool";
 import './globals.css';
+<<<<<<< HEAD
 import { useSearchParams } from "next/navigation"; // Using useSearchParams for query params
+=======
+import Footer from "./components/Footer";
+>>>>>>> db20a566e85e3f213351b851562646bfe6d854b4
 
 export default function Home() {
   const searchParams = useSearchParams(); // Using Next.js's useSearchParams hook
@@ -48,6 +52,7 @@ export default function Home() {
 
   return (
     <div>
+<<<<<<< HEAD
       {loading ? (
         <InfinityLoader /> // Show loader while loading
       ) : (
@@ -73,6 +78,34 @@ export default function Home() {
           </main>
         </>
       )}
+=======
+    {loading ? (
+      <InfinityLoader /> // Show loader while loading
+    ) : (
+    <div>
+    <Head>
+        <title>ESummit -2024</title>
+        <link rel="icon" href="/E-summit24 logo.png" />
+    </Head>
+    <div className="relative w-full bg-neutral-800 items-center justify-center">
+    <Navbar handleScroll={handleScroll}/>
+  </div>
+    <main className="min-h-screen bg-black/[0.96] antialiased bg-grid-black/[0.02]">
+  <BackgroundBeamsWithCollisionDemo/>
+   <section id="events">
+    <CardHoverEffectDemo />
+   </section>
+   <PrizePool/>
+   <Speakers/>
+
+      <section id="aboutUs">
+      <Instructors />
+      </section>
+      <Footer/>
+    </main>
+    </div>
+    )}
+>>>>>>> db20a566e85e3f213351b851562646bfe6d854b4
     </div>
   );
 }

@@ -23,6 +23,7 @@ function Navbar({ handleScroll }) {
 
     setUpProviders();
   }, [])
+
   const [copied, setCopied] = useState("");
   const handleCopy = () => {
     setCopied(session?.user.scoutId);
@@ -97,7 +98,7 @@ function Navbar({ handleScroll }) {
               <>
                 {providers &&
                   Object.values(providers).map((provider) => (
-                    <div key={6} className="flex gap-3 md:gap-5 md:ml-[570%]">
+                    <div key={6} className="flex gap-3 md:gap-5 md:ml-[57%]">
                       <HoverBorderGradient
                         containerClassName="rounded-full"
                         as="button"
