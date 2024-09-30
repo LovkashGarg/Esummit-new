@@ -13,6 +13,12 @@ import { PrizePool } from "./components/prize_pool";
 import Footer from "./components/Footer";
 import './globals.css';
 import { useSearchParams } from "next/navigation"; // Using useSearchParams for query params
+import dynamic from "next/dynamic";
+
+
+const SearchParamsComponent=dynamic(()=> import('./components/searchParamsComponent'),{
+  ssr:false,
+})
 
 export default function Home() {
   const searchParams = useSearchParams(); // Using Next.js's useSearchParams hook
@@ -20,19 +26,15 @@ export default function Home() {
 
   const [loading, setLoading] = useState(true);
 
-
- function SearchParamsComponent() {
-    const searchParams = useSearchParams(); // Using Next.js's useSearchParams hook
-
-    useEffect(() => {
-      const scrollTo = searchParams.get('scrollTo');
-      if (scrollTo === 'events') {
-        eventsSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, [searchParams]); // Re-run effect when searchParams change
-
-    return null;
-  }
+  // Handle scrolling based on the query parameter
+  useEffect(() => {
+    const scrollTo = searchParams.get('scrollTo');
+    console.log("hello I am ",scrollTo)
+    if (scrollTo === 'events') {
+      // Scroll to the events section when 'scrollTo' equals 'events'
+      eventsSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  },[searchParams]); // Only runs when search params change
 
   // Simulate a data fetch with a timeout for loading state
   useEffect(() => {
@@ -68,7 +70,7 @@ export default function Home() {
           <main className="min-h-screen bg-black/[0.96] antialiased bg-grid-black/[0.02]">
             <BackgroundBeamsWithCollisionDemo />
             <Suspense fallback={<div>Loading search parameters...</div>}>
-              <SearchParamsComponent />
+              <SearchParamsComponent eventsSectionRef={eventsSectionRef}/>
             </Suspense>
             <section id="events" ref={eventsSectionRef} >
               <CardHoverEffectDemo />
