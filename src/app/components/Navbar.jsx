@@ -1,9 +1,9 @@
 'use client'
 import React, { useEffect, useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
+import {  Menu, MenuItem} from "./ui/navbar-menu";
 import { cn } from "../utils/cn";
 import Link from "next/link";
-import { Button } from "./ui/moving-border";
+// import { Button } from "./ui/moving-border";
 import Image from "next/image";
 import { getProviders, signIn, signOut, useSession } from "next-auth/react";
 import logo from "../../../public/courses/E-Cell logo Yellow-white.png"
