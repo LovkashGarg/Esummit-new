@@ -3,7 +3,7 @@ import React from 'react';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 // import { Checkmark } from 'react-checkmark'
-import Link from 'next/link';
+// import Link from 'next/link';
 import CheckboxPopupMenu from './popup';
 import { useState} from 'react';
 import InfinityLoader from '../components/infinite_loader';
