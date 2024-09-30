@@ -64,7 +64,7 @@ export function Sidebar() {
             <Link href="/leaderboard">Leaderboard </Link>
           </li>
           <li className="text-[20px] p-4 hover:bg-black">
-            <Link href="/">Events</Link>
+            <Link href="/?scrollTo=events">Events</Link>
           </li>
         </ul>
 

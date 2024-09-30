@@ -20,7 +20,6 @@ function Navbar({ handleScroll }) {
       const response = await getProviders();
       setProviders(response);
     }
-
     setUpProviders();
   }, [])
 
@@ -30,6 +29,7 @@ function Navbar({ handleScroll }) {
     navigator.clipboard.writeText(session?.user.scoutId);
     setTimeout(() => setCopied(""), 5000);
   }
+  
   return (
     <div className="flex">
       <div className={cn("fixed  sm:top-10  inset-x-0 max-sm:w-full max-w-full mx-auto z-20 top-3  flex justify-between ")}>
@@ -39,15 +39,13 @@ function Navbar({ handleScroll }) {
         <Image src={logo} priority className="w-[80px] h-[80px]  ml-[40%]  md:w-[80px] md:h-[70px] z-3 md:ml-24 md:m-0" width={100} height={100} alt="logo" ></Image>
 
         <div className="hidden md:block ml-[15%] max-h-16 " >
-
           <Menu setActive={setActive} >
             <Link key={1} href="/">
               <MenuItem setActive={setActive} active={active} item="Home">
               </MenuItem>
             </Link>
-            <Link key={2} href='/?scrollTo=events' >
+            <Link key={2} href='/?scrollTo=events'>
                 <MenuItem setActive={setActive} active={active} item="Events"></MenuItem>
-          
             </Link>
             <Link key={3} href='/leaderboard'>
               <div >

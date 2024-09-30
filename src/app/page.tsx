@@ -29,14 +29,17 @@ export default function Home() {
     setMounted(true); // Indicate that the component is mounted
   }, []);
 
+
   useEffect(() => {
+    console.log(router.query)
     if (mounted && router.query) {
-      const scrollTo = router.query.scrollTo; // Access query parameters using router.query
+      const scrollTo = router.query.scrollTo || null; // Access query parameters using router.query
       if (scrollTo === 'events') {
         eventsSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
       }
     }
   }, [mounted, router.query]); // Re-run effect when query params or mounted state changes
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -46,12 +49,9 @@ export default function Home() {
     return () => clearTimeout(timer); // Clean up the timeout
   }, []);
   const handleScroll = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    console.log(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+   console.log("Scrolling");
   };
+
   return (
     <div>
       {loading ? (
