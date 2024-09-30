@@ -61,11 +61,12 @@ export function Sidebar() {
             <Link href="/payment">Tickets</Link>
           </li>
           <li className="text-[20px] p-4 hover:bg-black">
-            <Link href="/leaderboard">Leaderboard </Link>
+            <Link href="/?scrollTo=events">Events</Link>
           </li>
           <li className="text-[20px] p-4 hover:bg-black">
-            <Link href="/">Events</Link>
+            <Link href="/leaderboard">Leaderboard </Link>
           </li>
+
         </ul>
 
         <div className="ml-2 h-screen flex flex-col">
