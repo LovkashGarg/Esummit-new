@@ -16,7 +16,7 @@ import { useSearchParams } from "next/navigation"; // Using useSearchParams for 
 import dynamic from "next/dynamic";
 
 
-const SearchParamsComponent=dynamic(()=> import('./components/searchParamsComponent'),{
+const SearchParamsComponent=dynamic(()=> import('./components/SearchParamsComponent'),{
   ssr:false,
 })
 
