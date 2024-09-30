@@ -1,4 +1,5 @@
 'use client'
+import { Suspense } from "react";
 import Head from "next/head";
 import Instructors from "./components/Instructor";
 
@@ -27,7 +28,7 @@ export default function Home() {
       // Scroll to the events section when 'scrollTo' equals 'events'
       eventsSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
     }
-  }); // Only runs when search params change
+  },[searchParams]); // Only runs when search params change
 
   // Simulate a data fetch with a timeout for loading state
   useEffect(() => {
