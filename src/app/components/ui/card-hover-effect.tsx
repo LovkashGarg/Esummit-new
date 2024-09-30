@@ -22,11 +22,11 @@ export const HoverEffect = ({
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <div className="pt-[150px]">
-     <div className=" text-[40px] sm:text-[60px] pt-[50px] font-mono" >Our Events</div>
+    <div className="mt-[65%]">
+     <div className=" text-[40px] sm:text-[60px]  font-mono" >Our Events</div>
     <div
       className={cn(
-        "h-[380vh] sm:h-[150vh] md:h-[80vh] grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  ",
+        "h-[400vh]   sm:h-[150vh] md:h-[80vh] grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  ",
         className
       )}
     >
