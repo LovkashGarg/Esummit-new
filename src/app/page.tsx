@@ -72,7 +72,7 @@ export default function Home() {
 
             <PrizePool />
             <Speakers />
-            <Sponsors/>
+            {/* <Sponsors/> */}
             <section id="aboutUs">
               <Instructors />
             </section>

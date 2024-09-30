@@ -22,7 +22,7 @@ export const HoverEffect = ({
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <div className="mt-[65%] sm:mt-[20%]">
+    <div className="mt-[65%] sm:mt-[20%] ">
      <div className=" text-[40px] sm:text-[60px]  font-mono" >Our Events</div>
     <div
       className={cn(
@@ -57,7 +57,7 @@ export const HoverEffect = ({
           </AnimatePresence>
           <Card className="flex flex-col items-center justify-center hover:z-20 ">
             <CardTitle>{item.title}</CardTitle>
-            <img  className="w-[250px] h-[100px] mx-auto mt-[20%]"           // Allows the image to fill the parent container
+            <img  className="w-[250px] h-[100px] mx-auto mt-[10%]"           // Allows the image to fill the parent container
            // Allows the image to fill the parent container
            style={{ objectFit: 'contain' }}    src={item.imageurl}></img>
             {/* <CardDescription>{item.description}</CardDescription> */}
@@ -81,7 +81,7 @@ export const Card = ({
     <>
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-4 overflow-hidden bg-black border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-80",
+        "rounded-2xl h-full w-full p-2 overflow-hidden bg-black border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-80",
         className
       )}
     >
