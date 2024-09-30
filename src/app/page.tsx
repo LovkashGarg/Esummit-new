@@ -23,12 +23,11 @@ export default function Home() {
   const eventsSectionRef = useRef(null); // Ref for the events section
 
   const [loading, setLoading] = useState(true);
-
+  
   // Ensure the component is mounted before accessing router
   useEffect(() => {
     setMounted(true); // Indicate that the component is mounted
   }, []);
-
 
   useEffect(() => {
     console.log(router.query)
@@ -38,7 +37,7 @@ export default function Home() {
         eventsSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
       }
     }
-  }, [mounted, router.query]); // Re-run effect when query params or mounted state changes
+  }, [mounted]); // Re-run effect when query params or mounted state changes
 
 
   useEffect(() => {
