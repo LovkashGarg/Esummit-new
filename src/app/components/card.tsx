@@ -3,7 +3,7 @@ import { LampHeader } from "./LampHeader";
 export function CardHoverEffectDemo() {
   return (
     <div >
-       <div className="text-center mt-4">
+       <div className="text-center ">
                     <div className=" text-2xl leading-8 font-extrabold tracking-tight text-white sm:text-xl">
                       <LampHeader/>
                       </div>
