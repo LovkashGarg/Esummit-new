@@ -61,12 +61,24 @@ const TicketSection = () => {
   const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
 
   const checkboxes = [
+    
     { id: 1, label: 'Startup Survival' },
     { id: 2, label: 'Breaking Convention' },
     { id: 3, label: 'Brand Brawl' },
-    { id: 4, label: 'E summit Junior' },
+    { id: 4, label: 'Stadium Showdown' },
     { id: 5, label: 'Lights Out' },
+    { id: 6, label: 'OTH' },
+    { id: 7, label: 'Big Bull' },
+    { id: 8, label: 'E summit Junior'},
   ];
+
+  const offlineCheckboxes=[
+    { id: 1, label: 'Startup Survival' },
+    { id: 2, label: 'Breaking Convention' },
+    { id: 3, label: 'Brand Brawl' },
+    { id: 4, label: 'Stadium Showdown' },
+    { id: 5, label: 'Lights Out' },
+  ]
 
   const toggleCheckbox = (id) => {
     if (Ticketid === 1) {
@@ -145,7 +157,8 @@ const [Ticketid,setTicketId]=useState();
           <div className="popup-content  overscroll-none w-[75%] md:w-[30%]">
             <h2 className='md:text-[35px]  '>Select Events (Max {Ticketid === 1 ? 1 : 3})</h2>
             <div className='flex flex-col my-[8%] gap-3 px-[20%]'>
-            {checkboxes.map((checkbox) => (
+            { Ticketid===1 &&
+                checkboxes.map((checkbox) => (
               <label key={checkbox.id} className='flex gap-4'>
                 <input
                   type="checkbox"
@@ -154,7 +167,23 @@ const [Ticketid,setTicketId]=useState();
                 />
                 {checkbox.label}
               </label>
-            ))}
+
+            ))
+            }
+            { Ticketid===3 &&
+                offlineCheckboxes.map((checkbox) => (
+              <label key={checkbox.id} className='flex gap-4'>
+                <input
+                  type="checkbox"
+                  checked={selectedCheckboxes.includes(checkbox.id)}
+                  onChange={() => toggleCheckbox(checkbox.id)}
+                />
+                {checkbox.label}
+              </label>
+
+            ))
+            }
+          
             </div>
             <div className="popup-buttons  flex justify-between">
               <button className='text-white bg-green-800 rounded-[20px] w-[100px] ' onClick={()=>handleSubmit(Ticketid)} disabled={selectedCheckboxes.length < 1}>

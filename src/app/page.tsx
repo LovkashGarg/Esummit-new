@@ -1,7 +1,7 @@
 'use client'
 import Head from "next/head";
 import Instructors from "./components/Instructor";
-import Footer from "./components/Footer";
+
 import { BackgroundBeamsWithCollisionDemo } from "./components/Background";
 import { CardHoverEffectDemo } from "./components/card";
 import Navbar from "./components/Navbar";
@@ -10,6 +10,7 @@ import InfinityLoader from "./components/infinite_loader";
 import Speakers from './speakers/page'
 import { PrizePool } from "./components/prize_pool";
 import './globals.css';
+import Footer from "./components/Footer";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -34,7 +35,7 @@ export default function Home() {
     {loading ? (
       <InfinityLoader /> // Show loader while loading
     ) : (
-    <>
+    <div>
     <Head>
         <title>ESummit -2024</title>
         <link rel="icon" href="/E-summit24 logo.png" />
@@ -53,9 +54,9 @@ export default function Home() {
       <section id="aboutUs">
       <Instructors />
       </section>
-      <Footer />
+      <Footer/>
     </main>
-    </>
+    </div>
     )}
     </div>
   );

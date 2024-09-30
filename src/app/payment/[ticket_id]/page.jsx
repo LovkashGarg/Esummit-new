@@ -11,6 +11,7 @@ import InfinityLoader from '../../components/infinite_loader';
 import { toast, ToastContainer } from 'react-toastify';
 import Footer from '../../components/Footer';
 import { usePathname, useSearchParams } from 'next/navigation';
+
   const PaymentGateway = () => {
   const {data:session}=useSession()
    const [TransactionId, setTransactionId] = useState('')
@@ -38,25 +39,31 @@ import { usePathname, useSearchParams } from 'next/navigation';
 
     const eventMap = {
     '1':'Startup Survival',
-    // '2': 'Big Bull' ,
-     '2': 'Breaking Convention',
-     '3': 'Brand Brawl' ,
-     '4': 'E summit Junior',
-      '5': 'Lights Out' ,
-    //  '6': 'Stadium Showdown' 
-    }
-    var eventNames = eventList.map(eventId => eventMap[eventId]);
-
+    '2': 'Breaking Convention',
+    '3': 'Brand Brawl' ,
+    '4': 'Stadium Showdown',
+    '5': 'Lights Out' ,
+    '6': 'OTH',
+    '7': 'Big Bull' ,
+    '8': 'E summit Junior',
+  }
+  
+  var eventNames = eventList.map(eventId => eventMap[eventId]);
+    console.log('Event Names:- ',eventNames);
     if(id==='2')
     {
-      eventNames='all'
+      eventNames=['Value Pass']
     }
 
     if(id==='4')
     {
-      eventNames='All online events'
+      eventNames=['All Online Events']
     }
 
+    if(id==='5')
+      {
+        eventNames=['Saga Pass']
+      } 
     if (!session) {
       toast.error('You must need to sign in to buy ticket')
       return;
@@ -88,7 +95,8 @@ try {
     username:session?.user.name,
     transactionid:TransactionId,
     scoutid:ScoutId,
-    amount:QRAmount[id]
+    amount:QRAmount[id],
+    eventnames:eventNames
     })
   })
   if (!res.ok) {

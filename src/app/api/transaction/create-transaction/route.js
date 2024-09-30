@@ -3,6 +3,7 @@ import { connectToDB } from "@/app/utils/database";
 import { getServerSession } from "next-auth";
 import User from "@/app/models/user";
 import { error } from "console";
+import { eventNames } from "process";
 
 export const POST = async (req) => {
   const session = await getServerSession();
@@ -12,7 +13,7 @@ export const POST = async (req) => {
     return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
   }
 
-  const { email, contactnumber, username, transactionid, scoutid, amount } = await req.json();
+  const { email, contactnumber, username, transactionid, scoutid, amount, eventnames } = await req.json();
 
   // Input validation (add your validation logic here)
   if (!email || !transactionid || !contactnumber) {
@@ -61,7 +62,8 @@ export const POST = async (req) => {
       name: username,
       transactionId: transactionid,
       referralId: scoutid || null,
-      amount:amount
+      amount:amount,
+      eventNames:eventnames
     });
 
     await newTransaction.save();
@@ -86,3 +88,4 @@ export const POST = async (req) => {
     return new Response(JSON.stringify({ error: "Failed to create new transaction" }), { status: 500 });
   }
 };
+

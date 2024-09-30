@@ -1,4 +1,6 @@
 import { model, models, Schema } from "mongoose";
+import { type } from "os";
+import { eventNames } from "process";
 
 const TransactionSchema=new Schema(
     {
@@ -31,6 +33,9 @@ const TransactionSchema=new Schema(
         },
         amount:{
             type:String
+        },
+        eventNames:{
+            type:[String]
         }
     }
 )
