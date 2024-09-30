@@ -32,9 +32,11 @@ import { usePathname, useSearchParams } from 'next/navigation';
    const handleSubmit=async ()=>{
 
     const QRAmount={
-      '1':50,
+      '1':150,
       '2':200,
-      '3':100
+      '3':100,
+      '4':150,
+      '5':50
     }
 
     const eventMap = {
@@ -60,7 +62,7 @@ import { usePathname, useSearchParams } from 'next/navigation';
       eventNames=['All Online Events']
     }
 
-    if(id==='5')
+    if(id==='1')
       {
         eventNames=['Saga Pass']
       } 
@@ -148,10 +150,11 @@ else{
   }, []);
 
     const qrCodeMapping={
-      '1':'/assets/50Rs_QR.jpeg',
-      '2':'/assets/100Rs_QR.jpeg',
-      '3':'/assets/200Rs_QR.jpeg',
-      '4':'/QRCODE.jpg'
+      '1':'/assets/150QR.jpeg',
+      '2':'/assets/200QR.jpeg',
+      '3':'/assets/100QR.jpeg',
+      '4':'/assets/150QR.jpeg',
+      '5':'/assets/50QR.jpeg'
     }
 
     const qrCodeImage = qrCodeMapping[id] 

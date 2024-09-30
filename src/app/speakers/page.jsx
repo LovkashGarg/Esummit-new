@@ -17,7 +17,7 @@ const page = () => {
                         </div>
                         
                         <div className="w-full flex-col justify-center items-center  flex">
-                            <h6 className="text-center text-[25px] text-yellow-400 text-base font-semibold leading-relaxed">Launching Date: Oct 1, 2024</h6>
+                            <h6 className="text-center text-[25px] text-yellow-400 text-base font-semibold leading-relaxed">Launching Date: Oct 2, 2024</h6>
                         </div>
                     </div>
                 </div>
