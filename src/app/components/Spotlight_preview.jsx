@@ -14,7 +14,7 @@ export function SpotlightPreview(eventData) {
       <div className="flex flex-col md:flex-row justify-center items-start w-full max-w-6xl mt-10 sm:mt-10">
 
        
-      <div className="mt-4 sm:mt-10 flex justify-center md:justify-start w-full md:w-auto">
+      <div className="mt-4 sm:mt-10 flex justify-center gap-8 md:justify-start w-full md:w-auto">
 
           <div className="border-[3px] border-white rounded-full  p-10 w-full max-w-xs mx-auto">
             <Image
