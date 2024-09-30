@@ -10,6 +10,7 @@ import Speakers from './speakers/page';
 import { PrizePool } from "./components/prize_pool";
 import Footer from "./components/Footer";
 import './globals.css';
+import Sponsors from "./sponsors/page";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false); // Track whether the component is mounted
@@ -68,9 +69,10 @@ export default function Home() {
                 <CardHoverEffectDemo />
               </section>
             )}
-            
+
             <PrizePool />
             <Speakers />
+            <Sponsors/>
             <section id="aboutUs">
               <Instructors />
             </section>
