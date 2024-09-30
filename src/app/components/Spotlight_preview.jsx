@@ -4,7 +4,7 @@ import { Spotlight } from "./ui/Spotlight";
 import Image from "next/image";
 
 export function SpotlightPreview(eventData) {
-  const { id, name, description, image } = eventData['eventsData'];
+  const { id, name, description, image,TeamSize,Prize } = eventData['eventsData'];
   // Decode the name to remove %20 and other encoded characters
   const decodedName = decodeURIComponent(name);
 
@@ -36,15 +36,15 @@ export function SpotlightPreview(eventData) {
           <div className="rounded-[45px] px-9 py-5 flex flex-col sm:flex-row justify-between items-center space-y-5 sm:space-y-0 sm:space-x-4 w-full border-[3px] border-white">
             <div className="font-bold text-2xl text-white">
               Team Size: 
-              <span className="text-yellow-600"> 2 members</span>
+              <span className="text-yellow-600">{TeamSize}</span>
             </div> 
             <div className="text-white text-center sm:text-left ">
               <h2 className="text-2xl sm:text-xl lg:text-2xl font-semibold text-white">
-                Prize - <span className="text-yellow-600">6K</span>
+                Prize - <span className="text-yellow-600">{Prize}</span>
               </h2>
             </div>
             <div className="text-white text-center sm:text-left">
-              <a href="https://docs.google.com/document/d/1vtWbd09r5kkVDr9IZJecpsS6v2mQ9G7Ylp5NqhOJDUc/edit?usp=sharing" 
+              <a href="https://www.canva.com/design/DAGSQQnEbmQ/Nd1HIjR2jmEW5bqs2Yvnqw/edit?utm_content=DAGSQQnEbmQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" 
                  className="text-[25px] rounded-full border-[2px] border-white w-[30%] p-3 bg-yellow-600">
                  Rulebook
               </a> 
