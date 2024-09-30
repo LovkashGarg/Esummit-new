@@ -95,7 +95,7 @@ const Footer = () => {
       <h2 className="text-white text-lg font-semibold mb-4">Contact Us</h2>
       <h3><strong>Tanmay Khaitan</strong></h3>
       {/* <p>Pune 411041</p> */}
-      <p>Email: ecell@iiitp.ac.in</p>
+      <a href={`mailto:ecell@iiitp.ac.in`}>Email: ecell@iiitp.ac.in</a>
       <p>Phone: +919784306503</p>
     </div>
     </div>
