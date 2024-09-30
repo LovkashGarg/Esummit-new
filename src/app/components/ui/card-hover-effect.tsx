@@ -57,7 +57,7 @@ export const HoverEffect = ({
           </AnimatePresence>
           <Card className="flex flex-col items-center justify-center hover:z-20 ">
             <CardTitle>{item.title}</CardTitle>
-            <img  className="w-[250px] h-[100px] mt-[30px]"           // Allows the image to fill the parent container
+            <img  className="w-[250px] h-[100px] mx-auto mt-[20%]"           // Allows the image to fill the parent container
            // Allows the image to fill the parent container
            style={{ objectFit: 'contain' }}    src={item.imageurl}></img>
             {/* <CardDescription>{item.description}</CardDescription> */}
