@@ -4,10 +4,9 @@ import { getServerSession } from "next-auth";
 import User from "@/app/models/user";
 import { error } from "console";
 import { eventNames } from "process";
-
 export const POST = async (req) => {
   const session = await getServerSession();
-
+ 
   // Check for valid session
   if (!session || !session.user) {
     return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
