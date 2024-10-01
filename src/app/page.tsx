@@ -79,8 +79,13 @@ export default function Home() {
             )}
 
             <PrizePool />
+<<<<<<< HEAD
             {/* <Speakers /> */}
             <Sponsors/>
+=======
+            <Speakers />
+            {/* <Sponsors/> */}
+>>>>>>> 4684e3eaed713f4aaa21f65a343da74bb5acdf3f
             <section id="aboutUs">
               <Instructors />
             </section>

@@ -4,7 +4,7 @@ import { Spotlight } from "./ui/Spotlight";
 import Image from "next/image";
 
 export function SpotlightPreview(eventData) {
-  const { id, name, description, image,TeamSize,Prize } = eventData['eventsData'];
+  const { id, name, description, image,p,TeamSize,Prize } = eventData['eventsData'];
   // Decode the name to remove %20 and other encoded characters
   const decodedName = decodeURIComponent(name);
 
@@ -12,21 +12,21 @@ export function SpotlightPreview(eventData) {
     <div className="min-h-screen w-full bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden flex flex-col items-center justify-center px-4 pt-[20%] sm:px-6 lg:px-8 font-mono">
       <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
 
-      <div className="flex flex-col mt-[30%] md:flex-row justify-center items-start w-full max-w-6xl  sm:mt-10">
+      <div className="flex flex-col mt-[30%] md:flex-row justify-center items-start w-full max-w-6xl   sm:-mt-[10%]">
        
-        <div className="mt-4 sm:mt-10 flex justify-center md:justify-start w-full md:w-auto">
+        <div className="mt-4 flex flex-col justify-center items-center md:justify-start w-full md:w-auto">
           
-          <div className="border-[3px] border-white rounded-full p-14 sm:p-[30px] sm:-mt-48 w-full max-w-xs mx-auto">
-            {/* Decoded name placed above the image */}
-            <div className="text-center mb-5 text-4xl sm:text-3xl font-mono text-white">
+            <div className="text-center text-4xl sm:text-3xl font-mono text-white mb-2 font-bold">
               {decodedName}
             </div>
+          <div className="border-[3px] border-white rounded-full w-[200px] h-[200px] p-4 flex flex-col items-center justify-center">
+            {/* Decoded name placed above the image */}
 
             <Image
-              className="rounded-lg w-[100px] h-[100px] sm:w-[100px] sm:h-[100px] mx-auto"
+              className="rounded-full"  // Use rounded-full for perfect circle
               alt="Event Image"
-              width={100}
-              height={100}
+              width={150} // Keep width and height the same
+              height={150} // Keep width and height the same
               src={image}
             />
           </div>
@@ -40,7 +40,7 @@ export function SpotlightPreview(eventData) {
             </div> 
             <div className="text-white text-center sm:text-left">
               <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold text-white">
-                Prize - <span className="text-yellow-600">{Prize}</span>
+                {p} <span className="text-yellow-600">{Prize}</span>
               </h2>
             </div>
             <div className="text-white text-center sm:text-left">
@@ -51,9 +51,9 @@ export function SpotlightPreview(eventData) {
             </div>
           </div>
 
-          <div className="border-[3px] border-white rounded-[45px] p-4 flex justify-center">
+          <div className="border-[3px] border-white rounded-[45px] p-4  flex justify-center">
             <div className="text-white text-left">
-              <p className="text-sm sm:text-3xl m-7">{description}</p>
+              <p className="sm:text-3xl m-7 text-base">{description}</p>
             </div>
           </div>
         </div>

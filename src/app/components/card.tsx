@@ -25,7 +25,7 @@ export const projects = [
   {
     title: "Breaking Convention",
     link: "https://meta.com",
-    imageurl: "/Events/BC_logo.png",
+    imageurl: "/newEvents/bc.png",
   },
   {
     title: "Brand Brawl",
