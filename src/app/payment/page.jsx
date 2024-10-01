@@ -12,6 +12,7 @@ import InfinityLoader from '../components/infinite_loader';
 import ReactGA from 'react-ga';
 
 import { useEffect } from 'react';
+import { trusted } from 'mongoose';
 
 const TicketSection = () => {
   const trackingid="G-XGR3BKX6F5";
@@ -39,7 +40,7 @@ const TicketSection = () => {
       title: 'VALUE PASS',
       price: '₹200',
       color:"#2c3e50",
-      description: 'ULTIMATE PASS',
+      description: ' PASS',
       events: [
         { description: 'ACCESS TO ALL 8 EVENTS', value: true },
         { description: 'BEST VALUE', value: true },
@@ -80,6 +81,18 @@ const TicketSection = () => {
       events: [
         { description: 'ACCESS TO ANY ONE SINGLE EVENT', value: true },
         { description: 'STARTUP SAGA NOT INCLUDED', value: false }
+      ]
+    },
+    {
+      id: 6,
+      title: 'MAHARAJA PASS',
+      price: '₹250',
+      color:"#97262a",
+      description: 'Feasible PASS',
+      events: [
+        { description: 'ACCESS TO ALL EVENT', value: true },
+        { description: 'STARTUP SAGA INCLUDED', value: true },
+        { description: 'VALUE FOR MONEY', value: true }
       ]
     },
   ];
@@ -279,8 +292,9 @@ const [Ticketid,setTicketId]=useState();
       </div>
       <div className="mt-[5%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {tickets2.map(ticket => (
+            
            <div className='flex mx-[10%] flex-col'>
-     
+          <div key={ticket.id} className={`${ticket.id==6? 'block':'hidden'} sm:-mt-10 bg-slate-900 text-center h-[40px] text-[30px] rounded-[10px]  text-white font-mono `}>ULTIMATE BLEND</div>
           <div key={ticket.id}  style={{ backgroundColor: ticket.color }}  className={` border-[5px] border-gray-300 rounded-[30px] p-6 mt-[10px] shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out text-center`}>
             <h3 className="text-xl text-yellow-400 font-semibold mb-4">{ticket.title}</h3>
             <p className="text-white mb-4">{ticket.description}</p>

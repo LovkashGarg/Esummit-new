@@ -99,10 +99,6 @@ const Footer = ({visitorscount}) => {
           <a href={`mailto:ecell@iiitp.ac.in`} className='text-blue-500 underline'>ecell@iiitp.ac.in</a>
           {/* <h1>Any technical Issues</h1> */}
           <p><a href="tel:+919784306503" className="text-blue-500 underline">+91 9784306503</a></p>
-          <div className='flex justify-between w-[80%]'><strong>Nikhil Prajapati</strong><a className='underline text-blue-500' href={`https://www.linkedin.com/in/nikhil-prajapati-883716287`}>Linkedin</a></div>
-          <p>
-            <a href="tel:+919016377536" className="text-blue-500 underline">+91 9016377536</a>
-            </p>
           <div className='flex justify-between w-[80%]'><strong>Lovkash Garg</strong>
             <a className='underline text-blue-500' href={`https://www.linkedin.com/in/lovkashgarg/`}>
               <ul>Linkedin</ul>
@@ -111,6 +107,10 @@ const Footer = ({visitorscount}) => {
           <p>
             <a href="tel:+919896316033" className="text-blue-500 underline">+91 9896316033</a>
           </p>
+          <div className='flex justify-between w-[80%]'><strong>Nikhil Prajapati</strong><a className='underline text-blue-500' href={`https://www.linkedin.com/in/nikhil-prajapati-883716287`}>Linkedin</a></div>
+          <p>
+            <a href="tel:+919016377536" className="text-blue-500 underline">+91 9016377536</a>
+            </p>
           <div className='flex justify-between w-[80%]'><strong>Garv Jauhri</strong>   {/* <p>Pune 411041</p> */}
             <a className='underline text-blue-500' href={`https://www.linkedin.com/in/garv-jauhari-6726162b4/`}>
             <ul>Linkedin</ul>
