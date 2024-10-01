@@ -65,7 +65,7 @@ function Navbar({ handleScroll }) {
               <div className="flex ">
 
                 <img src={session?.user.image} className="hidden md:block md:w-[40px] sm:h-[40px] md:rounded-full md:ml-16" alt="logo" />
-                <div className="hidden sm:block sm:text-sm">
+                <div className="hidden sm:block sm:text-sm text-white">
                   <p>
                     Your referral ID:
                   </p>
