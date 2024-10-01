@@ -21,7 +21,7 @@ export function ExpandableCardDemo() {
         const data = await response.json();
 
         if (data.success) {
-          setLeaders(data.data.slice(3));
+          setLeaders(data.data.slice(3,20));
         }
 
         else {
