@@ -39,7 +39,7 @@ const Page = (c) => {
     {
       id: 2,
       name: "Esummit%20Junior",
-      description: "Attention 8th-10th graders! Ready to unlock your potential at E-Summit Jr? Step into an exciting world of challenges, test your skills in a thrilling academic showdown, and sharpen your wits. Join us at 111T Pune for an unforgettable experience—where only the boldest will rise to the top!",
+      description: "Attention 8th-10th graders! Ready to unlock your potential at E-Summit Jr? Step into an exciting world of challenges, test your skills in a thrilling academic showdown, and sharpen your wits. Join us at IIIT Pune for an unforgettable experience—where only the boldest will rise to the top!",
       image: "/Events/E-JR_logo.png",
       TeamSize:"Individual",
       p:"Prize -",
@@ -57,7 +57,7 @@ const Page = (c) => {
     {
       id: 4,
       name: "Breaking%20Convention",
-      description: "Get ready for Season Four of Breaking Conventions, where boundaries blur and innovation takes center stage. Join us as our trailblazing speakers challenge the norm and ignite the future of India's startup culture. (more about actual Speaker)",
+      description: "Get ready for Season Four of Breaking Conventions, where boundaries blur and innovation takes center stage. Join us as our trailblazing speakers challenge the norm and ignite the future of India's startup culture.",
       image: "/Events/BC_logo.png",
       TeamSize:"Individual"
     
