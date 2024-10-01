@@ -63,7 +63,8 @@ export const POST = async (req) => {
       transactionId: transactionid,
       referralId: scoutid || null,
       amount:amount,
-      eventNames:eventnames
+      eventNames:eventnames,
+      verified:false
     });
 
     await newTransaction.save();
@@ -73,12 +74,16 @@ export const POST = async (req) => {
       const referringUser = await User.findOne({ scoutId: scoutid });
       const referredUser = await User.findOne({ email });
 
-      if (referredUser && referringUser) {
+      if (newTransaction.verified) 
+        { // Make sure to change this logic based on your verification method
         if (!Array.isArray(referringUser.referralUsers)) {
           referringUser.referralUsers = [];
         }
-        referringUser.referralUsers.push(referredUser._id);
-        await referringUser.save();
+        // Add the referred user only if not already added
+        if (!referringUser.referralUsers.includes(referredUser._id)) {
+          referringUser.referralUsers.push(referredUser._id);
+          await referringUser.save();
+        }
       }
     }
 

@@ -216,10 +216,10 @@ else{
     </div>
     </div> */}
     {/* </div> */}
-    <ul className='flex items-center list-disc  justify-center flex-col'>
+    {/* <ul className='flex items-center list-disc  justify-center flex-col'>
     <li className='text-[20px] text-white'>Multiple Transaction done from one  user would be counted under one Transaction. </li>
     <li className='text-[20px] text-left text-white'>In case of any Issue Contact Ecell Support Team</li>
-    </ul>
+    </ul> */}
     
     <Footer />
     </div>
