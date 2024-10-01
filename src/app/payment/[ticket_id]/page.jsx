@@ -170,7 +170,7 @@ else{
       <div className='flex flex-col justify-center items-center gap-[20px] mb-[5%]'>
         <div className='qr-image'>
           <Image
-            className='w-[300px] h-[300px] rounded-[40px]'
+            className='w-[300px] h-[300px] p-4'
             src={qrCodeImage} // Use the public directory path
             alt='QR Image'
             width={400} // Define width for Next.js Image
