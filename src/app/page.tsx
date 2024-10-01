@@ -10,13 +10,21 @@ import Speakers from './speakers/page';
 import { PrizePool } from "./components/prize_pool";
 import Footer from "./components/Footer";
 import './globals.css';
-import Sponsors from "./sponsors/page";
+// import Sponsors from "./sponsors/page";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false); // Track whether the component is mounted
   const eventsSectionRef = useRef(null); // Ref for the events section
   const [loading, setLoading] = useState(true);
+  const [visitorCount, setVisitorCount] = useState();
 
+  useEffect(() => {
+    // Fetch visitor count from backend
+    fetch('https://localhost:3000/api/visitors/')
+      .then((response) => response.json())
+      .then((data) => setVisitorCount(data.count))
+      .catch((error) => console.error('Error fetching visitor count:', error));
+  }, []);
   // Ensure the component is mounted before accessing query params
   useEffect(() => {
     setMounted(true); // Indicate that the component is mounted
@@ -71,12 +79,12 @@ export default function Home() {
             )}
 
             <PrizePool />
-            <Speakers />
+            <Speakers/>
             {/* <Sponsors/> */}
             <section id="aboutUs">
               <Instructors />
             </section>
-            <Footer />
+            <Footer visitorscount={visitorCount}/>
           </main>
         </div>
       )}
