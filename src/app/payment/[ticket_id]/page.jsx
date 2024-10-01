@@ -11,8 +11,10 @@ import InfinityLoader from '../../components/infinite_loader';
 import { toast, ToastContainer } from 'react-toastify';
 import Footer from '../../components/Footer';
 import { usePathname, useSearchParams } from 'next/navigation';
+import ReactGA from 'react-ga';
 
   const PaymentGateway = () => {
+
   const {data:session}=useSession()
    const [TransactionId, setTransactionId] = useState('')
    const [ContactNumber, setContactNumber] = useState('')
@@ -38,7 +40,12 @@ import { usePathname, useSearchParams } from 'next/navigation';
       '4':150,
       '5':50
     }
-
+ const trackingid="G-XGR3BKX6F5";
+  ReactGA.initialize(trackingid);
+  useEffect(() => {
+    // Non -iteration event
+    ReactGA.pageview(window.location.pathname);
+  },[])
     const eventMap = {
     '1':'Startup Survival',
     '2': 'Breaking Convention',

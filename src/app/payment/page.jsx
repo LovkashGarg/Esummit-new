@@ -9,8 +9,17 @@ import { useState} from 'react';
 import InfinityLoader from '../components/infinite_loader';
 // import { useRouter } from 'next/router';
 // const Router=useRouter();
+import ReactGA from 'react-ga';
+
 import { useEffect } from 'react';
+
 const TicketSection = () => {
+  const trackingid="G-XGR3BKX6F5";
+  ReactGA.initialize(trackingid);
+  useEffect(() => {
+    // Non -iteration event
+    ReactGA.pageview(window.location.pathname);
+  })
   const tickets = [
     {
       id: 1,
