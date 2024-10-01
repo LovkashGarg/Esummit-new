@@ -36,7 +36,11 @@ const TransactionSchema=new Schema(
         },
         eventNames:{
             type:[String]
-        }
+        },
+        verified: {
+            type: Boolean,
+            default: false, // Default to false (not verified)
+          },
     }
 )
 
