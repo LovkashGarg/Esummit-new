@@ -6,11 +6,11 @@ import { CardHoverEffectDemo } from "./components/card";
 import Navbar from "./components/Navbar";
 import { useEffect, useRef, useState } from "react";
 import InfinityLoader from "./components/infinite_loader";
-// import Speakers from './speakers/page';
+import Speakers from './speakers/page';
 import { PrizePool } from "./components/prize_pool";
 import Footer from "./components/Footer";
 import './globals.css';
-import Sponsors from "./sponsors/page";
+// import Sponsors from "./sponsors/page";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false); // Track whether the component is mounted
@@ -79,13 +79,8 @@ export default function Home() {
             )}
 
             <PrizePool />
-<<<<<<< HEAD
-            {/* <Speakers /> */}
-            <Sponsors/>
-=======
-            <Speakers />
+            <Speakers/>
             {/* <Sponsors/> */}
->>>>>>> 4684e3eaed713f4aaa21f65a343da74bb5acdf3f
             <section id="aboutUs">
               <Instructors />
             </section>

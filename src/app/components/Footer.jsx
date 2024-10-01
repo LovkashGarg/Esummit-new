@@ -88,7 +88,7 @@ const Footer = ({visitorscount}) => {
             </a>
           </div>
           <div>
-            Total Visitors :{visits}
+            Total Visitors :{visitorscount}
           </div>
         </div>
         <div>
@@ -121,31 +121,8 @@ const Footer = ({visitorscount}) => {
 
         </div>
       </div>
-<<<<<<< HEAD
-      <div>
-        Total Visitors :{visitorscount}
-      </div>
-    </div>
-    <div>
-      <h2 className="text-white text-lg font-semibold mb-4">Contact Us</h2>
-      <h3><strong>Tanmay Khaitan</strong></h3>
-      {/* <p>Pune 411041</p> */}
-      <a href={`mailto:ecell@iiitp.ac.in`}>Email: ecell@iiitp.ac.in</a>
-      {/* <h1>Any technical Issues</h1> */}
-      <p>Phone: +919784306503</p>
-      <div className='flex gap-5'><strong>Lovkash Garg</strong>    <a className='underline' href={`https://www.linkedin.com/in/lovkashgarg/`}><ul>Linkedin</ul></a></div>
-      <div className='flex gap-5'><strong>Nikhil Prajapati</strong><a className='underline' href={`mailto:nikhilpraj@gmail.com`}>Linkedin</a></div>   
-      <div className='flex gap-5'><strong>Garv Jauhri</strong>   {/* <p>Pune 411041</p> */}
-      <a className='underline' href={`https://www.linkedin.com/in/garv-jauhari-6726162b4/`}><ul>Linkedin</ul></a></div>
-   
-    </div>
-    </div>
-    <p className="text-center text-[15px] sm:text-[25px] pt-8">© 2024 Ecell. All rights reserved.</p>
-</footer>   
-=======
       <p className="text-center text-[15px] sm:text-[25px] pt-8">© 2024 Ecell. All rights reserved.</p>
     </footer>
->>>>>>> 4684e3eaed713f4aaa21f65a343da74bb5acdf3f
   )
 }
 
