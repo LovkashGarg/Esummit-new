@@ -15,7 +15,7 @@ const Sponsors = () => {
     <div className={styles.sponsorsSection} style={{backgroundColor:"black"}}>
       <div className={styles.header}>
         <h2 className='text-white'>Our Sponsors</h2>
-        <p className='text-white'>We are grateful for the support of our wonderful sponsors.</p>
+        <p className='text-white text-xl'>We are grateful for the support of our wonderful sponsors.</p>
       </div>
       <div className={styles.sponsorsGrid}>
         {sponsors.map((sponsor, index) => (

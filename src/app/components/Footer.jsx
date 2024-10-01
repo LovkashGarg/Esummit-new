@@ -1,24 +1,24 @@
 "use client"
 import React from 'react'
 import Link from 'next/link'
-import { useEffect ,useState} from 'react';
-const Footer = () => {
-  const [visits, setVisits] = useState(0);
+// import { useEffect ,useState} from 'react';
+const Footer = ({visitorscount}) => {
+  // const [visits, setVisits] = useState(visitCount);
 
-  useEffect(() => {
-    // Retrieve the visit count from localStorage
-    let visitCount = localStorage.getItem('visitCount');
-    if (!visitCount) {
-      // First visit, initialize it
-      visitCount = 1;
-    } else {
-      // Increment the visit count
-      visitCount = parseInt(visitCount) + 1;
-    }
-    // Store updated visit count in localStorage
-    localStorage.setItem('visitCount', visitCount);
-    setVisits(visitCount);
-  }, []);
+  // useEffect(() => {
+  //   // Retrieve the visit count from localStorage
+  //   // let visitCount = localStorage.getItem('visitCount');
+  //   if (!visitCount) {
+  //     // First visit, initialize it
+  //     visitCount = 1;
+  //   } else {
+  //     // Increment the visit count
+  //     visitCount = parseInt(visitCount) + 1;
+  //   }
+  //   // Store updated visit count in localStorage
+  //   localStorage.setItem('visitCount', visitCount);
+  //   setVisits(visitCount);
+  // }, []);
 
   return (
     <footer className="bg-black text-gray-400 py-12">
@@ -88,7 +88,7 @@ const Footer = () => {
         </a>
       </div>
       <div>
-        Total Visitors :{ visits}
+        Total Visitors :{visitorscount}
       </div>
     </div>
     <div>
