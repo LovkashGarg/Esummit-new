@@ -32,7 +32,7 @@ const Page = (c) => {
       name: "StartUp%20Saga",
       description: "Enter a world where startups, investors, and students collide, unlocking opportunities for the next big venture. Startups reveal their innovations, offering internships to sharp-minded students, while investors seek the next breakthrough. Will you be part of the success story waiting to unfold?",
       image: "/Events/SatrtupSaga_logo.png",
-      TeamSize:"Indivisual"
+      TeamSize:"Individual"
      
      
     },
@@ -41,7 +41,7 @@ const Page = (c) => {
       name: "Esummit%20Junior",
       description: "Attention 8th-10th graders! Ready to unlock your potential at E-Summit Jr? Step into an exciting world of challenges, test your skills in a thrilling academic showdown, and sharpen your wits. Join us at 111T Pune for an unforgettable experience—where only the boldest will rise to the top!",
       image: "/Events/E-JR_logo.png",
-      TeamSize:"Indivisual",
+      TeamSize:"Individual",
       p:"Prize -",
       Prize:""
     },
@@ -59,7 +59,7 @@ const Page = (c) => {
       name: "Breaking%20Convention",
       description: "Get ready for Season Four of Breaking Conventions, where boundaries blur and innovation takes center stage. Join us as our trailblazing speakers challenge the norm and ignite the future of India's startup culture. (more about actual Speaker)",
       image: "/Events/BC_logo.png",
-      TeamSize:"Indivisual"
+      TeamSize:"Individual"
     
      
     },
@@ -68,7 +68,7 @@ const Page = (c) => {
       name: "Big%20Bull",
       description: "Step into the high-stakes world of trading, where fortunes are made or lost. With a demo account on STOCKGRO, you'll test your skills, turning virtual cash into real triumph. Over 3-4 intense days, every trade could bring you closer to victory. Will your portfolio rise to the top and crown you the Big Bull?",
       image: "/Events/BigBull_logo.png",
-      TeamSize:"Indivisual",
+      TeamSize:"Individual",
       p:"Prize -",
       Prize:"4.5K"
     },
@@ -77,7 +77,7 @@ const Page = (c) => {
       name: "Brand%20Brawl",
       description: "Where top execs debate high-stakes crises in TopTalks, each defending their strategies. Then, watch as rival teams clash over global issues in a heated final. Only the sharpest arguments will lead to victory. Can your team dominate the debate?",
       image: "/newEvents/brandb.png",
-      TeamSize:"Indivisual",
+      TeamSize:"Individual",
       p:"Prize -",
       Prize:"6k"
     },
@@ -97,7 +97,7 @@ const Page = (c) => {
       description: 
       "Step into the unknown with our mystery coding event—no hints, no code on screen. Just you, your memory, and the challenge ahead. Can you solve the puzzles when the lights are out?",
       image: "/Events/LightsOut_logo.png",
-      TeamSize:"Indivisual",
+      TeamSize:"Individual",
       p:"Prize -",
       Prize:"6K"
     },
@@ -106,7 +106,7 @@ const Page = (c) => {
       name: "OTH",
       description: "Embark on a thrilling online treasure hunt, where each image or text clue unlocks the path forward. Over 2-3 days, navigate through hurdles, solving each question before advancing. The ultimate prize awaits the player who conquers the most challenges before the deadline. Will you be the one to uncover the treasure?",
       image: "/Events/Oth_logo.png",
-      TeamSize:"Indivisual",
+      TeamSize:"Individual",
       p:"Prize -",
       Prize:"4.5K"
     },
