@@ -308,7 +308,7 @@ const [Ticketid,setTicketId]=useState();
                 <li key={index} className="text-white my-[10px] flex  gap-[8px] items-center justify-left "><img 
                 src={event.value === true 
                   ? "https://cdn.pixabay.com/photo/2017/01/13/01/22/ok-1976099_1280.png" 
-                  : "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTxrkxNAMmeFKA4APfYroPBGka9cjra4B_RyAiOcsp57t6xOL6V"} 
+                  : 'https://openclipart.org/download/108961/button-cancel.svg'} 
                 alt="" 
                 className='w-[40px] h-[40px] ' 
               />
