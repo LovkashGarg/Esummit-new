@@ -87,7 +87,7 @@ const Page = (c) => {
       name: "StartUp%20Survival",
       description: "Trapped in a race against time,only your wits can save you. Cryptic clues lie hidden,waiting to be unveiled by you. Every second brings you closer to the escape— or failure. Team up, crack the code, and unlock the code before time runs out.",
       image: "/newEvents/startups.png",
-      TeamSize:"4-6",
+      TeamSize:"3-5",
       p:"Prize -",
       Prize:"10K"
     },
