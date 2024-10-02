@@ -9,8 +9,18 @@ import { useState} from 'react';
 import InfinityLoader from '../components/infinite_loader';
 // import { useRouter } from 'next/router';
 // const Router=useRouter();
+import ReactGA from 'react-ga';
+
 import { useEffect } from 'react';
+import { trusted } from 'mongoose';
+
 const TicketSection = () => {
+  const trackingid="G-XGR3BKX6F5";
+  ReactGA.initialize(trackingid);
+  useEffect(() => {
+    // Non -iteration event
+    ReactGA.pageview(window.location.pathname);
+  })
   const tickets = [
     {
       id: 1,
@@ -30,7 +40,7 @@ const TicketSection = () => {
       title: 'VALUE PASS',
       price: '₹200',
       color:"#2c3e50",
-      description: 'ULTIMATE PASS',
+      description: ' PASS',
       events: [
         { description: 'ACCESS TO ALL 8 EVENTS', value: true },
         { description: 'BEST VALUE', value: true },
@@ -38,16 +48,18 @@ const TicketSection = () => {
       ]
     },
     {
-      id: 3,
-      title: 'FLEXI PASS',
-      price: '₹100',
-      color:"#c25b56",
-      description: 'Discounted rate for students.',
+      id:3,
+      title: 'MAHARAJA PASS',
+      price: '₹250',
+      color:"#97262a",
+      description: 'Feasible PASS',
       events: [
-        { description: 'ACCESS TO ANY THREE OFFLINE EVENTS', value: true },
-        { description: 'STARTUP SAGA NOT INCLUDED', value: false }
+        { description: 'ACCESS TO ALL EVENT', value: true },
+        { description: 'STARTUP SAGA INCLUDED', value: true },
+        { description: 'VALUE FOR MONEY', value: true }
       ]
     },
+    
   ];
 
   const tickets2=[
@@ -73,6 +85,18 @@ const TicketSection = () => {
         { description: 'STARTUP SAGA NOT INCLUDED', value: false }
       ]
     },
+    {
+      id: 6,
+      title: 'FLEXI PASS',
+      price: '₹100',
+      color:"#c25b56",
+      description: 'Discounted rate for students.',
+      events: [
+        { description: 'ACCESS TO ANY THREE OFFLINE EVENTS', value: true },
+        { description: 'STARTUP SAGA NOT INCLUDED', value: false }
+      ]
+    },
+   
   ];
 
 
@@ -103,7 +127,7 @@ const TicketSection = () => {
     if (Ticketid === 5) {
       // For ticket ID 1, allow only one selection
       setSelectedCheckboxes([id]);
-    } else if (Ticketid === 3) {
+    } else if (Ticketid === 6) {
       // For ticket ID 3, allow up to 3 selections
       if (selectedCheckboxes.includes(id)) {
         setSelectedCheckboxes(selectedCheckboxes.filter((checkboxId) => checkboxId !== id));
@@ -118,7 +142,7 @@ const TicketSection = () => {
 
 const [Ticketid,setTicketId]=useState();
   const handleSubmit = (ticketid) => {
-    if(ticketid===3){
+    if(ticketid===6){
        // I have to check if done or not 
        if(selectedCheckboxes.length!==3){
         alert("Please select 3 events");
@@ -143,7 +167,7 @@ const [Ticketid,setTicketId]=useState();
 
     setTicketId(ticketid);
     // alert(Ticketid);
-    if(ticketid==5 || ticketid ==3){
+    if(ticketid==5 || ticketid ==6){
       setIsOpen(true);
     }
     else{
@@ -189,7 +213,7 @@ const [Ticketid,setTicketId]=useState();
 
             ))
             }
-            { Ticketid===3 &&
+            { Ticketid===6 &&
                 offlineCheckboxes.map((checkbox) => (
               <label key={checkbox.id} className='flex gap-4'>
                 <input
@@ -244,9 +268,10 @@ const [Ticketid,setTicketId]=useState();
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {tickets.map(ticket => (
            <div className='flex mx-[10%]  flex-col'>
+                  <div key={ticket.id} className={`${ticket.id==3? 'block':'hidden'}  bg-slate-900 text-center h-[40px] text-[30px] rounded-[10px]  text-white font-mono `}>ULTIMATE BLEND</div>
                   <div key={ticket.id} className={`${ticket.id==1? 'block':'hidden'} bg-slate-900 text-center h-[40px] text-[30px] rounded-[10px]  text-white font-mono`}>Recommended</div>
            <div key={ticket.id} className={`${ticket.id==2? 'block':'hidden'} bg-slate-900 text-center h-[40px] text-[30px] rounded-[10px]  text-white font-mono`}>Most Popular</div>
-          <div key={ticket.id}  style={{ backgroundColor: ticket.color }}  className={`${ticket.id==3?'md:mt-[70px]':""} border-[5px] border-gray-300 rounded-[30px] p-6 mt-[10px] shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out text-center`}>
+          <div key={ticket.id}  style={{ backgroundColor: ticket.color }}  className={` border-[5px] border-gray-300 rounded-[30px] p-6 mt-[10px] shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out text-center`}>
             <h3 className="text-xl text-yellow-400 font-semibold mb-4">{ticket.title}</h3>
             <p className="text-white mb-4">{ticket.description}</p>
             <p className="text-2xl font-bold text-yellow-300 mb-4">{ticket.price}</p>
@@ -270,8 +295,9 @@ const [Ticketid,setTicketId]=useState();
       </div>
       <div className="mt-[5%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {tickets2.map(ticket => (
+            
            <div className='flex mx-[10%] flex-col'>
-     
+
           <div key={ticket.id}  style={{ backgroundColor: ticket.color }}  className={` border-[5px] border-gray-300 rounded-[30px] p-6 mt-[10px] shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out text-center`}>
             <h3 className="text-xl text-yellow-400 font-semibold mb-4">{ticket.title}</h3>
             <p className="text-white mb-4">{ticket.description}</p>

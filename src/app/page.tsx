@@ -9,6 +9,7 @@ import InfinityLoader from "./components/infinite_loader";
 import Speakers from './speakers/page';
 import { PrizePool } from "./components/prize_pool";
 import Footer from "./components/Footer";
+import ReactGA from 'react-ga'
 import './globals.css';
 // import Sponsors from "./sponsors/page";
 
@@ -17,13 +18,17 @@ export default function Home() {
   const eventsSectionRef = useRef(null); // Ref for the events section
   const [loading, setLoading] = useState(true);
   const [visitorCount, setVisitorCount] = useState();
-
+  const trackingid="G-XGR3BKX6F5";
+  ReactGA.initialize(trackingid);
   useEffect(() => {
+    // Non -iteration event
+    ReactGA.pageview(window.location.pathname);
+    
     // Fetch visitor count from backend
-    fetch('https://localhost:3000/api/visitors/')
-      .then((response) => response.json())
-      .then((data) => setVisitorCount(data.count))
-      .catch((error) => console.error('Error fetching visitor count:', error));
+    // fetch('https://localhost:3000/api/visitors/')
+    //   .then((response) => response.json())
+    //   .then((data) => setVisitorCount(data.count))
+    //   .catch((error) => console.error('Error fetching visitor count:', error));
   }, []);
   // Ensure the component is mounted before accessing query params
   useEffect(() => {
