@@ -34,11 +34,12 @@ import ReactGA from 'react-ga';
    const handleSubmit=async ()=>{
 
     const QRAmount={
-      '1':150,
+      '1':100,
       '2':200,
-      '3':100,
-      '4':150,
-      '5':50
+      '3':250,
+      '4':100,
+      '5':50,
+      '6':150,
     }
  const trackingid="G-XGR3BKX6F5";
   ReactGA.initialize(trackingid);
@@ -64,6 +65,10 @@ import ReactGA from 'react-ga';
       eventNames=['Value Pass']
     }
 
+    if(id==='3')
+    {
+      eventNames=['Maharaja Pass']
+    }
     if(id==='4')
     {
       eventNames=['All Online Events']
@@ -157,11 +162,12 @@ else{
   }, []);
 
     const qrCodeMapping={
-      '1':'/assets/150QR.jpeg',
+      '1':'/assets/100QR.jpeg',
       '2':'/assets/200QR.jpeg',
-      '3':'/assets/100QR.jpeg',
+      '3':'/assets/250QR.jpeg',
       '4':'/assets/150QR.jpeg',
-      '5':'/assets/50QR.jpeg'
+      '5':'/assets/50QR.jpeg',
+      '6':'/assets/100QR.jpeg',
     }
 
     const qrCodeImage = qrCodeMapping[id] 
