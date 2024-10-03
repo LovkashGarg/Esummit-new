@@ -30,6 +30,12 @@ import ReactGA from 'react-ga';
 
    const eventList=events? events.split(','): [];
 
+   useEffect(() => {
+   const trackingid="G-XGR3BKX6F5";
+    ReactGA.initialize(trackingid);
+   // Non -iteration event
+   ReactGA.pageview(window.location.pathname);
+ },[])
 
    const handleSubmit=async ()=>{
 
@@ -41,12 +47,6 @@ import ReactGA from 'react-ga';
       '5':50,
       '6':150,
     }
- const trackingid="G-XGR3BKX6F5";
-  ReactGA.initialize(trackingid);
-  useEffect(() => {
-    // Non -iteration event
-    ReactGA.pageview(window.location.pathname);
-  },[])
     const eventMap = {
     '1':'Startup Survival',
     '2': 'Breaking Convention',

@@ -18,9 +18,9 @@ export default function Home() {
   const eventsSectionRef = useRef(null); // Ref for the events section
   const [loading, setLoading] = useState(true);
   const [visitorCount, setVisitorCount] = useState();
-  const trackingid="G-XGR3BKX6F5";
-  ReactGA.initialize(trackingid);
   useEffect(() => {
+    const trackingid="G-XGR3BKX6F5";
+    ReactGA.initialize(trackingid);
     // Non -iteration event
     ReactGA.pageview(window.location.pathname);
     
