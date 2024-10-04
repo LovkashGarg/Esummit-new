@@ -133,7 +133,7 @@ const Page = (c) => {
         <>
           <Navbar />
           <SpotlightPreview eventsData={matchedEvent} />
-          <Link href='/payment' className="flex flex-row jusitify-center items-center bg-black "><div className=" text-[35px] font-mono text-center mx-[20%] mt-[5%] sm:mt-[3%] md:mt-[0%]  md:mx-[40%] mb-[2%]  rounded-[40px] border-[2px] border-white w-[60%]   md:w-[20%]  px-[5%] bg-yellow-600">Buy Now</div></Link>
+          {/* <Link href='/payment' className="flex flex-row jusitify-center items-center bg-black "><div className=" text-[35px] font-mono text-center mx-[20%] mt-[5%] sm:mt-[3%] md:mt-[0%]  md:mx-[40%] mb-[2%]  rounded-[40px] border-[2px] border-white w-[60%]   md:w-[40%]  px-[1%] bg-yellow-600">Buy Now</div></Link> */}
           <Footer />
         </>
       )}
