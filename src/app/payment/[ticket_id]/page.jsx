@@ -201,7 +201,7 @@ else{
           <input
             className='mx-[20px] sm:mx-[100px] border-[3px] border-black w-[300px] rounded-[20px] px-[20px] text-[20px] text-black'
             type='text'
-            placeholder='Enter Referal_ID'
+            placeholder='Enter Referral_ID'
             value={ScoutId}
             onChange={(e)=>setScoutId(e.target.value)}
           />
