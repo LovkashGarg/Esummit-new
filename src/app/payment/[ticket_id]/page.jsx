@@ -162,7 +162,6 @@ else{
   }, []);
 
     const qrCodeMapping={
-      '1':'/assets/QR_150.jpeg',
       '2':'/assets/QR_200.jpeg',
       '3':'/assets/QR_250.jpeg',
       '4':'/assets/QR_150.jpeg',
@@ -179,13 +178,13 @@ else{
     <div className='bg-black'>
     <Navbar/>
     <ToastContainer/>
-      <div className='text-[20px] sm:text-[30px] text-center mt-[27%] text-white  sm:mt-[10%] font-mono'>Don't Miss a Oppurtunity</div>
+      <div className='text-[20px] sm:text-[30px] text-center mt-[27%] text-white  sm:mt-[10%] font-mono'>Don't Miss the Oppurtunity</div>
       <div className='flex flex-col justify-center items-center gap-[20px] mb-[5%]'>
         <div className='qr-image'>
           <Image
             className='w-[300px] h-[300px] p-4'
             src={qrCodeImage} // Use the public directory path
-            alt='QR Image'
+            alt='Coming soon ... and for more details contact tanmay khaitan +919784306503'
             width={400} // Define width for Next.js Image
             height={400} // Define height for Next.js Image
           />

@@ -43,7 +43,7 @@ const TicketSection = () => {
       events: [
         { description: 'ACCESS TO ALL 8 EVENTS', value: true },
         { description: 'BEST VALUE', value: true },
-        { description: 'STARTUP SAGA NOT INCLUDED', value: false }
+        // { description: 'STARTUP SAGA NOT INCLUDED', value: false }
       ]
     },
     {
@@ -54,7 +54,6 @@ const TicketSection = () => {
       description: 'Feasible PASS',
       events: [
         { description: 'ACCESS TO ALL EVENT', value: true },
-        { description: 'STARTUP SAGA INCLUDED', value: true },
         { description: 'VALUE FOR MONEY', value: true }
       ]
     },
@@ -228,10 +227,10 @@ const [Ticketid,setTicketId]=useState();
           
             </div>
             <div className="popup-buttons  flex justify-between">
+              <button className='text-white bg-red-800 rounded-[20px] w-[100px] ' onClick={() => setIsOpen(false)}>X Close</button>
               <button className='text-white bg-green-800 rounded-[20px] w-[100px] ' onClick={()=>handleSubmit(Ticketid)} disabled={selectedCheckboxes.length < 1}>
                 Submit
               </button>
-              <button className='text-white bg-red-800 rounded-[20px] w-[100px] ' onClick={() => setIsOpen(false)}>X Close</button>
             </div>
           </div>
           <style jsx>{`
