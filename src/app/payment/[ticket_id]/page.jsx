@@ -162,7 +162,7 @@ else{
   }, []);
 
     const qrCodeMapping={
-      '1':'/assets/QR_100.jpeg',
+      '1':'/assets/QR_150.jpeg',
       '2':'/assets/QR_200.jpeg',
       '3':'/assets/QR_250.jpeg',
       '4':'/assets/QR_150.jpeg',
