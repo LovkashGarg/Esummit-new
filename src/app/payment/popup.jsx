@@ -54,10 +54,10 @@ const CheckboxPopupMenu = () => {
             ))}
             </div>
             <div className="popup-buttons  flex justify-between">
+              <button className='text-white bg-red-800 rounded-[20px] w-[100px] ' onClick={() => setIsOpen(false)}>X Close</button>
               <button className='text-white bg-green-800 rounded-[20px] w-[100px] ' onClick={handleSubmit} disabled={selectedCheckboxes.length < 1}>
                 Submit
               </button>
-              <button className='text-white bg-red-800 rounded-[20px] w-[100px] ' onClick={() => setIsOpen(false)}>X Close</button>
             </div>
           </div>
           <style jsx>{`

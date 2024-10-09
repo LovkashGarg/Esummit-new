@@ -43,9 +43,9 @@ import ReactGA from 'react-ga';
       '1':100,
       '2':200,
       '3':250,
-      '4':100,
+      '4':150,
       '5':50,
-      '6':150,
+      '6':100,
     }
     const eventMap = {
     '1':'Startup Survival',
@@ -162,12 +162,12 @@ else{
   }, []);
 
     const qrCodeMapping={
-      '1':'/assets/100QR.jpeg',
-      '2':'/assets/200QR.jpeg',
-      '3':'/assets/250QR.jpeg',
-      '4':'/assets/150QR.jpeg',
-      '5':'/assets/50QR.jpeg',
-      '6':'/assets/100QR.jpeg',
+      '1':'/assets/QR_100.jpeg',
+      '2':'/assets/QR_200.jpeg',
+      '3':'/assets/QR_250.jpeg',
+      '4':'/assets/QR_150.jpeg',
+      '5':'/assets/QR_50.jpeg',
+      '6':'/assets/QR_100.jpeg',
     }
 
     const qrCodeImage = qrCodeMapping[id] 

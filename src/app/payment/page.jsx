@@ -30,7 +30,6 @@ const TicketSection = () => {
       description: 'STARTUP SAGA PASSS',
       events: [
         { description: 'ONLY ACCESS TO STARTUP SAGA', value: true },
-        { description: 'ONLY INR 100 FOR EARLY BIRDS', value: true },
         { description: 'INTERNSHIP CHANCES', value: true }
       ]
     
