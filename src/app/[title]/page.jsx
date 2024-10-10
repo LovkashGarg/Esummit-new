@@ -33,8 +33,6 @@ const Page = (c) => {
       description: "Enter a world where startups, investors, and students collide, unlocking opportunities for the next big venture. Startups reveal their innovations, offering internships to sharp-minded students, while investors seek the next breakthrough. Will you be part of the success story waiting to unfold?",
       image: "/Events/SatrtupSaga_logo.png",
       TeamSize:"Individual"
-     
-     
     },
     {
       id: 2,
@@ -70,7 +68,8 @@ const Page = (c) => {
       image: "/Events/BigBull_logo.png",
       TeamSize:"Individual",
       p:"Prize -",
-      Prize:"4.5K"
+      Prize:"4.5K",
+      Status:"Registration closed"
     },
     {
       id: 6,

@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export function SpotlightPreview(eventData) {
-  const { id, name, description, image,p,TeamSize,Prize } = eventData['eventsData'];
+  const { id, name, description, image,p,TeamSize,Prize, Status} = eventData['eventsData'];
   // Decode the name to remove %20 and other encoded characters
   const decodedName = decodeURIComponent(name);
 
@@ -55,7 +55,14 @@ export function SpotlightPreview(eventData) {
           <div className="border-[3px] border-white rounded-[45px] p-4  flex justify-center">
             <div className="text-white text-left">
               <p className="sm:text-3xl m-7 text-base">{description}</p>
-              <Link href='/payment' className="flex flex-row jusitify-center items-center bg-black "><div className=" text-2xl font-mono text-center mx-[20%] mt-[5%] sm:mt-[3%] md:mt-[0%]  md:mx-[40%] mb-[2%]  rounded-[40px] border-[2px] border-white w-[60%]   md:w-[40%]  px-[1%] bg-yellow-600">Buy Now</div></Link>
+              { Status && 
+           <div className=" text-2xl font-mono text-center mx-[20%] mt-[5%] sm:mt-[3%] md:mt-[0%]  md:mx-[30%] mb-[2%]  rounded-[40px] border-[2px] border-white w-[60%]   md:w-[40%]  px-[1%] bg-red-600">Registration Closed</div>
+              }
+              {
+                !Status &&
+                <Link href='/payment' className="flex flex-row jusitify-center items-center bg-black "><div className=" text-2xl font-mono text-center mx-[20%] mt-[5%] sm:mt-[3%] md:mt-[0%]  md:mx-[40%] mb-[2%]  rounded-[40px] border-[2px] border-white w-[60%]   md:w-[40%]  px-[1%] bg-yellow-600">Buy Now</div></Link>
+              }
+             
             </div>
           </div>
         </div>
