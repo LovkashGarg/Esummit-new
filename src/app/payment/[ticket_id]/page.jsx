@@ -161,11 +161,11 @@ else{
   }, []);
 
     const qrCodeMapping={
-      '2':'/assets/QR_200.jpeg',
-      '3':'/assets/QR_250.jpeg',
-      '4':'/assets/QR_150.jpeg',
-      '5':'/assets/QR_50.jpeg',
-      '6':'/assets/QR_100.jpeg',
+      '2':'/QR/QR_200.jpeg',
+      '3':'/QR/QR_250.jpeg',
+      '4':'/QR/QR_150.jpeg',
+      '5':'/QR/QR_50.jpeg',
+      '6':'/QR/QR_100.jpeg',
     }
 
     const qrCodeImage = qrCodeMapping[id] 
