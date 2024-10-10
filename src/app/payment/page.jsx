@@ -265,7 +265,7 @@ const [Ticketid,setTicketId]=useState();
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {tickets.map(ticket => (
            <div className='flex mx-[10%]  flex-col'>
-                  <div key={ticket.id} className={`${ticket.id==3? 'block':'hidden'}  bg-slate-900 text-center h-[40px] text-[30px] rounded-[10px]  text-white font-mono `}>ULTIMATE BLEND</div>
+                  <div key={ticket.id} className={`${ticket.id==3? 'block':'hidden'}  bg-slate-900 text-center h-[40px] text-[30px] rounded-[10px]  text-white font-mono `}>Ultimate Blend</div>
                   <div key={ticket.id} className={`${ticket.id==1? 'block':'hidden'} bg-slate-900 text-center h-[40px] text-[30px] rounded-[10px]  text-white font-mono`}>Recommended</div>
            <div key={ticket.id} className={`${ticket.id==2? 'block':'hidden'} bg-slate-900 text-center h-[40px] text-[30px] rounded-[10px]  text-white font-mono`}>Most Popular</div>
           <div key={ticket.id}  style={{ backgroundColor: ticket.color }}  className={` border-[5px] border-gray-300 rounded-[30px] p-6 mt-[10px] shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out text-center`}>
