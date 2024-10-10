@@ -85,8 +85,8 @@ export default function Home() {
             )}
 
             <GuestSection/>
+            <Speakers/>
             <PrizePool />
-            {/* <Speakers/> */}
             {/* <Sponsors/> */}
          
             <section id="aboutUs">
