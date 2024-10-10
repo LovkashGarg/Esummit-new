@@ -6,7 +6,7 @@ import { CardHoverEffectDemo } from "./components/card";
 import Navbar from "./components/Navbar";
 import { useEffect, useRef, useState } from "react";
 import InfinityLoader from "./components/infinite_loader";
-import Speakers from './speakers/page';
+import SpeakersSection from "./speakers/page";
 import { PrizePool } from "./components/prize_pool";
 import Footer from "./components/Footer";
 import ReactGA from 'react-ga'
@@ -84,7 +84,7 @@ export default function Home() {
             )}
 
             <GuestSection/>
-            <Speakers/>
+            <SpeakersSection/>
             <PrizePool />
             {/* <Sponsors/> */}
          
