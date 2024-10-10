@@ -83,8 +83,8 @@ export default function Home() {
               </section>
             )}
 
-            <GuestSection/>
             <Speakers/>
+            <GuestSection/>
             <PrizePool />
             {/* <Sponsors/> */}
          
