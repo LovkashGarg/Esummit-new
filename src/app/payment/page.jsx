@@ -42,8 +42,8 @@ const TicketSection = () => {
       description: ' PASS',
       events: [
         { description: 'ACCESS TO ALL 8 EVENTS', value: true },
-        { description: 'BEST VALUE', value: true },
-        // { description: 'STARTUP SAGA NOT INCLUDED', value: false }
+        // { description: 'BEST VALUE', value: true },
+        { description: 'STARTUP SAGA NOT INCLUDED', value: false }
       ]
     },
     {
@@ -51,7 +51,7 @@ const TicketSection = () => {
       title: 'MAHARAJA PASS',
       price: '₹250',
       color:"#97262a",
-      description: 'Feasible PASS',
+      description: 'FEASIBLE PASS',
       events: [
         { description: 'ACCESS TO ALL EVENT', value: true },
         { description: 'VALUE FOR MONEY', value: true }
@@ -77,7 +77,7 @@ const TicketSection = () => {
       title: 'UNI PASS ',
       price: '₹50',
       color:"#56462a",
-      description: 'Access to all sessions.',
+      description: 'ACCESS TO ALL SESSION',
       events: [
         { description: 'ACCESS TO ANY ONE SINGLE EVENT', value: true },
         { description: 'STARTUP SAGA NOT INCLUDED', value: false }
@@ -88,7 +88,7 @@ const TicketSection = () => {
       title: 'FLEXI PASS',
       price: '₹100',
       color:"#c25b56",
-      description: 'Discounted rate for students.',
+      description: 'DISCOUNTED RATE FOR STUDENTS',
       events: [
         { description: 'ACCESS TO ANY THREE OFFLINE EVENTS', value: true },
         { description: 'STARTUP SAGA NOT INCLUDED', value: false }
@@ -109,8 +109,7 @@ const TicketSection = () => {
     { id: 4, label: 'Stadium Showdown' },
     { id: 5, label: 'Lights Out' },
     { id: 6, label: 'OTH' },
-    { id: 7, label: 'Big Bull' },
-    { id: 8, label: 'E summit Junior'},
+    { id: 7, label: 'E summit Junior'},
   ];
 
   const offlineCheckboxes=[
@@ -271,7 +270,7 @@ const [Ticketid,setTicketId]=useState();
            <div key={ticket.id} className={`${ticket.id==2? 'block':'hidden'} bg-slate-900 text-center h-[40px] text-[30px] rounded-[10px]  text-white font-mono`}>Most Popular</div>
           <div key={ticket.id}  style={{ backgroundColor: ticket.color }}  className={` border-[5px] border-gray-300 rounded-[30px] p-6 mt-[10px] shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out text-center`}>
             <h3 className="text-xl text-yellow-400 font-semibold mb-4">{ticket.title}</h3>
-            <p className="text-white mb-4">{ticket.description}</p>
+            <p className="text-white mb-4 ">{ticket.description}</p>
             <p className="text-2xl font-bold text-yellow-300 mb-4">{ticket.price}</p>
         
             <ul className="list-none ">
@@ -298,7 +297,7 @@ const [Ticketid,setTicketId]=useState();
 
           <div key={ticket.id}  style={{ backgroundColor: ticket.color }}  className={` border-[5px] border-gray-300 rounded-[30px] p-6 mt-[10px] shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out text-center`}>
             <h3 className="text-xl text-yellow-400 font-semibold mb-4">{ticket.title}</h3>
-            <p className="text-white mb-4">{ticket.description}</p>
+            <p className="text-white mb-4 text-sm">{ticket.description}</p>
             <p className="text-2xl font-bold text-yellow-300 mb-4">{ticket.price}</p>
         
             <ul className="list-none ">

@@ -54,8 +54,7 @@ import ReactGA from 'react-ga';
     '4': 'Stadium Showdown',
     '5': 'Lights Out' ,
     '6': 'OTH',
-    '7': 'Big Bull' ,
-    '8': 'E summit Junior',
+    '7': 'E summit Junior',
   }
   
   var eventNames = eventList.map(eventId => eventMap[eventId]);
