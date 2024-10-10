@@ -11,6 +11,7 @@ const speakers = [
   { name: 'Ankita Singh', bio: 'Founder, Be That Diva', image: '/speakers/speaker-3.png' },
 ];
 
+
 const Speakers = () => {
   return (
     <section className="bg-black flex flex-col items-center pt-10 mb-[10%] md:mb-[0%] min-h-screen">
