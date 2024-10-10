@@ -77,7 +77,6 @@ export default function Home() {
           </div>
           <main className="min-h-screen bg-black/[0.96] antialiased bg-grid-black/[0.02]">
             <BackgroundBeamsWithCollisionDemo />
-            
             {mounted && ( // Only render the scroll effect when mounted
               <section id="events" ref={eventsSectionRef}>
                 <CardHoverEffectDemo />

@@ -4,7 +4,7 @@ import React from "react";
 const GuestSection = () => {
   return (
     <div className="bg-black ">
-     <p className="text-4xl text-white text-center  mt-6 -mb-6 md:-mb-20 font-mono">Youtuber</p>
+     <p className="text-4xl text-white text-center  -mb-[20%] md:-mb-[5%] font-mono">Digital Creator</p>
     <div className=" bg-black flex justify-center items-center min-h-screen">
       <div className="bg-black max-w-sm w-full shadow-lg rounded-lg py-3 px-6">
         <div className="text-center mb-4">
@@ -17,14 +17,11 @@ const GuestSection = () => {
         <div className="text-center">
           <h2 className="text-4xl font-semibold text-white font-mono">Funyassi</h2>
         </div>
-        <div className="mt-4">
-          <p className="text-yellow-600 text-3xl  text-center font-mono">
-          5.13 M subscribers.
-          </p>
-        </div>
-        <div className="mt-3 text-center">
-          <a href='https://www.youtube.com/@Funyaasi/videos' className="px-4 py-2 bg-slate-900 text-white rounded-md hover:bg-blue-600 transition-colors">
-            Youtube
+       
+        <div className="mt-3">
+
+          <a href='https://www.youtube.com/@Funyaasi/videos' >
+            <img src="/Events/icons8-youtube.svg" className="mx-auto"/>
           </a>
         </div>
       </div>
