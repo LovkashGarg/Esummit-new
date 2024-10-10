@@ -11,7 +11,7 @@ const speakers = [
   { name: 'Ankita Singh', bio: 'Founder, Be That Diva', image: '/speakers/speaker-3.png' },
 ];
 
-const SpeakersSection = () => {
+const Speakers = () => {
   return (
     <section className="bg-black flex flex-col items-center pt-10 mb-[10%] md:mb-[0%] min-h-screen">
       <h2 className="text-3xl sm:text-4xl text-white font-bold mb-12">Meet the Speakers</h2>
@@ -42,4 +42,4 @@ const SpeakersSection = () => {
   );
 };
 
-export default SpeakersSection;
+export default Speakers;
