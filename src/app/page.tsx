@@ -11,6 +11,7 @@ import { PrizePool } from "./components/prize_pool";
 import Footer from "./components/Footer";
 import ReactGA from 'react-ga'
 import './globals.css';
+import GuestSection from "./guests/page";
 // import Sponsors from "./sponsors/page";
 
 export default function Home() {
@@ -83,12 +84,15 @@ export default function Home() {
               </section>
             )}
 
+            <GuestSection/>
             <PrizePool />
-            <Speakers/>
+            {/* <Speakers/> */}
             {/* <Sponsors/> */}
+         
             <section id="aboutUs">
               <Instructors />
             </section>
+            
             <Footer visitorscount={visitorCount}/>
           </main>
         </div>
