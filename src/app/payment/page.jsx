@@ -30,7 +30,8 @@ const TicketSection = () => {
       description: 'STARTUP SAGA PASSS',
       events: [
         { description: 'ONLY ACCESS TO STARTUP SAGA', value: true },
-        { description: 'INTERNSHIP CHANCES', value: true }
+        { description: 'INTERNSHIP CHANCES', value: true },
+        {description:'INTERACTION WITH ESTABLISHED STARTUP',value:true}
       ]
     
     },
@@ -43,7 +44,8 @@ const TicketSection = () => {
       events: [
         { description: 'ACCESS TO ALL 8 EVENTS', value: true },
         // { description: 'BEST VALUE', value: true },
-        { description: 'STARTUP SAGA NOT INCLUDED', value: false }
+        { description: 'VALUE FOR MONEY', value: true },
+        { description: 'CREATER SHOW NOT INCLUDED', value: false },
       ]
     },
     {
@@ -54,7 +56,8 @@ const TicketSection = () => {
       description: 'FEASIBLE PASS',
       events: [
         { description: 'ACCESS TO ALL EVENT', value: true },
-        { description: 'VALUE FOR MONEY', value: true }
+        { description: 'CREATER-SHOW         ( FunYassi )  INCLUDED', value: true },
+        { description: 'ENTERTAINMENT NIGHT INCLUDED', value: true },
       ]
     },
     
@@ -280,7 +283,7 @@ const [Ticketid,setTicketId]=useState();
                   ? "https://cdn.pixabay.com/photo/2017/01/13/01/22/ok-1976099_1280.png" 
                   : 'https://openclipart.org/download/108961/button-cancel.svg'} 
                 alt="" 
-                className='w-[40px] h-[40px]  ' 
+                className='w-[40px] h-[35px]  ' 
               />
               <div className='text-[15px] text-left'>{event.description}</div></li>
               ))}
@@ -307,7 +310,7 @@ const [Ticketid,setTicketId]=useState();
                   ? "https://cdn.pixabay.com/photo/2017/01/13/01/22/ok-1976099_1280.png" 
                   : 'https://openclipart.org/download/108961/button-cancel.svg'} 
                 alt="" 
-                className='w-[40px] h-[40px] ' 
+                className='w-[40px] h-[35px] ' 
               />
               <div className='text-[15px] text-left'>{event.description}</div></li>
               ))}
