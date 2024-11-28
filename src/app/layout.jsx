@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Provider from "./components/Provider";
-import {Analytics} from '@vercel/analytics'
+import {Analytics} from '@vercel/analytics/next'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
