@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Provider from "./components/Provider";
-
+import {Analytics} from '@vercel/analytics'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -32,6 +32,7 @@ export default function RootLayout({
         <Provider>
         {/* <Navbar handleScroll={handleScroll}/> */}
         {children}
+        <Analytics/>
         </Provider>
       </body>
     </html>
