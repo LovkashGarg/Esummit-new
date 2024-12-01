@@ -15,7 +15,7 @@ const RoleSelection = () => {
   useEffect(() => {
     // Redirect general user to home page if logged in
     if (status === 'authenticated' && !loggedInAdmin) {
-      router.push('/home');
+      router.push('/');
     }
   }, [status, loggedInAdmin, router]);
 
