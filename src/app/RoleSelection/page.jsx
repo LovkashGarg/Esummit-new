@@ -43,7 +43,7 @@ const RoleSelection = () => {
       const data = await response.json();
 
       if (response.ok) {
-        console.log("Token in Role:- ", data.token);
+      
         localStorage.setItem('jwtToken', data.token); // Store JWT token
         alert('Admin login successful');
         setLoggedInAdmin(true);

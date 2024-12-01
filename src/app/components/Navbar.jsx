@@ -27,6 +27,7 @@ function Navbar({ handleScroll }) {
       try {
         const decodedToken = jwtDecode(token); // Decode JWT token
         setSessionUser(decodedToken); // Set user data from JWT
+        console.log("Username:- ",decodedToken);
         setIsAdmin(decodedToken?.role === "admin"||"superadmin"); // Check if the user is an admin
       } catch (error) {
         console.error("Error decoding JWT token:", error);
@@ -123,7 +124,13 @@ function Navbar({ handleScroll }) {
         </div>
       </div>
     </>
-  ) : null}
+  ) : (
+    // For "admin" role
+    <div className="ml-2">
+  <p className=" font-semibold">Welcome,</p>
+  <p className="text-lg font-bold underline text-blue-500 decoration-white/50 decoration-2">Admin</p>
+</div>
+  )}
 </div>
               </div>
               <HoverBorderGradient
