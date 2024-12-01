@@ -22,7 +22,7 @@ export default function Home() {
   useEffect(() => {
     const trackingid="G-XGR3BKX6F5";
     ReactGA.initialize(trackingid);
-    // Non -iteration event
+   
     ReactGA.pageview(window.location.pathname);
     
     // Fetch visitor count from backend
@@ -31,28 +31,28 @@ export default function Home() {
     //   .then((data) => setVisitorCount(data.count))
     //   .catch((error) => console.error('Error fetching visitor count:', error));
   }, []);
-  // Ensure the component is mounted before accessing query params
+
   useEffect(() => {
-    setMounted(true); // Indicate that the component is mounted
+    setMounted(true); 
   }, []);
 
-  // Scroll to specific section based on URLSearchParams
+
   useEffect(() => {
     if (mounted) {
-      const searchParams = new URLSearchParams(window.location.search); // Use URLSearchParams to get the query string
-      const scrollTo = searchParams.get('scrollTo'); // Get the 'scrollTo' query parameter
+      const searchParams = new URLSearchParams(window.location.search);
+      const scrollTo = searchParams.get('scrollTo'); 
       if (scrollTo === "events") {
         eventsSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
       }
     }
   });
 
-  // Simulate a loader for 2 seconds
+
   useEffect(() => {
     const timer = setTimeout(() => {
-      setLoading(false); // Set loading to false after 2 seconds
+      setLoading(false);
     }, 2000);
-    return () => clearTimeout(timer); // Clean up the timeout
+    return () => clearTimeout(timer); 
   }, []);
 
   const handleScroll = (sectionId) => {
@@ -65,7 +65,7 @@ export default function Home() {
   return (
     <div>
       {loading ? (
-        <InfinityLoader /> // Show loader while loading
+        <InfinityLoader /> 
       ) : (
         <div>
           <Head>
