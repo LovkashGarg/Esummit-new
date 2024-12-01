@@ -11,14 +11,14 @@ const RoleSelection = () => {
   const [providers, setProviders] = useState(null); // State to store providers
   const [passwordVisible, setPasswordVisible] = useState(false); // Toggle for password visibility
   const router = useRouter();
-
+  const {data: session, status}=useSession()
   useEffect(() => {
     // Redirect general user to home page if logged in
     if (status === 'authenticated' && !loggedInAdmin) {
       router.push('/home');
     }
   }, [status, loggedInAdmin, router]);
-  
+
   useEffect(() => {
     // Fetch the available providers for the sign-in options
     const fetchProviders = async () => {
