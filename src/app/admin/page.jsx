@@ -5,6 +5,7 @@ import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import AddUser from "../components/AddUser"; // Adjust the path based on your folder structure
 import RoleManagement from "../components/RoleManagement";
+import Navbar from "../components/Navbar";
 
 export default function Home() {
   const [transactions, setTransactions] = useState([]);
@@ -135,7 +136,9 @@ export default function Home() {
   };
 
   return (
-    <div className="container mx-auto py-6">
+    <>
+    <Navbar/>
+    <div className="container mx-auto mt-32">
   <ToastContainer />
   <RoleManagement />
   {/* Button to toggle AddUser component */}
@@ -309,6 +312,6 @@ export default function Home() {
   </p>
 </div>
 
-
+</>
   );
 }

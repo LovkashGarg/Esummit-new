@@ -2,12 +2,14 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { signIn, useSession, getProviders } from 'next-auth/react'; // Import necessary next-auth hooks
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import eye icons
 
 const RoleSelection = () => {
   const [role, setRole] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
   const [loggedInAdmin, setLoggedInAdmin] = useState(false);
   const [providers, setProviders] = useState(null); // State to store providers
+  const [passwordVisible, setPasswordVisible] = useState(false); // Toggle for password visibility
   const router = useRouter();
 
   useEffect(() => {
@@ -45,7 +47,6 @@ const RoleSelection = () => {
         localStorage.setItem('jwtToken', data.token); // Store JWT token
         alert('Admin login successful');
         setLoggedInAdmin(true);
-        router.push('/'); // Redirect to admin dashboard
       } else {
         setErrorMessage(data.error || 'Invalid credentials. Please try again.');
       }
@@ -56,6 +57,7 @@ const RoleSelection = () => {
   };
 
   return (
+    
     <div className="flex flex-col justify-center items-center min-h-screen bg-black text-white">
       {role === null && !loggedInAdmin && (
         <>
@@ -86,18 +88,20 @@ const RoleSelection = () => {
           </h2>
 
           {/* Google Sign-In for User Role */}
-          {providers && Object.values(providers).map((provider) => (
-            provider.name === 'Google' && (
-              <div key={provider.name} className="flex justify-center">
-                <button
-                  onClick={() => signIn(provider.id)} // Trigger Google Sign-In
-                  className="px-8 py-4 text-xl font-semibold rounded-lg bg-blue-500 text-white hover:bg-blue-400 transition-all transform hover:scale-105"
-                >
-                 Using your Google Account
-                </button>
-              </div>
-            )
-          ))}
+          {providers &&
+            Object.values(providers).map(
+              (provider) =>
+                provider.name === 'Google' && (
+                  <div key={provider.name} className="flex justify-center">
+                    <button
+                      onClick={() => signIn(provider.id)} // Trigger Google Sign-In
+                      className="px-8 py-4 text-xl font-semibold rounded-lg bg-blue-500 text-white hover:bg-blue-400 transition-all transform hover:scale-105"
+                    >
+                      Using your Google Account
+                    </button>
+                  </div>
+                )
+            )}
 
           <button
             type="button"
@@ -128,17 +132,23 @@ const RoleSelection = () => {
                 required
               />
             </div>
-            <div>
+            <div className="relative">
               <label htmlFor="password" className="block text-sm text-white mb-1">
                 Password:
               </label>
               <input
-                type="password"
+                type={passwordVisible ? 'text' : 'password'}
                 id="password"
                 name="password"
                 className="w-full px-4 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring focus:ring-blue-400"
                 required
               />
+              <div
+                className="absolute inset-y-11 right-6 flex items-center cursor-pointer text-white"
+                onClick={() => setPasswordVisible(!passwordVisible)}
+              >
+                {passwordVisible ? <FaEyeSlash /> : <FaEye />}
+              </div>
             </div>
             {errorMessage && (
               <p className="text-sm text-red-500 text-center">{errorMessage}</p>
@@ -170,7 +180,7 @@ const RoleSelection = () => {
             You have successfully logged in. Click below to go to your dashboard.
           </p>
           <button
-            onClick={() => router.push('/dashboard')}
+            onClick={() => router.push('/admin')}
             className="w-full px-6 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-400 transition"
           >
             Go to Dashboard

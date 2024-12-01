@@ -53,7 +53,8 @@ export default function AddUser() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="border border-gray-300 p-2 w-full text-black"
+            className="border border-gray-300 p-2 w-full text-black rounded-md"
+            placeholder="Enter your email "
           />
         </div>
         <div>
@@ -63,7 +64,8 @@ export default function AddUser() {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
-            className="border border-gray-300 p-2 w-full text-black"
+            className="border border-gray-300 p-2 w-full text-black rounded-md"
+            placeholder="It should be 8-20 alphanumeric values only "
           />
         </div>
         
@@ -73,7 +75,8 @@ export default function AddUser() {
             type="text"
             value={scoutId}
             onChange={(e) => setScoutId(e.target.value)}
-            className="border border-gray-300 p-2 w-full text-black"
+            className="border border-gray-300 p-2 w-full text-black rounded-md"
+            placeholder="Enter referral or scout ID"
           />
         </div>
         <button

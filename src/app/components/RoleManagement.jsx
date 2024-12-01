@@ -196,7 +196,7 @@ export default function RoleManagement() {
         <td className=" px-4 py-2 space-x-2">
           <button
             onClick={() => toggleRole(user._id, user.role)}
-            className={`px-4 py-2 rounded ${
+            className={`px-4 py-2 min-w-[35%] rounded ${
               user.role === "user"
                 ? "bg-green-600 hover:bg-green-700"
                 : "bg-red-600 hover:bg-red-700"

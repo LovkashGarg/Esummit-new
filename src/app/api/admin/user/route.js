@@ -145,7 +145,6 @@ export const DELETE = async (req) => {
       return new Response(JSON.stringify({ error: "Admins cannot delete other admins." }), { status: 403 });
     }
 
-    i
 
     // Perform the deletion
     await userToDelete.deleteOne();

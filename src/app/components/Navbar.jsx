@@ -96,27 +96,35 @@ function Navbar({ handleScroll }) {
             <div className="flex gap-3 md:gap-5">
               <div className="flex">
                 <img
-                  src={sessionUser?.image || session?.user?.image} // Fallback to session image
+                  src={sessionUser?.image || session?.user?.image || '/assets/Default-Profile-Picture-PNG-Free-Download.png'} // Fallback to session image
                   className="hidden md:block md:w-[40px] sm:h-[40px] md:rounded-full md:ml-16"
                   alt="profile"
                 />
-                <div className="hidden sm:block sm:text-sm text-white">
-                  <p>Your referral ID:</p>
-                  <div className="flex gap-x-2">
-                    <p className="text-blue-400">{sessionUser?.scoutId || session?.user?.scoutId}</p>
-                    <div
-                      className="w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgba(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer"
-                      onClick={handleCopy}
-                    >
-                      <Image
-                        src={copied === (sessionUser?.scoutId || session?.user?.scoutId) ? "/assets/tick.svg" : "/assets/copy.svg"}
-                        width={12}
-                        height={12}
-                        alt="copy"
-                      />
-                    </div>
-                  </div>
-                </div>
+               <div className="hidden sm:block sm:text-sm text-white">
+  {sessionUser?.role === "user" || session?.user?.role === "user" ? ( // Check if the role is 'user'
+    <>
+      <p>Your referral ID:</p>
+      <div className="flex gap-x-2">
+        <p className="text-blue-400">{sessionUser?.scoutId || session?.user?.scoutId}</p>
+        <div
+          className="w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgba(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer"
+          onClick={handleCopy}
+        >
+          <Image
+            src={
+              copied === (sessionUser?.scoutId || session?.user?.scoutId)
+                ? "/assets/tick.svg"
+                : "/assets/copy.svg"
+            }
+            width={12}
+            height={12}
+            alt="copy"
+          />
+        </div>
+      </div>
+    </>
+  ) : null}
+</div>
               </div>
               <HoverBorderGradient
                 containerClassName="rounded-full"
