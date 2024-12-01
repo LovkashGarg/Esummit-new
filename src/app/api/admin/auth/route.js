@@ -70,7 +70,7 @@ export const POST = async (req) => {
   } catch (error) {
     console.error("Error in login:", error.message);
     return new Response(
-      JSON.stringify({ error: "Internal Server Error." }),
+      JSON.stringify({ error: error.message }),
       { status: 500 }
     );
   }
