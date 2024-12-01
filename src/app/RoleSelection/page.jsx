@@ -13,6 +13,13 @@ const RoleSelection = () => {
   const router = useRouter();
 
   useEffect(() => {
+    // Redirect general user to home page if logged in
+    if (status === 'authenticated' && !loggedInAdmin) {
+      router.push('/home');
+    }
+  }, [status, loggedInAdmin, router]);
+  
+  useEffect(() => {
     // Fetch the available providers for the sign-in options
     const fetchProviders = async () => {
       const res = await getProviders();
