@@ -45,7 +45,7 @@ export default function RoleManagement() {
   }, [token]);
 
   const removeUser = async (userId, role) => {
-    // Prevent admins from removing other admins or superadmins
+   
   
     if (role === "superadmin") {
       setMessage("Superadmin cannot be removed.");
