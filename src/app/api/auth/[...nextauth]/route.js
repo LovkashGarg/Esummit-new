@@ -15,7 +15,7 @@ const generateUniqueId = (length = 8) => {
 };
 
 // NextAuth configuration
-export const authOptions = {
+const authOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
