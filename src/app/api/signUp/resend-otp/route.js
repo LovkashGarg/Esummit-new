@@ -1,4 +1,4 @@
-import Otp from "@/app/models/otp";
+import Otp from "@/app/models/updatedOtp";
 import nodemailer from 'nodemailer'
 
 const generateOtp=()=>{
