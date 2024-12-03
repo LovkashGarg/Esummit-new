@@ -1,18 +1,21 @@
-import User from "@/app/models/updatedUser";
+import User from "@/app/models/updatedUsers";
 import { connectToDB } from "@/app/utils/database";
 import { authenticateAdmin } from "@/app/middleware/authenticateAdmin";
+import { authenticateSuperAdmin } from "@/app/middleware/authenticateSuperAdmin";
 
 export const GET = async (req, res) => {
   try {
-    // Pass 'res' to middleware for direct response handling
+    // Authenticate the admin user
     const authResponse = await authenticateAdmin(req, res);
     if (authResponse) {
-      return authResponse; // If response exists (like 401 or 403), return it
+      return authResponse; // Return the response if authentication fails
     }
 
-    const { user } = req; // Now req.user should be populated
-    console.log("User:-  ",user);
-    if (!user || user.role === "admin") {
+    const { user } = req; // Extract the authenticated user from the request
+    console.log("Authenticated User:", user);
+
+    // Check if the authenticated user has the admin role
+    if (!user || user.role === "user") {
       return new Response(
         JSON.stringify({ error: "Unauthorized access: Admin role required." }),
         { status: 403 }
@@ -27,15 +30,15 @@ export const GET = async (req, res) => {
 
     // Respond with the user data
     return new Response(JSON.stringify({ users }), { status: 200 });
-  } 
-  catch (error) 
-  {
+  } catch (error) {
     console.error("Error fetching users:", error.message);
-    return new Response(JSON.stringify({ error: "Internal Server Error." }), {
-      status: 500,
-    });
+    return new Response(
+      JSON.stringify({ error: "Internal Server Error." }),
+      { status: 500 }
+    );
   }
 };
+
 
 
 
@@ -53,11 +56,11 @@ export const POST = async (req) => {
   try {
     await connectToDB(); // Connect to the database
 
-    const { email, username, scoutId } = await req.json(); // Get form data
+    const { email, username, scoutId ,password} = await req.json(); // Get form data
 
     // Validate required fields
-    if (!email || !username  ) {
-      return new Response(JSON.stringify({ error: "All fields (email, username) are required" }), {
+    if (!email || !username || !password  ) {
+      return new Response(JSON.stringify({ error: "All fields (email, username, password) are required" }), {
         status: 400,
         headers: {
           "Content-Type": "application/json",
@@ -77,7 +80,6 @@ export const POST = async (req) => {
       });
     }
 
-    // Hash the password before saving it to the database
   
     // Generate a unique scoutId if not provided
     const newScoutId = scoutId || generateUniqueId();
@@ -86,10 +88,10 @@ export const POST = async (req) => {
     const newUser = await User.create({
       email,
       username,
-    
       scoutId: newScoutId,
       referralUsers: [],
       referralCount: 0,
+      password:password,
       role:"user"
     });
 
@@ -113,7 +115,10 @@ export const POST = async (req) => {
 
 export const DELETE = async (req) => {
   try {
-    authenticateAdmin(req); // Ensure the request is from an admin or superadmin
+    const authResponse = await authenticateSuperAdmin(req);
+    if (authResponse) {
+      return authResponse; // Return the response if authentication fails
+    } // Ensure the request is from an admin or superadmin
 
     const { userId } = await req.json();
 

@@ -11,6 +11,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import Footer from '../../components/Footer';
 import { usePathname, useSearchParams } from 'next/navigation';
 import ReactGA from 'react-ga';
+import jwt from 'jsonwebtoken';
 
 const PaymentGateway = () => {
 
@@ -18,6 +19,8 @@ const PaymentGateway = () => {
   const [TransactionId, setTransactionId] = useState('');
   const [ContactNumber, setContactNumber] = useState('');
   const [ScoutId, setScoutId] = useState('');
+  const [jwtToken, setJwtToken] = useState(null); // State for storing JWT token
+  const [user, setUser] = useState(null); // State for storing user info
 
   const pathName = usePathname();
   const id = pathName.split('/').pop();
@@ -28,12 +31,28 @@ const PaymentGateway = () => {
   useEffect(() => {
     const trackingid = "G-XGR3BKX6F5";
     ReactGA.initialize(trackingid);
-    // Non-iteration event
     ReactGA.pageview(window.location.pathname);
+
+    // Retrieve JWT token from local storage or cookies
+    const token = localStorage.getItem('jwtToken'); // or use cookies if preferred
+    if (token) {
+      setJwtToken(token);
+      const decodedToken = jwt.decode(token); // Decode JWT to extract user data
+      if (decodedToken) {
+        setUser({
+          email: decodedToken.email,
+          username: decodedToken.name,
+        });
+      }
+    } 
+    
+    if(!session && !token)
+    {
+      toast.error('You must be signed in to access this page.');
+    }
   }, []);
 
   const handleSubmit = async () => {
-
     const QRAmount = {
       '1': 100,
       '2': 200,
@@ -53,27 +72,15 @@ const PaymentGateway = () => {
       '7': 'E summit Junior',
     };
 
-    var eventNames = eventList.map(eventId => eventMap[eventId]);
-    console.log('Event Names:- ', eventNames);
+    let eventNames = eventList.map(eventId => eventMap[eventId]);
 
-    if (id === '2') {
-      eventNames = ['Value Pass'];
-    }
+    if (id === '2') eventNames = ['Value Pass'];
+    if (id === '3') eventNames = ['Maharaja Pass'];
+    if (id === '4') eventNames = ['All Online Events'];
+    if (id === '1') eventNames = ['Saga Pass'];
 
-    if (id === '3') {
-      eventNames = ['Maharaja Pass'];
-    }
-
-    if (id === '4') {
-      eventNames = ['All Online Events'];
-    }
-
-    if (id === '1') {
-      eventNames = ['Saga Pass'];
-    }
-
-    if (!session) {
-      toast.error('You must need to sign in to buy ticket');
+    if (!jwtToken && !user) {
+      toast.error('You must be signed in to buy a ticket.');
       return;
     }
 
@@ -83,63 +90,54 @@ const PaymentGateway = () => {
       return;
     }
 
-    console.log(TransactionId);
-    console.log(ContactNumber);
-    console.log(ScoutId);
+    // Ensure both email and username are valid before proceeding
+    const email = user?.email || session?.user.email;
+    const username = user?.username || session?.user.email;
+
+    if (!email || !username) {
+      toast.error('Email and Username are required.');
+      return;
+    }
 
     try {
+      // Send data to backend only if email and username are valid
       const res = await fetch('/api/transaction/create-transaction', {
-        method: "POST",
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${jwtToken}`,
         },
         body: JSON.stringify({
-          email: session?.user.email,
+          email: email,
           contactnumber: ContactNumber,
-          username: session?.user.name,
+          username: username,
           transactionid: TransactionId,
           scoutid: ScoutId,
           amount: QRAmount[id],
           eventnames: eventNames
-        })
+        }),
       });
 
       if (!res.ok) {
         const errorText = await res.json();
-        console.log(errorText.error);
         toast.error(`${errorText.error}`);
-        throw new Error(`HTTP error! status: ${res.status}, message: ${errorText}`);
+        throw new Error(`HTTP error! status: ${res.status}, message: ${errorText.error}`);
       } else {
         const result = await res.json();
         console.log(result);
-        toast("Ticket booked");
+        toast.success('Ticket booked successfully!');
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
+      toast.error('An error occurred while booking the ticket.');
     }
   };
 
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-
+    const timer = setTimeout(() => setLoading(false), 2000);
     return () => clearTimeout(timer);
-  }, []);
-
-  const [visits, setVisits] = useState(0);
-
-  useEffect(() => {
-    let visitCount = localStorage.getItem('visitCount');
-    if (!visitCount) {
-      visitCount = 1;
-    } else {
-      visitCount = parseInt(visitCount) + 1;
-    }
-    localStorage.setItem('visitCount', visitCount);
-    setVisits(visitCount);
   }, []);
 
   const qrCodeMapping = {
@@ -161,12 +159,8 @@ const PaymentGateway = () => {
           <ToastContainer />
           <div className='text-[20px] sm:text-[30px] text-center mt-[27%] text-white sm:mt-[10%] font-mono'>Don't Miss the Opportunity</div>
           <div className='flex flex-col justify-center items-center gap-[20px] mb-[5%]'>
-
-            {/* Conditional Rendering for Ticket ID 1 and 5 (Sold Out) */}
             {id === '1' || id === '5' ? (
-              <div className='text-red-500 text-center text-2xl'>
-                Sold Out
-              </div>
+              <div className='text-red-500 text-center text-2xl'>Sold Out</div>
             ) : (
               <>
                 <div className='qr-image'>
@@ -204,9 +198,7 @@ const PaymentGateway = () => {
                 </div>
               </>
             )}
-
           </div>
-
           <Footer />
         </div>
       )}
@@ -215,3 +207,4 @@ const PaymentGateway = () => {
 };
 
 export default PaymentGateway;
+

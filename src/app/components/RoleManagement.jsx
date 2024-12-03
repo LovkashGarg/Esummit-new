@@ -1,5 +1,6 @@
 "use client";
 
+import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
 
 export default function RoleManagement() {
@@ -10,6 +11,7 @@ export default function RoleManagement() {
   const [searchTerm, setSearchTerm] = useState("");
   const [roleFilter, setRoleFilter] = useState("all");
   const [showTop10, setShowTop10] = useState(true);
+  const {data:session} =useSession();
 
   // Fetch token from localStorage when the component mounts
   useEffect(() => {
@@ -17,6 +19,10 @@ export default function RoleManagement() {
     if (storedToken) {
       setToken(storedToken);
     } else {
+      if(session.user)
+      {
+        setToken(session.user.token)
+      }
       setMessage("No token found. Please login.");
     }
   }, []);
@@ -33,7 +39,6 @@ export default function RoleManagement() {
             },
           });
           const data = await response.json();
-          console.log(data);
           setUsers(data.users);
         } catch (error) {
           console.error("Error fetching users:", error);

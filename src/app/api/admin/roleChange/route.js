@@ -1,35 +1,29 @@
-import User from "@/app/models/updatedUser";
+import User from "@/app/models/updatedUsers";
 import { connectToDB } from "@/app/utils/database";
-import bcrypt from "bcrypt";
-import crypto from "crypto"; // To generate a random password
-import { authenticateAdmin } from "@/app/middleware/authenticateAdmin"; // Import your middleware
-import nodemailer from "nodemailer" // Import nodemailer for email functionality
+import { authenticateSuperAdmin } from "@/app/middleware/authenticateSuperAdmin";
+import nodemailer from "nodemailer"; // For sending emails
 
-// Function to send the role update email
-const sendRoleChangeEmail = async (email, password) => {
+// Send email notification to the user when their role changes to "admin"
+const sendRoleChangeEmail = async (email) => {
   const transporter = nodemailer.createTransport({
-    service: 'gmail', // Gmail or any other email service provider
+    service: 'gmail',
     auth: {
-      user: process.env.EMAIL_USER, // Use environment variable for email
-      pass: process.env.EMAIL_PASS, // Use environment variable for password
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
     },
   });
 
   const mailOptions = {
-    from: process.env.EMAIL_USER, // Sender's email from environment variable
-    to: email, // Receiver's email
+    from: process.env.EMAIL_USER,
+    to: email,
     subject: 'Role Update: Admin Access Granted',
-    text: `
-      Hello,
+    text: 
+      `Hello,
 
       Your role has been updated to "Admin" on Esummit 2k24 IIITP website.
 
-      You can now sign in with the following credentials:
-      Email: ${email}
-      Password: ${password}  
+      You now have admin privileges. Please ensure you are aware of your responsibilities.
 
-      Now you can get all type of transaction history and have access to demote or promote any user to admin role. Utilize this role properly and also you can verify transactions also.
-      Please keep your credentials safe.
       Best regards,
       Esummit 2k24 IIITP Team
     `,
@@ -43,25 +37,27 @@ const sendRoleChangeEmail = async (email, password) => {
   }
 };
 
-// PUT route to handle role change
 export const PUT = async (req) => {
   try {
-    authenticateAdmin(req);
+    // Ensure the request is made by a superadmin
+    const authResponse = await authenticateSuperAdmin(req);
+    if (authResponse) {
+      return authResponse; // Return the response if authentication fails
+    }
 
     const { userId, newRole } = await req.json();
 
     if (!userId || !newRole) {
-      return new Response(JSON.stringify({ error: "Missing userId or newRole." }), { status: 401 });
+      return new Response(
+        JSON.stringify({ error: "Missing userId or newRole." }),
+        { status: 400 }
+      );
     }
 
     if (!["user", "admin"].includes(newRole)) {
-      return new Response(JSON.stringify({ error: "Invalid role provided." }), { status: 402 });
-    }
-
-    if (req.user.userId === userId && newRole !== "admin") {
       return new Response(
-        JSON.stringify({ error: "Admins cannot demote themselves." }),
-        { status: 403 }
+        JSON.stringify({ error: "Invalid role provided." }),
+        { status: 400 }
       );
     }
 
@@ -69,28 +65,26 @@ export const PUT = async (req) => {
     const user = await User.findById(userId);
 
     if (!user) {
-      return new Response(JSON.stringify({ error: "User not found." }), { status: 405 });
+      return new Response(JSON.stringify({ error: "User not found." }), { status: 404 });
     }
 
+    // Prevent changing the role of a superadmin
     if (user.role === "superadmin") {
-      return new Response(JSON.stringify({ error: "You can't change the role of superadmin" }), { status: 408 });
+      return new Response(
+        JSON.stringify({ error: "Cannot change the role of superadmin." }),
+        { status: 403 }
+      );
     }
 
-    let tempPassword = '';
-    if (newRole === "admin" && !user.password) {
-      tempPassword = crypto.randomBytes(8).toString("hex");
-      const hashedPassword = await bcrypt.hash(tempPassword, 10);
-      user.password = hashedPassword;
-    }
+    // If promoting to admin, do not generate a password
+    if (newRole === "admin" && user.role !== "admin") {
+      user.role = newRole;
+      await user.save();
 
-    user.role = newRole;
-    await user.save();
-
-    if (newRole === "admin" && tempPassword) {
       try {
-        await sendRoleChangeEmail(user.email, tempPassword);
+        await sendRoleChangeEmail(user.email); // Send email notification
         return new Response(
-          JSON.stringify({ message: "User role updated and email sent successfully.", user }),
+          JSON.stringify({ message: "User role updated to admin and email sent successfully.", user }),
           { status: 200 }
         );
       } catch (error) {
@@ -100,6 +94,10 @@ export const PUT = async (req) => {
         );
       }
     }
+
+    // In case the role is not being changed to admin, just update the role
+    user.role = newRole;
+    await user.save();
 
     return new Response(
       JSON.stringify({ message: "User role updated successfully.", user }),

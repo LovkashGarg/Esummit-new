@@ -5,6 +5,7 @@ export default function AddUser() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [scoutId, setScoutId] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [generatedReferralId, setGeneratedReferralId] = useState("");
 
@@ -18,7 +19,7 @@ export default function AddUser() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, username, scoutId}),
+        body: JSON.stringify({ email, username, scoutId, password}),
       });
 
       const result = await response.json();
@@ -33,6 +34,7 @@ export default function AddUser() {
       setEmail("");
       setUsername("");
       setScoutId("");
+      setPassword("");
     } catch (error) {
       console.log(error.message);
       toast.error(error.message);
@@ -66,6 +68,17 @@ export default function AddUser() {
             required
             className="border border-gray-300 p-2 w-full text-black rounded-md"
             placeholder="It should be 8-20 alphanumeric values only "
+          />
+        </div>
+        <div>
+          <label className="block mb-2">Password:</label>
+          <input
+            type="text"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            className="border border-gray-300 p-2 w-full text-black rounded-md"
+            placeholder="Minimum 6 characters"
           />
         </div>
         

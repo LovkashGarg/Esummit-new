@@ -16,6 +16,7 @@ export const connectToDB=async()=>{
                 dbName:"esummit",
                 useNewUrlParser:true,
                 useUnifiedTopology:true,
+             
             })
 
             isConnected=true;

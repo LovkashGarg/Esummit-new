@@ -29,6 +29,11 @@ export function Sidebar() {
         console.error("Error decoding JWT token:", error);
       }
     }
+
+    else
+    {
+      setIsAdmin(session?.user?.role !=='user');
+    }
   }, []);
 
   const [copied, setCopied] = useState("");
@@ -46,6 +51,7 @@ export function Sidebar() {
     // Remove the JWT token and session data on sign-out
     localStorage.removeItem('jwtToken');
     signOut(); // Sign out from NextAuth
+    setIsAdmin(false);
     router.push("/"); // Redirect to login page
   };
   return (
@@ -108,46 +114,59 @@ export function Sidebar() {
               <div className="mt-auto pb-4 absolute bottom-0 w-full ">
                 <div className="flex flex-col ">
                   <img
-                    src={sessionUser?.image || session?.user?.image} 
+                    src={sessionUser?.image || session?.user?.image || '/assets/Default-Profile-Picture-PNG-Free-Download.png'} 
                     className="w-[50px] h-[50px] sm:w-[50px] sm:h-[50px] rounded-full"
                     alt="logo"
                   />
                   <div className="mt-2">
-                    <p>Your referral ID:</p>
-                    <div className="flex gap-x-2">
-                      <p className="text-blue-400">{sessionUser?.scoutId || session?.user?.scoutId}</p>
-                      <div
-                        className="w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgba(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer"
-                        onClick={handleCopy}
-                      >
-                        <Image
-                          src={copied === (sessionUser?.scoutId || session?.user?.scoutId) ? "/assets/tick.svg" : "/assets/copy.svg"}
-                          width={12}
-                          height={12}
-                          alt="clicked"
-                        />
-                      </div>
-                    </div>
+                  {sessionUser?.role === "user" || session?.user?.role === "user" ? ( // Check if the role is 'user'
+    <>
+      <p>Your referral ID:</p>
+      <div className="flex gap-x-2">
+        <p className="text-blue-400">{sessionUser?.scoutId || session?.user?.scoutId}</p>
+        <div
+          className="w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgba(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer"
+          onClick={handleCopy}
+        >
+          <Image
+            src={
+              copied === (sessionUser?.scoutId || session?.user?.scoutId)
+                ? "/assets/tick.svg"
+                : "/assets/copy.svg"
+            }
+            width={12}
+            height={12}
+            alt="clicked"
+          />
+        </div>
+      </div>
+    </>
+  ) : (
+    // For "admin" role
+    <div className="ml-2">
+  <p className=" font-semibold">Welcome,</p>
+  <p className="text-lg font-bold underline text-blue-500 decoration-white/50 decoration-2">Admin</p>
+</div>
+  )}
+                    
                   </div>
                 </div>
               </div>
             </div>
           ) : (
-            <>
-              {providers &&
-                Object.values(providers).map((provider) => (
-                  <div key={6} className="flex">
-                    <HoverBorderGradient
-                      containerClassName="rounded-full"
-                      as="button"
-                      onClick={signIn}
-                      className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
-                    >
-                      <span>Sign In</span>
-                    </HoverBorderGradient>
-                  </div>
-                ))}
-            </>
+            <div
+              key={7}
+              className="flex mr-[10px] mt-[5px] gap-3 md:gap-5 md:ml-[57%]"
+            >
+              <HoverBorderGradient
+                containerClassName="rounded-full"
+                as="button"
+                onClick={() => router.push("/RoleSelection")}
+                className="bg-slate-900 text-white hover:text-slate-400 flex items-center space-x-2"
+              >
+                <span>Sign In</span>
+              </HoverBorderGradient>
+            </div>
           )}
         </div>
       </div>

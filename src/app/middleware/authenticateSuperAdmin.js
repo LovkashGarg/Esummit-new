@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import jwt from 'jsonwebtoken'
-export const authenticateAdmin = async (req) => {
+export const authenticateSuperAdmin = async (req) => {
   try {
     // Check for JWT token in the Authorization header
     const token = req.headers.get("authorization")?.split(" ")[1];
@@ -12,10 +12,10 @@ export const authenticateAdmin = async (req) => {
         req.user = decoded; // Attach user from token to request
         console.log("Decoded user from JWT:", req.user);
 
-        if (req.user.role === "user") {
-          console.log("User is not an admin");
+        if (req.user.role !== "superadmin") {
+          console.log("User is not a superadmin");
           return new Response(
-            JSON.stringify({ error: "Only admin can access"}),
+            JSON.stringify({ error: "Only superadmin has access for it" }),
             { status: 403 }
           );
         }
@@ -33,10 +33,10 @@ export const authenticateAdmin = async (req) => {
     // If no token, check NextAuth session
     const session = await getServerSession(req, res, authOptions);
 
-    if (!session || session.user.role !== "admin") {
-      console.log("Unauthorized: No admin session found");
+    if (!session || session.user.role !== "superadmin") {
+      console.log("Unauthorized: No super admin session found");
       return new Response(
-        JSON.stringify({ error: "Forbidden: Admins only." }),
+        JSON.stringify({ error: "This activity is done only by super admins" }),
         { status: 403 }
       );
     }

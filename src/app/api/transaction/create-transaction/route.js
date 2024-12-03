@@ -1,6 +1,8 @@
+import { authenticateAdmin } from "@/app/middleware/authenticateAdmin";
 import Transaction from "@/app/models/transaction";
 import User from "@/app/models/user";
 import { connectToDB } from "@/app/utils/database";
+import jwt from 'jsonwebtoken';
 import { getServerSession } from "next-auth";
 
 export const GET = async (req) => {
@@ -76,12 +78,7 @@ export const GET = async (req) => {
 
 
 export const POST = async (req) => {
-  const session = await getServerSession();
-
-  // Check for valid session
-  if (!session || !session.user) {
-    return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401 });
-  }
+  
 
   const { email, contactnumber, username, transactionid, scoutid, amount, eventnames } = await req.json();
 
@@ -197,6 +194,8 @@ export const PATCH = async (req) => {
 };
 
 export const DELETE = async (req) => {
+
+  
   try {
     await connectToDB();
 

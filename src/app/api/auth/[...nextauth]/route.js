@@ -1,7 +1,8 @@
-import User from "@/app/models/updatedUser";
+import User from "@/app/models/updatedUsers";
 import { connectToDB } from "@/app/utils/database";
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import jwt from "jsonwebtoken"; // Import JWT library
 
 // Generate a unique referral ID
 const generateUniqueId = (length = 8) => {
@@ -14,7 +15,7 @@ const generateUniqueId = (length = 8) => {
 };
 
 // NextAuth configuration
-const authOptions = {
+export const authOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
@@ -22,7 +23,21 @@ const authOptions = {
     }),
   ],
   callbacks: {
-    async session({ session }) {
+    async jwt({ token, user }) {
+      if (user) {
+        token.email = user.email;
+        token.name = user.name;
+        token.image = user.image;
+
+        // Optionally, generate a JWT token on sign-in
+        const jwtToken = jwt.sign({ email: user.email, name: user.name }, process.env.JWT_SECRET, {
+          expiresIn: '7d', // Expiration time (optional)
+        });
+        token.jwt = jwtToken; // Add token to the JWT
+      }
+      return token;
+    },
+    async session({ session, token }) {
       // Connect to the database and fetch user details
       await connectToDB();
       const sessionUser = await User.findOne({ email: session.user.email });
@@ -33,6 +48,7 @@ const authOptions = {
         session.user.role = sessionUser.role; // Add role to the session
         session.user.referralUsers = sessionUser.referralUsers.length;
         session.user.username = sessionUser.username;
+        session.user.jwt = token.jwt; // Attach the JWT to the session for client-side access
       }
 
       return session;
@@ -61,7 +77,6 @@ const authOptions = {
         // Log admin sign-ins
         if (user.role === "admin") {
           console.log(`Admin signed in: ${user.email}`);
-
           // Optionally, update admin's last login time
           user.lastLogin = new Date();
           await user.save();
