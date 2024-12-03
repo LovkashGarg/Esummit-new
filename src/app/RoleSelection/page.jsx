@@ -104,7 +104,7 @@ const RoleSelection = () => {
       const data = await response.json();
       if (response.ok) {
         alert('OTP verified successfully.');
-        setSignUpStep(3); // Move to password creation step
+        setSignUpStep(3); 
       } else {
         toast.error(data.error || 'Invalid OTP. Please try again.');
       }
