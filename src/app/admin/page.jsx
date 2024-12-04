@@ -207,181 +207,182 @@ export default function Home() {
       <InfinityLoader /> // Show loader while loading
     ) : (
       <div className="bg-black">
-    <Navbar/>
-    <div className="container mx-auto mt-32">
-  <ToastContainer />
-  <RoleManagement />
-  {/* Button to toggle AddUser component */}
-<button
-  onClick={() => setShowAddUser((prev) => !prev)}
-  className="bg-green-500 my-6  dark:bg-green-600 text-white px-6 py-3 rounded-full mb-4 hover:bg-green-600 dark:hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-300 ease-in-out transform hover:scale-105"
->
-  {showAddUser ? "Hide Add User" : "Add New User"}
-</button>
-
-{/* Conditionally rendered AddUser component with a card style */}
-{showAddUser && (
-  <div className="bg-white dark:bg-gray-800 shadow-xl rounded-lg p-6 max-w-lg mx-auto mt-6">
-    <h2 className="text-2xl font-semibold text-center text-gray-900 dark:text-white mb-4">
-      Add New User
-    </h2>
-    <AddUser />
-  </div>
-)}
-  <h1 className="text-3xl font-semibold mb-6 text-gray-800 dark:text-gray-100">
-  Transactions
-  </h1>
-  {error && <p className="text-red-500 dark:text-red-400 mb-4">{error}</p>}
-
-  {/* Search Bar */}
-{/* Search Bar */}
-<div className="flex items-center gap-4 mb-6 bg-gray-100 dark:bg-gray-800 p-4 rounded shadow-md">
-  <input
-    type="text"
-    placeholder="Search"
-    value={searchTerm}
-    onChange={(e) => setSearchTerm(e.target.value)}
-    className="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-  />
-  <select
-    value={filterType}
-    onChange={(e) => setFilterType(e.target.value)}
-    className="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-  >
-    <option value="">Filter By</option>
-    <option value="event">Event</option>
-    <option value="eventPass">Event Pass</option>
-    <option value="username">Username</option>
-    <option value="transactionId">Transaction ID</option>
-  </select>
-  <select
-  value={verificationStatus}
-    onChange={(e) => setVerificationStatus( e.target.value )}
-    className="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-  >
-    <option value="">All Transactions</option>
-    <option value="verified">Verified</option>
-    <option value="unverified">Unverified</option>
-  </select>
-  <button
-    onClick={handleSearch}
-    className="bg-blue-500 dark:bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-  >
-    Search
-  </button>
-</div>
-
-
-
-  {/* Table Section */}
-  <div className="overflow-x-auto bg-gray-100 dark:bg-gray-800 shadow-md rounded-lg p-4">
-    <table className="min-w-full border border-gray-200 dark:border-gray-700">
-      <thead className="bg-gray-200 dark:bg-gray-700">
-        <tr>
-          <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
-            Transaction ID
-          </th>
-          <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
-            Name
-          </th>
-          <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
-            Amount
-          </th>
-          <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
-            Event
-          </th>
-          <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
-            Date
-          </th>
-          <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
-            Verification Status
-          </th>
-          <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
-            Actions
-          </th>
-          <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
-            Email
-          </th>
-          <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
-            Contact Number
-          </th>
-        </tr>
-      </thead>
-      <tbody className="text-sm">
-        {transactions.map((transaction) => (
-          <tr
-            key={transaction.transactionId}
-            className="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-900"
+        <Navbar />
+      <div className="container mx-auto mt-28 px-4 sm:px-6 lg:px-8">
+        <ToastContainer />
+        <RoleManagement />
+        {/* Button to toggle AddUser component */}
+        <button
+          onClick={() => setShowAddUser((prev) => !prev)}
+          className="bg-green-500 my-6 dark:bg-green-600 text-white px-6 py-3 rounded-full mb-4 hover:bg-green-600 dark:hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-300 ease-in-out transform hover:scale-105 w-full sm:w-auto"
+        >
+          {showAddUser ? "Hide Add User" : "Add New User"}
+        </button>
+    
+        {/* Conditionally rendered AddUser component with a card style */}
+        {showAddUser && (
+          <div className="bg-white dark:bg-gray-800 shadow-xl rounded-lg p-6 max-w-lg mx-auto mt-6">
+            <h2 className="text-2xl font-semibold text-center text-gray-900 dark:text-white mb-4">
+              Add New User
+            </h2>
+            <AddUser />
+          </div>
+        )}
+        <h1 className="text-3xl font-semibold mb-6 text-gray-800 dark:text-gray-100">
+          Transactions
+        </h1>
+        {error && <p className="text-red-500 dark:text-red-400 mb-4">{error}</p>}
+    
+        {/* Search Bar */}
+        <div className="flex flex-col sm:flex-row items-stretch gap-4 mb-6 bg-gray-100 dark:bg-gray-800 p-4 rounded shadow-md">
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 w-full sm:w-auto"
+          />
+          <select
+            value={filterType}
+            onChange={(e) => setFilterType(e.target.value)}
+            className="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 w-full sm:w-auto"
           >
-            <td className="px-6 py-3">{transaction.transactionId}</td>
-            <td className="px-6 py-3">{transaction.name}</td>
-            <td className="px-6 py-3">{transaction.amount}</td>
-            <td className="px-6 py-3">{transaction.eventNames.join(", ")}</td>
-            <td className="px-6 py-3">
-              {new Date(transaction.date).toLocaleDateString()}
-            </td>
-            <td className="px-6 py-3">
-              <span
-                className={`px-2 py-1 text-xs font-medium rounded-full ${
-                  transaction.verificationStatus === "verified"
-                    ? "bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100"
-                    : "bg-orange-100 text-orange-800 dark:bg-orange-800 dark:text-orange-100"
-                }`}
-              >
-                {transaction.verificationStatus}
-              </span>
-            </td>
-            <td className="  px-6 py-3 space-y-2">
-              {transaction.verificationStatus === "unverified" && (
-                <button
-                  onClick={() => handleVerify(transaction.transactionId)}
-                  className="px-4 py-2 bg-blue-500 dark:bg-blue-600 text-white rounded hover:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            <option value="">Filter By</option>
+            <option value="event">Event</option>
+            <option value="eventPass">Event Pass</option>
+            <option value="username">Username</option>
+            <option value="transactionId">Transaction ID</option>
+          </select>
+          <select
+            value={verificationStatus}
+            onChange={(e) => setVerificationStatus(e.target.value)}
+            className="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 w-full sm:w-auto"
+          >
+            <option value="">All Transactions</option>
+            <option value="verified">Verified</option>
+            <option value="unverified">Unverified</option>
+          </select>
+          <button
+            onClick={handleSearch}
+            className="bg-blue-500 dark:bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 w-full sm:w-auto"
+          >
+            Search
+          </button>
+        </div>
+    
+        {/* Table Section */}
+        <div className="overflow-x-auto bg-gray-100 dark:bg-gray-800 shadow-md rounded-lg p-4">
+          <table className="min-w-full border border-gray-200 dark:border-gray-700">
+            <thead className="bg-gray-200 dark:bg-gray-700">
+              <tr>
+                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  Transaction ID
+                </th>
+                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  Name
+                </th>
+                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  Amount
+                </th>
+                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  Event
+                </th>
+                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  Date
+                </th>
+                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  Verification Status
+                </th>
+                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  Actions
+                </th>
+                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  Email
+                </th>
+                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  Contact Number
+                </th>
+              </tr>
+            </thead>
+            <tbody className="text-sm">
+              {transactions.map((transaction) => (
+                <tr
+                  key={transaction.transactionId}
+                  className="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-900"
                 >
-                  Verify
-                </button>
-              )}
-              <button
-                onClick={() =>handleDelete(transaction.transactionId)}
-                className="px-4 py-2 bg-red-500 dark:bg-red-600 text-white rounded hover:bg-red-600 dark:hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400"
-              >
-                Delete
-              </button>
-            </td>
-            <td className="px-6 py-3">{transaction.email}</td>
-            <td className="px-6 py-3">{transaction.contactNumber}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-
-  {/* Pagination Controls */}
-  <div className="flex justify-between items-center mt-4 px-4">
-    <button
-      onClick={handlePreviousPage}
-      disabled={currentPage === 1}
-      className="bg-gray-300 dark:bg-gray-700 text-black dark:text-gray-300 px-6 py-2 rounded disabled:opacity-50 hover:bg-gray-400 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300"
-    >
-      Previous
-    </button>
-    <p className="text-sm text-gray-600 dark:text-gray-400">
-      Page {currentPage} of {Math.ceil(totalTransactions / transactionsPerPage)}
-    </p>
-    <button
-      onClick={handleNextPage}
-      disabled={currentPage === Math.ceil(totalTransactions / transactionsPerPage)}
-      className="bg-gray-300 dark:bg-gray-700 text-black dark:text-gray-300 px-6 py-2 rounded disabled:opacity-50 hover:bg-gray-400 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300"
-    >
-      Next
-    </button>
-  </div>
-
-  {/* Total Transactions Count */}
-  <p className="text-center mt-4 text-gray-600 dark:text-gray-400">
-    Total Transactions: <strong>{totalTransactions}</strong>
-  </p>
- </div>
-</div>
+                  <td className="px-4 py-2">{transaction.transactionId}</td>
+                  <td className="px-4 py-2">{transaction.name}</td>
+                  <td className="px-4 py-2">{transaction.amount}</td>
+                  <td className="px-4 py-2">{transaction.eventNames.join(", ")}</td>
+                  <td className="px-4 py-2">
+                    {new Date(transaction.date).toLocaleDateString()}
+                  </td>
+                  <td className="px-4 py-2">
+                    <span
+                      className={`px-2 py-1 text-xs font-medium rounded-full ${
+                        transaction.verificationStatus === "verified"
+                          ? "bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100"
+                          : "bg-orange-100 text-orange-800 dark:bg-orange-800 dark:text-orange-100"
+                      }`}
+                    >
+                      {transaction.verificationStatus}
+                    </span>
+                  </td>
+                  <td className="px-4 py-2 space-y-2">
+                    {transaction.verificationStatus === "unverified" && (
+                      <button
+                        onClick={() => handleVerify(transaction.transactionId)}
+                        className="px-4 py-2 bg-blue-500 dark:bg-blue-600 text-white rounded hover:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                      >
+                        Verify
+                      </button>
+                    )}
+                    <button
+                      onClick={() => handleDelete(transaction.transactionId)}
+                      className="px-4 py-2 bg-red-500 dark:bg-red-600 text-white rounded hover:bg-red-600 dark:hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                  <td className="px-4 py-2">{transaction.email}</td>
+                  <td className="px-4 py-2">{transaction.contactNumber}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+    
+        {/* Pagination Controls */}
+        <div className="flex flex-col sm:flex-row justify-between items-center mt-4 px-4 gap-2">
+          <button
+            onClick={handlePreviousPage}
+            disabled={currentPage === 1}
+            className="bg-gray-300 dark:bg-gray-700 text-black dark:text-gray-300 px-6 py-2 rounded disabled:opacity-50 hover:bg-gray-400 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300"
+          >
+            Previous
+          </button>
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            Page {currentPage} of{" "}
+            {Math.ceil(totalTransactions / transactionsPerPage)}
+          </p>
+          <button
+            onClick={handleNextPage}
+            disabled={
+              currentPage === Math.ceil(totalTransactions / transactionsPerPage)
+            }
+            className="bg-gray-300 dark:bg-gray-700 text-black dark:text-gray-300 px-6 py-2 rounded disabled:opacity-50 hover:bg-gray-400 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300"
+          >
+            Next
+          </button>
+        </div>
+    
+        {/* Total Transactions Count */}
+        <p className="text-center mt-4 text-gray-600 dark:text-gray-400">
+          Total Transactions: <strong>{totalTransactions}</strong>
+        </p>
+      </div>
+    </div>
+    
   )}
 </>
   );

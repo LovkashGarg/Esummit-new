@@ -316,8 +316,8 @@ const RoleSelection = () => {
             </button>
           </>
         )}
-
-        <div className="mt-6">
+      
+        <div >
           {providers &&
             Object.values(providers).map((provider) => (
               <button

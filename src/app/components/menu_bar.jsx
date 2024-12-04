@@ -24,7 +24,7 @@ export function Sidebar() {
       try {
         const decodedToken = jwtDecode(token); // Decode JWT token
         setSessionUser(decodedToken); // Set user data from JWT
-        setIsAdmin(decodedToken?.role === "admin"); // Check if the user is an admin
+        setIsAdmin(decodedToken?.role !== "user"); // Check if the user is an admin
       } catch (error) {
         console.error("Error decoding JWT token:", error);
       }
