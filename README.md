@@ -80,6 +80,9 @@ Both **admins** and **superadmins** can add new users by providing the **email**
 ### 6. Filters and Search
 Both **Role Management** and **Transaction Management** menus include search and filter options to help admins easily find users and transactions.
 
+### 7. Verifying Private Route
+Ensure that the admin routes are secured and cannot be accessed by unauthorized users. Only users with admin access can reach these routes, and non-admins cannot access the backend APIs associated with admin functionalities, as middleware has been integrated to enforce this security. For this you can hit on the [https://esummit24.iiitp.ac.in/admin](https://esummit24.iiitp.ac.in/admin) when you sign in as user or without sign in.
+
 
 ## Contributing 🤝
 
