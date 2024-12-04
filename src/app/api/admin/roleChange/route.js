@@ -1,7 +1,8 @@
-import User from "@/app/models/updatedUsers";
 import { connectToDB } from "@/app/utils/database";
 import { authenticateSuperAdmin } from "@/app/middleware/authenticateSuperAdmin";
 import nodemailer from "nodemailer"; // For sending emails
+import UpdatedUser from "@/app/models/updatedUsers";
+import NewUser from "@/app/models/newUser";
 
 // Send email notification to the user when their role changes to "admin"
 const sendRoleChangeEmail = async (email) => {
@@ -62,7 +63,7 @@ export const PUT = async (req) => {
     }
 
     await connectToDB();
-    const user = await User.findById(userId);
+    const user = await NewUser.findById(userId);
 
     if (!user) {
       return new Response(JSON.stringify({ error: "User not found." }), { status: 404 });

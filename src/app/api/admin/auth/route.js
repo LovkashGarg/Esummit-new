@@ -3,6 +3,7 @@ import bcrypt from "bcrypt"; // Import bcrypt for password comparison
 import { connectToDB } from "@/app/utils/database"; // DB connection utility
 import { sign } from "jsonwebtoken"; // For creating a JWT token
 import { setCookie } from "nookies"; // Cookie utility to store the session token
+import NewUser from "@/app/models/newUser";
 
 const JWT_SECRET = process.env.JWT_SECRET; // Secret key for JWT
 
@@ -24,7 +25,7 @@ export const POST = async (req) => {
     await connectToDB(); // Connect to the database
 
     // Find user by email
-    const user = await UpdatedUser.findOne({ email });
+    const user = await NewUser.findOne({ email });
     if (!user) {
       return new Response(
         JSON.stringify({ error: "User not found." }),

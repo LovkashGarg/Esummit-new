@@ -1,4 +1,5 @@
 import { authenticateAdmin } from "@/app/middleware/authenticateAdmin";
+import NewUser from "@/app/models/newUser";
 import Transaction from "@/app/models/transaction";
 import User from "@/app/models/user";
 import { connectToDB } from "@/app/utils/database";
@@ -98,7 +99,7 @@ export const POST = async (req) => {
 
     // Validate scoutId if provided
     if (scoutid) {
-      const scoutUser = await User.findOne({ scoutId: scoutid });
+      const scoutUser = await NewUser.findOne({ scoutId: scoutid });
       if (!scoutUser) {
         return new Response(JSON.stringify({ error: "Scout ID not found" }), { status: 402 });
       }
@@ -129,8 +130,8 @@ export const POST = async (req) => {
 
     // Handle referral logic
     if (scoutid) {
-      const referringUser = await User.findOne({ scoutId: scoutid });
-      const referredUser = await User.findOne({ email });
+      const referringUser = await NewUser.findOne({ scoutId: scoutid });
+      const referredUser = await NewUser.findOne({ email });
 
       if (referringUser && referredUser) {
         if (!Array.isArray(referringUser.referralUsers)) {
@@ -172,8 +173,8 @@ export const PATCH = async (req) => {
 
     // Handle referral logic
     if (transaction.referralId) {
-      const referringUser = await User.findOne({ scoutId: transaction.referralId });
-      const referredUser = await User.findOne({ email: transaction.email });
+      const referringUser = await NewUser.findOne({ scoutId: transaction.referralId });
+      const referredUser = await NewUser.findOne({ email: transaction.email });
 
       if (referringUser && referredUser) {
         if (!Array.isArray(referringUser.referralUsers)) {

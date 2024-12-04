@@ -1,6 +1,6 @@
 const { Schema, model, models } = require("mongoose");
 
-const UpdatedUserSchema = new Schema({
+const NewUserSchema = new Schema({
   email: {
     type: String,
     unique: [true, 'Email already exists'],
@@ -43,12 +43,12 @@ const UpdatedUserSchema = new Schema({
 });
 
 // Pre-save hook to update referral count based on referralUsers
-UpdatedUserSchema.pre('save', function (next) {
+NewUserSchema.pre('save', function (next) {
   this.referralCount = this.referralUsers.length; // Update referralCount based on referralUsers length
   next();
 });
 
 // Create or use the existing model
-const UpdatedUser = models.UpdatedUser || model("UpdatedUser", UpdatedUserSchema);
+const NewUser = models.NewUser || model("NewUser", NewUserSchema);
 
-export default UpdatedUser;
+export default NewUser;

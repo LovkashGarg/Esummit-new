@@ -1,7 +1,8 @@
-import User from "@/app/models/updatedUsers";
+
 import { connectToDB } from "@/app/utils/database";
 import { authenticateAdmin } from "@/app/middleware/authenticateAdmin";
 import { authenticateSuperAdmin } from "@/app/middleware/authenticateSuperAdmin";
+import NewUser from "@/app/models/newUser";
 
 export const GET = async (req, res) => {
   try {
@@ -26,7 +27,7 @@ export const GET = async (req, res) => {
     await connectToDB();
 
     // Fetch all users, excluding the `password` field for security
-    const users = await User.find({}, "-password");
+    const users = await NewUser.find({}, "-password");
 
     // Respond with the user data
     return new Response(JSON.stringify({ users }), { status: 200 });
@@ -69,7 +70,7 @@ export const POST = async (req) => {
     }
 
     // Check if the user already exists
-    const existingUser = await User.findOne({ email });
+    const existingUser = await NewUser.findOne({ email });
 
     if (existingUser) {
       return new Response(JSON.stringify({ error: "User already exists" }), {
@@ -85,7 +86,7 @@ export const POST = async (req) => {
     const newScoutId = scoutId || generateUniqueId();
 
     // Create a new user
-    const newUser = await User.create({
+    const newUser = await NewUser.create({
       email,
       username,
       scoutId: newScoutId,
@@ -130,13 +131,13 @@ export const DELETE = async (req) => {
     await connectToDB();
 
     // Fetch the requesting user (admin or superadmin)
-    const requestingUser = await User.findById(req.user.userId);
+    const requestingUser = await NewUser.findById(req.user.userId);
     if (!requestingUser) {
       return new Response(JSON.stringify({ error: "Requesting user not found." }), { status: 404 });
     }
 
     // Fetch the user to be deleted
-    const userToDelete = await User.findById(userId);
+    const userToDelete = await NewUser.findById(userId);
     if (!userToDelete) {
       return new Response(JSON.stringify({ error: "User to delete not found." }), { status: 404 });
     }

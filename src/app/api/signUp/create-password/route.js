@@ -1,7 +1,7 @@
-import User from "@/app/models/updatedUsers";
 import bcrypt from "bcryptjs";
 import { connectToDB } from "@/app/utils/database";
 import Otp from "@/app/models/updatedOtp"; // Assuming you have this model for OTP
+import NewUser from "@/app/models/newUser";
 
 const generateUniqueId = (length = 8) => {
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -43,7 +43,7 @@ export const POST = async (req) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     const randomScoutId=generateUniqueId()
     // Create the user in the database
-    const user = await User.create({ email, username,scoutId: randomScoutId ,password: hashedPassword});
+    const user = await NewUser.create({ email, username,scoutId: randomScoutId ,password: hashedPassword});
 
     // Clean up OTP from the database for this email
     await Otp.deleteOne({ email }); // Remove OTP related to this email

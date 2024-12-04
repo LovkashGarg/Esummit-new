@@ -1,8 +1,8 @@
-import User from "@/app/models/updatedUsers";
 import { connectToDB } from "@/app/utils/database";
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import jwt from "jsonwebtoken"; // Import JWT library
+import NewUser from "@/app/models/newUser";
 
 // Generate a unique referral ID
 const generateUniqueId = (length = 8) => {
@@ -31,7 +31,7 @@ const authOptions = {
 
         // Optionally, generate a JWT token on sign-in
         const jwtToken = jwt.sign({ email: user.email, name: user.name }, process.env.JWT_SECRET, {
-          expiresIn: '7d', // Expiration time (optional)
+          expiresIn: "7d", // Expiration time (optional)
         });
         token.jwt = jwtToken; // Add token to the JWT
       }
@@ -40,7 +40,7 @@ const authOptions = {
     async session({ session, token }) {
       // Connect to the database and fetch user details
       await connectToDB();
-      const sessionUser = await User.findOne({ email: session.user.email });
+      const sessionUser = await NewUser.findOne({ email: session.user.email });
 
       if (sessionUser) {
         session.user.id = sessionUser._id.toString();
@@ -58,22 +58,29 @@ const authOptions = {
         await connectToDB();
 
         // Check if the user already exists
-        let user = await User.findOne({ email: profile.email });
+        let user = await NewUser.findOne({ email: profile.email });
 
         if (!user) {
           // If the user does not exist, create a new user with the default role "user"
           const randomScoutId = generateUniqueId();
-          user = await User.create({
+          user = await NewUser.create({
             email: profile.email,
-            username: profile.name.replace(" ", "").toLowerCase(),
+            username: profile.name.replace(/\s+/g, "").toLowerCase(),
             image: profile.picture,
             scoutId: randomScoutId,
             referralUsers: [],
             referralCount: 0,
             role: "user", // Default role
+            isOAuthUser: true, // Indicate Google OAuth user
           });
         }
 
+        const jwtToken = jwt.sign({ email: user.email, name: user.name }, process.env.JWT_SECRET, {
+          expiresIn: "7d", // Expiration time (optional)
+        });
+        user.jwtToken = jwtToken;  // Save the JWT token to the user's document
+        await user.save();
+    
         // Log admin sign-ins
         if (user.role === "admin") {
           console.log(`Admin signed in: ${user.email}`);

@@ -1,8 +1,8 @@
 import session from 'next-session';
 import { connectToDB } from '@/app/utils/database'; // Assuming you have a DB utility for fetching user data
 import bcrypt from 'bcrypt';
-import UpdatedUser from '@/app/models/updatedUsers';
 import jwt from 'jsonwebtoken'; // Use this to generate JWT
+import NewUser from '@/app/models/newUser';
 
 export const POST = async (req, res) => {
   const { email, password } = await req.json();
@@ -19,7 +19,7 @@ export const POST = async (req, res) => {
     }
 
     // Check user in database
-    const user = await UpdatedUser.findOne({ email });
+    const user = await NewUser.findOne({ email });
     if (!user) {
       return new Response(
         JSON.stringify({ error: 'Account not exist' }),
