@@ -22,21 +22,7 @@ const authOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
-  callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.email = user.email;
-        token.name = user.name;
-        token.image = user.image;
-
-        // Optionally, generate a JWT token on sign-in
-        const jwtToken = jwt.sign({ email: user.email, name: user.name }, process.env.JWT_SECRET, {
-          expiresIn: "7d", // Expiration time (optional)
-        });
-        token.jwt = jwtToken; // Add token to the JWT
-      }
-      return token;
-    },
+  callback: {
     async session({ session, token }) {
       // Connect to the database and fetch user details
       await connectToDB();
@@ -53,7 +39,7 @@ const authOptions = {
 
       return session;
     },
-    async signIn({ account, profile }) {
+    async signIn({ profile }) {
       try {
         await connectToDB();
 
