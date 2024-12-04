@@ -130,7 +130,7 @@ export const DELETE = async (req) => {
     await connectToDB();
 
     // Fetch the requesting user (admin or superadmin)
-    const requestingUser = await FinalUser.findById(req.user.userId);
+    const requestingUser = await FinalUser.findById(req.user.id);
     if (!requestingUser) {
       return new Response(JSON.stringify({ error: "Requesting user not found." }), { status: 404 });
     }
