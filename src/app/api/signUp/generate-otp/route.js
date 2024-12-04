@@ -2,7 +2,7 @@ import Otp from '@/app/models/updatedOtp';
 import { connectToDB } from '@/app/utils/database';
 import nodemailer from 'nodemailer';
 import crypto from 'crypto';
-import NewUser from '@/app/models/newUser';
+import FinalUser from '@/app/models/finalUser';
 
 const sendOtp = async (email, otp) => {
   const transporter = nodemailer.createTransport({
@@ -47,7 +47,7 @@ export const POST = async (req) => {
     }
 
     // Check if the email already exists in the database
-    const existingEmail= await NewUser.findOne({ email });
+    const existingEmail= await FinalUser.findOne({ email });
     if (existingEmail) {
       return new Response(
         JSON.stringify({ error: 'Email already exists.' }),

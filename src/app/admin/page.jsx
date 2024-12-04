@@ -6,6 +6,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import AddUser from "../components/AddUser"; // Adjust the path based on your folder structure
 import RoleManagement from "../components/RoleManagement";
 import Navbar from "../components/Navbar";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { jwtDecode } from "jwt-decode";
+import InfinityLoader from "../components/infinite_loader";
 
 export default function Home() {
   const [transactions, setTransactions] = useState([]);
@@ -18,8 +22,70 @@ export default function Home() {
   const transactionsPerPage = 10; // Number of transactions per page
   const [totalPages,setTotalPages ]=useState(1);
   const [verificationStatus, setVerificationStatus] = useState('');
-  // Fetch transactions
+  const {data: session}= useSession();
+  const [isAdmin,setIsAdmin]=useState(false)
+  const router=useRouter();
+  const [sessionUser,setSessionUser]=useState(null)
+
+  const [loading, setLoading] = useState(true);
+  
+  // Simulate a data fetch with a timeout
   useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false); // Set loading to false after 2 seconds
+    }, 2000);
+
+    return () => clearTimeout(timer); // Clean up the timeout
+  }, []);
+  useEffect(() => {
+    setLoading(true)
+    const token = localStorage.getItem('jwtToken');
+
+    const checkRole=()=>{
+    // Check if JWT token exists for admin sign-in
+    if (token) {
+      try {
+        const decodedToken = jwtDecode(token); // Decode JWT token
+        setSessionUser(decodedToken); // Set user data from JWT
+        setIsAdmin(decodedToken?.role !== "user"); // Check if the user is an admin
+      } catch (error) {
+        console.error("Error decoding JWT token:", error);
+      }
+    } 
+    else if (session) {
+
+      console.log("Session is being reached", session?.user?.role)
+      // If session is available, check the user's role
+      
+      setSessionUser(session?.user)
+      setIsAdmin(session?.user?.role !== 'user')
+      console.log(isAdmin)
+    } 
+    else{
+      console.log('Token issue')
+      toast.error('Token is not available')
+      setIsAdmin(false)
+    }
+    setLoading(false)
+  };
+
+  if((session !== undefined )|| token)
+  {
+    checkRole();
+  }
+  }, [session]);
+  // Fetch transactions
+
+
+  useEffect(() => {
+    if(!loading && !isAdmin)
+    {
+      router.push('/')
+    }
+  }, [loading, isAdmin]);
+
+  useEffect(() => {
+    
     fetchTransactions();
   }, [currentPage,verificationStatus,]);
 
@@ -137,6 +203,10 @@ export default function Home() {
 
   return (
     <>
+     {loading ? (
+      <InfinityLoader /> // Show loader while loading
+    ) : (
+      <div className="bg-black">
     <Navbar/>
     <div className="container mx-auto mt-32">
   <ToastContainer />
@@ -310,8 +380,9 @@ export default function Home() {
   <p className="text-center mt-4 text-gray-600 dark:text-gray-400">
     Total Transactions: <strong>{totalTransactions}</strong>
   </p>
+ </div>
 </div>
-
+  )}
 </>
   );
 }

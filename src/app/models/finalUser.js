@@ -1,6 +1,6 @@
 const { Schema, model, models } = require("mongoose");
 
-const NewUserSchema = new Schema({
+const FinalUserSchema = new Schema({
   email: {
     type: String,
     unique: [true, 'Email already exists'],
@@ -32,19 +32,18 @@ const NewUserSchema = new Schema({
         return !this.isOAuthUser;
       },
     },
-
     jwtToken: { // Add JWT token field
         type: String,
       },
 });
 
 // Pre-save hook to update referral count based on referralUsers
-NewUserSchema.pre('save', function (next) {
+FinalUserSchema.pre('save', function (next) {
   this.referralCount = this.referralUsers.length; // Update referralCount based on referralUsers length
   next();
 });
 
 // Create or use the existing model
-const NewUser = models.NewUser || model("NewUser", NewUserSchema);
+const FinalUser = models.FinalUser || model("FinalUser", FinalUserSchema);
 
-export default NewUser;
+export default FinalUser;

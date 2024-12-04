@@ -33,20 +33,39 @@ const PaymentGateway = () => {
     ReactGA.initialize(trackingid);
     ReactGA.pageview(window.location.pathname);
 
+    console.log(session)
     // Retrieve JWT token from local storage or cookies
     const token = localStorage.getItem('jwtToken'); // or use cookies if preferred
     if (token) {
       setJwtToken(token);
       const decodedToken = jwt.decode(token); // Decode JWT to extract user data
       if (decodedToken) {
+        console.log("Role:- ",decodedToken.role)
         setUser({
           email: decodedToken.email,
           username: decodedToken.name,
+          role: decodedToken.role
         });
       }
-    } 
+    }
+    else if(session)
+      {
+        const sessionToken=session.user.jwt
+        if (sessionToken) {
+          setJwtToken(sessionToken);
+          const decodedToken = jwt.decode(sessionToken); // Decode the JWT
+          if (decodedToken) {
+            console.log("Role:- ",decodedToken.role)
+            setUser({
+              email: decodedToken.email,
+              username: decodedToken.name,
+              role:decodedToken.role
+            });
+          }
+        }
+      } 
     
-    if(!session && !token)
+    else if(!session && !token)
     {
       toast.error('You must be signed in to access this page.');
     }
@@ -79,11 +98,7 @@ const PaymentGateway = () => {
     if (id === '4') eventNames = ['All Online Events'];
     if (id === '1') eventNames = ['Saga Pass'];
 
-    if (!jwtToken && !user) {
-      toast.error('You must be signed in to buy a ticket.');
-      return;
-    }
-
+   
     const isValidPhoneNumber = /^\d{10}$/.test(ContactNumber);
     if (!isValidPhoneNumber) {
       toast.error('Phone number must be exactly 10 digits.');
@@ -95,9 +110,10 @@ const PaymentGateway = () => {
     const username = user?.username || session?.user.email;
 
     if (!email || !username) {
-      toast.error('Email and Username are required.');
+      toast.error('You must need to sign in for ticket ');
       return;
     }
+    
 
     try {
       // Send data to backend only if email and username are valid

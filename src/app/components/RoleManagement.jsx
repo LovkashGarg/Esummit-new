@@ -18,14 +18,17 @@ export default function RoleManagement() {
     const storedToken = localStorage.getItem("jwtToken");
     if (storedToken) {
       setToken(storedToken);
-    } else {
-      if(session.user)
-      {
-        setToken(session.user.token)
-      }
-      setMessage("No token found. Please login.");
     }
-  }, []);
+     else if(session)
+      {
+        console.log("Session final:- ",session?.user?.jwt)
+      if(session?.user)
+      {
+        setToken(session?.user?.jwt)
+      }
+    }
+    
+  }, [session]);
 
   // Fetch all users
   useEffect(() => {
@@ -39,6 +42,11 @@ export default function RoleManagement() {
             },
           });
           const data = await response.json();
+          if(data.error)
+          {
+            console.log(data.error)
+            return 
+          }
           setUsers(data.users);
         } catch (error) {
           console.error("Error fetching users:", error);

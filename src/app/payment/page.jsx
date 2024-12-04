@@ -188,32 +188,32 @@ const [Ticketid,setTicketId]=useState();
     <div>
     {loading ? (
       <InfinityLoader /> // Show loader while loading
-    ) : (
-    <div className='bg-black'>
-    <Navbar/>
-    <div className="container">
-      {/* <h1>Main Container</h1> */}
-      {/* <button onClick={() => setIsOpen(true)}>Open Popup Menu</button> */}
+    ) : 
+    (
+      <div className='bg-black'>
+        <Navbar/>
+        <div className="container">
+        { /* <h1>Main Container</h1> */}
+        {/* <button onClick={() => setIsOpen(true)}>Open Popup Menu</button> */}
 
-      {isOpen && (
-        <div className="popup text-white ">
-          <div className="popup-content  overscroll-none w-[75%] md:w-[30%]">
-            <h2 className='md:text-[35px]  '>Select Events (Max {Ticketid === 5 ? 1 : 3})</h2>
-            <div className='flex flex-col my-[8%] gap-3 px-[20%]'>
-            { Ticketid===5 &&
-                checkboxes.map((checkbox) => (
-              <label key={checkbox.id} className='flex gap-4'>
-                <input
-                  type="checkbox"
-                  checked={selectedCheckboxes.includes(checkbox.id)}
-                  onChange={() => toggleCheckbox(checkbox.id)}
-                />
-                {checkbox.label}
-              </label>
-
-            ))
-            }
-            { Ticketid===6 &&
+        {isOpen && (
+          <div className="popup text-white ">
+            <div className="popup-content  overscroll-none w-[75%] md:w-[30%]">
+              <h2 className='md:text-[35px]  '>Select Events (Max {Ticketid === 5 ? 1 : 3})</h2>
+              <div className='flex flex-col my-[8%] gap-3 px-[20%]'>
+              { Ticketid===5 &&
+                  checkboxes.map((checkbox) => (
+                <label key={checkbox.id} className='flex gap-4'>
+                  <input
+                    type="checkbox"
+                    checked={selectedCheckboxes.includes(checkbox.id)}
+                    onChange={() => toggleCheckbox(checkbox.id)}
+                  />
+                  {checkbox.label}
+                </label>
+                  ))
+              }
+              { Ticketid===6 &&
                 offlineCheckboxes.map((checkbox) => (
               <label key={checkbox.id} className='flex gap-4'>
                 <input
@@ -224,16 +224,16 @@ const [Ticketid,setTicketId]=useState();
                 {checkbox.label}
               </label>
 
-            ))
-            }
+              ))
+              }
           
             </div>
-            <div className="popup-buttons  flex justify-between">
-              <button className='text-white bg-red-800 rounded-[20px] w-[100px] ' onClick={() => setIsOpen(false)}>X Close</button>
-              <button className='text-white bg-green-800 rounded-[20px] w-[100px] ' onClick={()=>handleSubmit(Ticketid)} disabled={selectedCheckboxes.length < 1}>
-                Submit
-              </button>
-            </div>
+              <div className="popup-buttons  flex justify-between">
+                <button className='text-white bg-red-800 rounded-[20px] w-[100px] ' onClick={() => setIsOpen(false)}>X Close</button>
+                <button className='text-white bg-green-800 rounded-[20px] w-[100px] ' onClick={()=>handleSubmit(Ticketid)} disabled={selectedCheckboxes.length < 1}>
+                  Submit
+                </button>
+              </div>
           </div>
           <style jsx>{`
             .popup {

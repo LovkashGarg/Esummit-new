@@ -1,5 +1,5 @@
 import { authenticateAdmin } from "@/app/middleware/authenticateAdmin";
-import NewUser from "@/app/models/newUser";
+import FinalUser from "@/app/models/finalUser";
 import Transaction from "@/app/models/transaction";
 import User from "@/app/models/user";
 import { connectToDB } from "@/app/utils/database";
@@ -79,7 +79,7 @@ export const GET = async (req) => {
 
 
 export const POST = async (req) => {
-  
+
 
   const { email, contactnumber, username, transactionid, scoutid, amount, eventnames } = await req.json();
 
@@ -99,7 +99,7 @@ export const POST = async (req) => {
 
     // Validate scoutId if provided
     if (scoutid) {
-      const scoutUser = await NewUser.findOne({ scoutId: scoutid });
+      const scoutUser = await FinalUser.findOne({ scoutId: scoutid });
       if (!scoutUser) {
         return new Response(JSON.stringify({ error: "Scout ID not found" }), { status: 402 });
       }
@@ -130,8 +130,8 @@ export const POST = async (req) => {
 
     // Handle referral logic
     if (scoutid) {
-      const referringUser = await NewUser.findOne({ scoutId: scoutid });
-      const referredUser = await NewUser.findOne({ email });
+      const referringUser = await FinalUser.findOne({ scoutId: scoutid });
+      const referredUser = await FinalUser.findOne({ email });
 
       if (referringUser && referredUser) {
         if (!Array.isArray(referringUser.referralUsers)) {
@@ -173,8 +173,8 @@ export const PATCH = async (req) => {
 
     // Handle referral logic
     if (transaction.referralId) {
-      const referringUser = await NewUser.findOne({ scoutId: transaction.referralId });
-      const referredUser = await NewUser.findOne({ email: transaction.email });
+      const referringUser = await FinalUser.findOne({ scoutId: transaction.referralId });
+      const referredUser = await FinalUser.findOne({ email: transaction.email });
 
       if (referringUser && referredUser) {
         if (!Array.isArray(referringUser.referralUsers)) {

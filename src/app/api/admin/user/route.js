@@ -2,8 +2,7 @@
 import { connectToDB } from "@/app/utils/database";
 import { authenticateAdmin } from "@/app/middleware/authenticateAdmin";
 import { authenticateSuperAdmin } from "@/app/middleware/authenticateSuperAdmin";
-import NewUser from "@/app/models/newUser";
-
+import FinalUser from "@/app/models/finalUser";
 export const GET = async (req, res) => {
   try {
     // Authenticate the admin user
@@ -27,7 +26,7 @@ export const GET = async (req, res) => {
     await connectToDB();
 
     // Fetch all users, excluding the `password` field for security
-    const users = await NewUser.find({}, "-password");
+    const users = await FinalUser.find({}, "-password");
 
     // Respond with the user data
     return new Response(JSON.stringify({ users }), { status: 200 });
@@ -70,7 +69,7 @@ export const POST = async (req) => {
     }
 
     // Check if the user already exists
-    const existingUser = await NewUser.findOne({ email });
+    const existingUser = await FinalUser.findOne({ email });
 
     if (existingUser) {
       return new Response(JSON.stringify({ error: "User already exists" }), {
@@ -86,7 +85,7 @@ export const POST = async (req) => {
     const newScoutId = scoutId || generateUniqueId();
 
     // Create a new user
-    const newUser = await NewUser.create({
+    const user = await FinalUser.create({
       email,
       username,
       scoutId: newScoutId,
@@ -96,7 +95,7 @@ export const POST = async (req) => {
       role:"user"
     });
 
-    return new Response(JSON.stringify(newUser), {
+    return new Response(JSON.stringify(user), {
       status: 201,
       headers: {
         "Content-Type": "application/json",
@@ -131,13 +130,13 @@ export const DELETE = async (req) => {
     await connectToDB();
 
     // Fetch the requesting user (admin or superadmin)
-    const requestingUser = await NewUser.findById(req.user.userId);
+    const requestingUser = await FinalUser.findById(req.user.userId);
     if (!requestingUser) {
       return new Response(JSON.stringify({ error: "Requesting user not found." }), { status: 404 });
     }
 
     // Fetch the user to be deleted
-    const userToDelete = await NewUser.findById(userId);
+    const userToDelete = await FinalUser.findById(userId);
     if (!userToDelete) {
       return new Response(JSON.stringify({ error: "User to delete not found." }), { status: 404 });
     }

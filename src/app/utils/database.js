@@ -20,8 +20,8 @@ export const connectToDB=async()=>{
             })
 
             isConnected=true;
-
             console.log('Mongo Db connected successfully')
+    
         } catch (error) {
             console.log(error);
         }
