@@ -1,4 +1,4 @@
-
+import bcrypt from "bcryptjs";
 import { connectToDB } from "@/app/utils/database";
 import { authenticateAdmin } from "@/app/middleware/authenticateAdmin";
 import { authenticateSuperAdmin } from "@/app/middleware/authenticateSuperAdmin";
@@ -80,7 +80,7 @@ export const POST = async (req) => {
       });
     }
 
-  
+    const hashedPassword = await bcrypt.hash(password, 10);
     // Generate a unique scoutId if not provided
     const newScoutId = scoutId || generateUniqueId();
 
@@ -91,7 +91,7 @@ export const POST = async (req) => {
       scoutId: newScoutId,
       referralUsers: [],
       referralCount: 0,
-      password:password,
+      password:hashedPassword,
       role:"user"
     });
 
