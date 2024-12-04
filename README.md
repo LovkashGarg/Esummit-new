@@ -38,7 +38,7 @@ Welcome to the official website for the E-Summit event organized by E-Cell, IIIT
 3. Start the development server with `npm run dev`.
 4. Access the application through your web browser at `http://localhost:3000`.
 
-Alternatively, you can view the deployed website here: `https://esummit24.iiitp.ac.in/`
+Alternatively, you can view the deployed website here: [https://esummit24.iiitp.ac.in/](https://esummit24.iiitp.ac.in/)
 
 ## Step-by-Step Guide to Check RBAC Integration 🚀
 
