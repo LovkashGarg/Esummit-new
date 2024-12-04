@@ -9,8 +9,8 @@ Welcome to the official website for the E-Summit event organized by E-Cell, IIIT
 - **Leaderboard**: A leaderboard for the Summit Scout where the most referred users are ranked.
 - **Authentication**: Users can sign in using Google authentication or via email with OTP verification.
 - **Admin Dashboard with RBAC**: Secure dashboard for admins to manage users and transactions with Role-Based Access Control (RBAC).
-  - **Admin**: Manage users, verify transactions, and delete suspicious activities.
-  - **Superadmin**: Manage roles, promote/demote admins, and access full functionality.
+  - **Admin**:  Add new users, verify transactions, and delete suspicious activities.
+  - **Superadmin**: Manage roles, promote/demote admins, and have all access that an admin has
 
 ## RBAC Integration Overview
 
@@ -64,8 +64,9 @@ After signing in as an admin, you will see the "Dashboard" option in the navigat
 Clicking on the "Dashboard" will take you to the admin dashboard, where you can manage users, verify transactions, and manage user roles.
 
 #### Role Management:
-- **Superadmins** can delete users and modify roles.
-- **Admins** cannot change another admin's role or delete users.
+- **Superadmins** can delete users and modify roles like they can promote user to admin and demote admin to user
+- **Admins** does not have the permissions to modify user roles or delete any user accounts.
+
 
 #### Transaction Management:
 - Both **admins** and **superadmins** can verify and delete suspicious transactions.
@@ -74,7 +75,7 @@ Clicking on the "Dashboard" will take you to the admin dashboard, where you can 
 When a user is promoted to an admin, they will be notified via email.
 
 ### 5. Add User
-Both **admins** and **superadmins** can add new users by providing their **email**, **username**, and **password**.
+Both **admins** and **superadmins** can add new users by providing the **email**, **username**, and **password** for the new user
 
 ### 6. Filters and Search
 Both **Role Management** and **Transaction Management** menus include search and filter options to help admins easily find users and transactions.
