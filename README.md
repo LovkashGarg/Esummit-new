@@ -40,47 +40,6 @@ Welcome to the official website for the E-Summit event organized by E-Cell, IIIT
 
 Alternatively, you can view the deployed website here: [https://esummit24.iiitp.ac.in/](https://esummit24.iiitp.ac.in/)
 
-## Step-by-Step Guide to Check RBAC Integration 🚀
-
-Follow these steps to check the RBAC functionality of the application:
-
-### 1. Sign In
-Click on the sign-in button in the navigation bar to log in using either Google authentication or email with OTP verification.
-
-#### Admin Credentials:
-- **Email**: `admin@gmail.com`
-- **Username**: `admin123`
-- **Password**: `12345678`
-
-#### Superadmin Credentials:
-- **Email**: `superadmin@gmail.com`
-- **Username**: `super123`
-- **Password**: `super@1234`
-
-### 2. Access the Dashboard
-After signing in as an admin, you will see the "Dashboard" option in the navigation bar. You will also see a "Welcome Admin" message confirming your role.
-
-### 3. Role Management & User Actions
-Clicking on the "Dashboard" will take you to the admin dashboard, where you can manage users, verify transactions, and manage user roles.
-
-#### Role Management:
-- **Superadmins** can delete users and modify roles like they can promote user to admin and demote admin to user
-- **Admins** does not have the permissions to modify user roles or delete any user accounts.
-
-
-#### Transaction Management:
-- Both **admins** and **superadmins** can verify and delete suspicious transactions.
-
-### 4. Notifications
-When a user is promoted to an admin, they will be notified via email.
-
-### 5. Add User
-Both **admins** and **superadmins** can add new users by providing the **email**, **username**, and **password** for the new user
-
-### 6. Filters and Search
-Both **Role Management** and **Transaction Management** menus include search and filter options to help admins easily find users and transactions.
-
-### 7. Verifying Private Route
 Ensure that the admin routes are secured and cannot be accessed by unauthorized users. Only users with admin access can reach these routes, and non-admins cannot access the backend APIs associated with admin functionalities, as middleware has been integrated to enforce this security. For this you can hit on the [https://esummit24.iiitp.ac.in/admin](https://esummit24.iiitp.ac.in/admin) when you sign in as user or without sign in.
 
 
