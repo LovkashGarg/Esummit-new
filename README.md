@@ -1,4 +1,6 @@
 # E-Summit 2024 Website
+![image](https://github.com/user-attachments/assets/77d7f69a-a555-4c25-bfed-7d1888375b17)
+
 
 Welcome to the official website for the E-Summit event organized by E-Cell, IIIT Pune, 2024. This responsive website provides information about the event, upcoming activities, and a platform for ticket purchasing.
 
