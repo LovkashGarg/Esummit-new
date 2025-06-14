@@ -35,7 +35,7 @@ Welcome to the official website for the E-Summit event organized by E-Cell, IIIT
 
 ## Getting Started 🛠️
 
-1. Clone this repository to your local machine by using `https://github.com/Ni141104/Esummit-new.git`;
+1. Clone this repository to your local machine by using `https://github.com/LovkashGarg/Esummit-new`;
 2. Install the necessary dependencies using `npm install`.
 3. Start the development server with `npm run dev`.
 4. Access the application through your web browser at `http://localhost:3000`.
