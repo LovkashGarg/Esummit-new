@@ -8,6 +8,9 @@
 ## Event Page
 ![image](https://github.com/user-attachments/assets/e724f5aa-70a8-43c6-b5fb-7af816207d81)
 
+## LeaderBoard Page 
+![image](https://github.com/user-attachments/assets/cc77f6fc-54f1-4758-adad-981077f543b1)
+
 ## Payment Section 
 ![image](https://github.com/user-attachments/assets/4f16c7e2-980c-4c66-80f7-19e3b2c78c5e)
 
