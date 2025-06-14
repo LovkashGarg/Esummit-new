@@ -1,12 +1,16 @@
 # E-Summit 2024 Website
-#Home Page
+## Home Page
 ![image](https://github.com/user-attachments/assets/77d7f69a-a555-4c25-bfed-7d1888375b17)
 
-#Ticket Section 
+## Ticket Section 
 ![image](https://github.com/user-attachments/assets/37fbf580-1588-4049-be45-f3dfe2af6ffa)
 
-Event Page
+## Event Page
 ![image](https://github.com/user-attachments/assets/e724f5aa-70a8-43c6-b5fb-7af816207d81)
+
+## Payment Section 
+![image](https://github.com/user-attachments/assets/4f16c7e2-980c-4c66-80f7-19e3b2c78c5e)
+
 
 
 
